@@ -95,7 +95,7 @@ export default function Home() {
     {
       id: 2,
       title: "Applant",
-      description: "Aplikacja na urządzenia z systemem Android do kontrolowania częstotliwości podlewania roślin",
+      description: "Aplikacja na telefony z systemem Android do kontrolowania częstotliwości podlewania roślin",
       technologies: ["Kotlin"],
       image: "/projects/applant-ss.png",
       logo: "/projects/applant-logo.png"
@@ -358,7 +358,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto w-full relative z-20">
           <h2 className="text-4xl sm:text-5xl font-bold mb-12">Projekty</h2>
           
-          <div className="flex flex-col lg:flex-row gap-12">
+          {/* Desktop Layout */}
+          <div className="hidden lg:flex flex-col lg:flex-row gap-12">
             {/* Lewa strona - Tekst projektów */}
             <div className="lg:w-1/2 space-y-8">
               {projects.map((project, index) => (
@@ -464,6 +465,116 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="lg:hidden space-y-8">
+            {projects.map((project) => {
+              const mobileImage = project.image.replace('.png', '-mobile.png').replace('.webp', '-mobile.webp');
+              
+              return (
+                <div
+                  key={project.id}
+                  className="overflow-hidden"
+                >
+                  {/* Górna część - zdjęcie */}
+                  <div className="h-64 sm:h-80 w-full">
+                    <img
+                      src={mobileImage}
+                      alt={project.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  {/* Dolna część - zawartość projektu */}
+                  <div className="p-6 border border-border rounded-xl">
+                    <div className="flex gap-4 items-start mb-4">
+                      
+                      {/* Logo aplikacji */}
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-lg bg-background/50 flex items-center justify-center">
+                          <img
+                            src={project.logo}
+                            alt={`${project.title} logo`}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Nazwa i opis projektu */}
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                        <p className="text-muted-foreground mb-4 text-base leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Technologie */}
+                    <div className="flex gap-2 flex-wrap mb-6">
+                      {project.technologies.map((tech) => {
+                        const getTechLogo = (techName: string) => {
+                          const logoMap: { [key: string]: string } = {
+                            "React": "/react-logo.png",
+                            "Next.js": "/nextjs-logo.png",
+                            "TypeScript": "/typescript-logo.png",
+                            "Node.js": "/nodejs-logo.webp",
+                            "MongoDB": "/mongodb-logo.svg",
+                            "Express.js": "/express-logo.webp",
+                            "PostgreSQL": "/postgresql-logo.png",
+                            "MySQL": "/mysql-logo.png",
+                            "Docker": "/docker-logo.png",
+                            "Tailwind": "/tailwind-logo.svg",
+                            "Kotlin": "/kotlin-logo.png",
+                            "Swift": "/swift-logo.svg",
+                            "JavaScript": "/js-logo.svg",
+                            "Python": "/python-logo.svg",
+                            "PHP": "/php-logo.png",
+                            "HTML": "/html-logo.png",
+                            "CSS": "/css-logo.png",
+                            "Bootstrap": "bootstrap-logo.svg",
+                          };
+                          return logoMap[techName] || "/other-bg.png";
+                        };
+
+                        return (
+                          <span 
+                            key={tech}
+                            className="text-xs px-3 py-1 bg-accent/20 rounded-full border border-border flex items-center gap-2"
+                          >
+                            <img
+                              src={getTechLogo(tech)}
+                              alt={`${tech} logo`}
+                              className="w-4 h-4 object-contain"
+                            />
+                            {tech}
+                          </span>
+                        );
+                      })}
+                    </div>
+
+                    {/* Przyciski */}
+                    <div className="flex flex-col flex-row gap-3">
+                      <Button
+                        size="lg"
+                        className="rounded-full cursor-pointer flex-1"
+                        variant="default"
+                      >
+                        Więcej <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </Button>
+                      <Button
+                        size="lg"
+                        className="rounded-full gray-btn cursor-pointer flex-1"
+                        variant="outline"
+                      >
+                        <Github className="mr-2 h-4 w-4" />
+                        Github
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
