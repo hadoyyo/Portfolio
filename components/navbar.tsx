@@ -21,16 +21,13 @@ export function Navbar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
 
-      // Sprawdzanie czy użytkownik przewinął stronę
       setIsScrolled(currentScrollY > 50)
 
       if (currentScrollY < lastScrollY || currentScrollY < 50) {
-        // Scrolling up or at top
         setIsVisible(true)
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down
         setIsVisible(false)
-        setIsOpen(false) // Close mobile menu when hiding navbar
+        setIsOpen(false)
       }
 
       setLastScrollY(currentScrollY)
@@ -58,12 +55,9 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo or empty space on left */}
             <div className="flex-shrink-0">
-              {/* Możesz tutaj dodać logo w przyszłości */}
             </div>
 
-            {/* Desktop Navigation - wyśrodkowany z tłem na dużych ekranach tylko przy scrollu */}
             <div className={`hidden md:flex items-center gap-2 absolute left-1/2 transform -translate-x-1/2 px-6 py-2 rounded-2xl transition-all duration-500 ${
               isScrolled 
                 ? "bg-black/40 backdrop-blur-sm border border-white/10 shadow-lg" 
@@ -80,7 +74,7 @@ export function Navbar() {
               ))}
             </div>
 
-            {/* Mobile Menu Button - po prawej stronie, ukrywany gdy menu jest otwarte */}
+            {/* Mobile Menu Button */}
             <div className={`md:hidden ml-auto transition-opacity duration-300 ${
               isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}>

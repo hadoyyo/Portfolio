@@ -1,7 +1,7 @@
 "use client"
 
 import { Navbar } from "@/components/navbar"
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { Github, Linkedin, Mail, Twitter, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
 
@@ -11,7 +11,7 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState(1);
   const projectsRef = useRef<HTMLDivElement>(null);
   
-  const otherLogos = ["/git-logo.png", "/express-logo.webp", "bootstrap-logo.svg", "/docker-logo.png", "/mongodb-logo.svg", "/typescript-logo.png", "/mysql-logo.png", "/python-logo.svg", "/nextjs-logo.png", "/tailwind-logo.svg"];
+  const otherLogos = ["/git-logo.png", "/express-logo.webp", "bootstrap-logo.svg", "/docker-logo.png", "/mongodb-logo.svg", "/typescript-logo.png", "/mysql-logo.png", "/python-logo.svg", "/nextjs-logo.png", "/tailwind-logo.svg", "php-logo.png"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -86,31 +86,100 @@ export default function Home() {
   const projects = [
     {
       id: 1,
-      title: "Aplikacja E-commerce",
-      description: "Pełnofunkcyjna platforma e-commerce z systemem płatności, koszykiem zakupowym i panelem administracyjnym. Zintegrowana z wieloma bramkami płatności i systemem zarządzania zamówieniami.",
-      technologies: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB", "Stripe"],
-      image: "/project1.png"
+      title: "Zimori",
+      description: "Aplikacja internetowa do symulacji ekosystemów",
+      technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
+      image: "/projects/zimori-ss.png",
+      logo: "/projects/zimori-logo.png"
     },
     {
       id: 2,
-      title: "Aplikacja Mobilna Fitness",
-      description: "Aplikacja do śledzenia treningów i diety z funkcjami społecznościowymi. Użytkownicy mogą tworzyć plany treningowe, śledzić postępy i łączyć się z trenerami.",
-      technologies: ["React Native", "Expo", "TypeScript", "Firebase", "Redux"],
-      image: "/project2.png"
+      title: "Applant",
+      description: "Aplikacja na urządzenia z systemem Android do kontrolowania częstotliwości podlewania roślin",
+      technologies: ["Kotlin"],
+      image: "/projects/applant-ss.png",
+      logo: "/projects/applant-logo.png"
     },
     {
       id: 3,
-      title: "System Zarządzania Projektami",
-      description: "Kompleksowy system do zarządzania projektami z tablicami Kanban, śledzeniem czasu, czatem zespołowym i raportowaniem. Zoptymalizowany dla zespołów zdalnych.",
-      technologies: ["Vue.js", "Express.js", "PostgreSQL", "Socket.io", "JWT"],
-      image: "/project3.png"
+      title: "LitePay",
+      description: "Aplikacja internetowa do śledzenia i dzielenia się wydatkami grupowymi",
+      technologies: ["JavaScript", "React", "Express.js", "Node.js", "MongoDB"],
+      image: "/projects/litepay-ss.png",
+      logo: "/projects/litepay-logo.png"
     },
     {
       id: 4,
-      title: "Platforma Edukacyjna",
-      description: "Interaktywna platforma do nauki online z kursami wideo, quizami i systemem certyfikacji. Zawiera funkcje śledzenia postępów i społeczności uczniowskiej.",
-      technologies: ["Angular", "NestJS", "MySQL", "AWS S3", "Redis"],
-      image: "/project4.png"
+      title: "Pasieka Korona",
+      description: "Strona stworzona w celu promowania firmy zajmującej się sprzedażą miodu i innych produktów pszczelich",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      image: "/projects/pasieka-ss.png",
+      logo: "/projects/pasieka-logo.png"
+    },
+    {
+      id: 5,
+      title: "Serwolift",
+      description: "Strona dla firmy zajmującej się serwisowaniem urządzeń transportu bliskiego",
+      technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
+      image: "/projects/serwolift-ss.png",
+      logo: "/projects/serwolift-logo.png"
+    },
+    {
+      id: 6,
+      title: "Energostat",
+      description: "Aplikacja do śledzenia nawyków na platformę iOS",
+      technologies: ["JavaScript", "React", "Express.js", "Node.js", "MySQL", "Docker"],
+      image: "/projects/energostat-ss.png",
+      logo: "/projects/energostat-logo.png"
+    },
+    {
+      id: 7,
+      title: "Habita",
+      description: "Aplikacja do śledzenia nawyków na platformę iOS",
+      technologies: ["Swift"],
+      image: "/projects/habita-ss.png",
+      logo: "/projects/habita-logo.png"
+    },
+    {
+      id: 8,
+      title: "Pepper's",
+      description: "Aplikacja internetowa do zarządzania rezerwacjami w salonie fryzjerskim",
+      technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
+      image: "/projects/peppers-ss.png",
+      logo: "/projects/peppers-logo.png"
+    },
+    {
+      id: 9,
+      title: "McGranit",
+      description: "Strona internetowa firmy zajmującej się kamieniarstwem",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      image: "/projects/mcgranit-ss.png",
+      logo: "/projects/mcgranit-logo.png"
+    },
+    {
+      id: 10,
+      title: "SuperLift24",
+      description: "Strona internetowa dla firmy wynajmującej podnośniki, wózki widłowe i dźwigi",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      image: "/projects/superlift24-ss.png",
+      logo: "/projects/superlift24-logo.png"
+    },
+    {
+      id: 11,
+      title: "Brakeless",
+      description: "Gra zręcznościowa na platformę iOS",
+      technologies: ["Swift"],
+      image: "/projects/brakeless-ss.png",
+      logo: "/projects/brakeless-logo.png"
+    },
+
+    {
+      id: 12,
+      title: "Koodly",
+      description: "Aplikacja internetowa, która sugeruje najbardziej pasujące przepisy na podstawie wybranych składników",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      image: "/projects/koodly-ss.png",
+      logo: "/projects/koodly-logo.png"
     }
   ];
 
@@ -120,12 +189,12 @@ export default function Home() {
 
       const scrollPosition = window.scrollY;
       const projectsSection = projectsRef.current;
-      const sectionTop = projectsSection.offsetTop - 200; // offest
+      const sectionTop = projectsSection.offsetTop - 400; // offest
       const sectionHeight = projectsSection.offsetHeight;
 
       const scrollProgress = (scrollPosition - sectionTop) / sectionHeight;
       
-      const acceleratedProgress = Math.pow(scrollProgress, 0.8);
+      const acceleratedProgress = Math.pow(scrollProgress, 1);
       const projectIndex = Math.floor(acceleratedProgress * projects.length);
 
       if (projectIndex >= 0 && projectIndex < projects.length) {
@@ -283,7 +352,7 @@ export default function Home() {
         ref={projectsRef}
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative"
       >
-        {/* Gradientowy na dole */}
+        {/* Gradient na dole */}
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
         
         <div className="max-w-7xl mx-auto w-full relative z-20">
@@ -297,35 +366,84 @@ export default function Home() {
                   key={project.id}
                   className="min-h-[70vh] flex flex-col justify-center py-8"
                 >
-                  <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
-                  <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex gap-2 flex-wrap">
-                    {project.technologies.map((tech) => (
-                      <span 
-                        key={tech}
-                        className="text-xs px-4 py-2 bg-accent/20 text-accent rounded-full border border-accent/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="pt-6">
-                    <Button
-                      size="lg"
-                      className="rounded-full cursor-pointer mr-4"
-                      variant="default"
-                    >
-                      Zobacz demo
-                    </Button>
-                    <Button
-                      size="lg"
-                      className="rounded-full cursor-pointer"
-                      variant="outline"
-                    >
-                      Kod źródłowy
-                    </Button>
+                  <div className="flex gap-6">
+                    {/* Logo aplikacji */}
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-background/50 flex items-center justify-center">
+                        <img
+                          src={project.logo}
+                          alt={`${project.title} logo`}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Nazwa i opis projektu */}
+                    <div className="flex-1">
+                      <h3 className="text-3xl font-bold mb-1">{project.title}</h3>
+                      <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                        {project.description}
+                      </p>
+                      <div className="flex gap-2 flex-wrap">
+                        {project.technologies.map((tech) => {
+                          
+                          const getTechLogo = (techName: string) => {
+                            const logoMap: { [key: string]: string } = {
+                              "React": "/react-logo.png",
+                              "Next.js": "/nextjs-logo.png",
+                              "TypeScript": "/typescript-logo.png",
+                              "Node.js": "/nodejs-logo.webp",
+                              "MongoDB": "/mongodb-logo.svg",
+                              "Express.js": "/express-logo.webp",
+                              "PostgreSQL": "/postgresql-logo.png",
+                              "MySQL": "/mysql-logo.png",
+                              "Docker": "/docker-logo.png",
+                              "Tailwind": "/tailwind-logo.svg",
+                              "Kotlin": "/kotlin-logo.png",
+                              "Swift": "/swift-logo.svg",
+                              "JavaScript": "/js-logo.svg",
+                              "Python": "/python-logo.svg",
+                              "PHP": "/php-logo.png",
+                              "HTML": "/html-logo.png",
+                              "CSS": "/css-logo.png",
+                              "Bootstrap": "bootstrap-logo.svg",
+                            };
+                            return logoMap[techName] || "/other-bg.png";
+                          };
+
+                          return (
+                            <span 
+                              key={tech}
+                              className="text-xs px-4 py-2 bg-accent/20 rounded-full border border-border flex items-center gap-2"
+                            >
+                              <img
+                                src={getTechLogo(tech)}
+                                alt={`${tech} logo`}
+                                className="w-4 h-4 object-contain"
+                              />
+                              {tech}
+                            </span>
+                          );
+                        })}
+                      </div>
+                      <div className="pt-6">
+                        <Button
+                          size="lg"
+                          className="rounded-full cursor-pointer mr-4"
+                          variant="default"
+                        >
+                          Więcej <ArrowUpRight className="ml-2 h-4 w-4" />
+                        </Button>
+                        <Button
+                          size="lg"
+                          className="rounded-full gray-btn cursor-pointer"
+                          variant="outline"
+                        >
+                          <Github className="mr-2 h-4 w-4" />
+                          Github
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -333,19 +451,19 @@ export default function Home() {
 
             {/* Prawa strona - zdjęcie */}
             <div className="lg:w-1/2 sticky top-1/4 h-[500px]">
-            <div className="relative w-full h-full rounded-xl overflow-visible shadow-2xl">
-              {projects.map((project) => (
-                <img
-                  key={project.id}
-                  src={project.image}
-                  alt={project.title}
-                  className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
-                    project.id === activeProject ? 'opacity-100' : 'opacity-0'
-                  }`}
-                />
-              ))}
+              <div className="relative w-full h-full rounded-xl overflow-visible">
+                {projects.map((project) => (
+                  <img
+                    key={project.id}
+                    src={project.image}
+                    alt={project.title}
+                    className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
+                      project.id === activeProject ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </section>
@@ -355,7 +473,7 @@ export default function Home() {
         id="contact"
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 dot-pattern relative"
       >
-        {/* Gradientowy na górze */}
+        {/* Gradient na górze */}
         <div className="absolute top-0 left-0 right-0 h-90 bg-gradient-to-b from-[#0A0A0A] to-transparent z-10"></div>
         
         {/* Tło dla mobilnych */}
