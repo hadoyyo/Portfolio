@@ -1,7 +1,8 @@
 "use client"
 
 import { Navbar } from "@/components/navbar"
-import { Github, Linkedin, Mail, Twitter, ArrowUpRight } from "lucide-react"
+import { ProjectDetailsPanel } from "@/components/project-modal"
+import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
 
@@ -9,6 +10,8 @@ export default function Home() {
   const [currentOtherLogo, setCurrentOtherLogo] = useState(0);
   const [logoKey, setLogoKey] = useState(0);
   const [activeProject, setActiveProject] = useState(1);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isProjectPanelOpen, setIsProjectPanelOpen] = useState(false);
   const projectsRef = useRef<HTMLDivElement>(null);
   
   const otherLogos = ["/git-logo.png", "/express-logo.webp", "bootstrap-logo.svg", "/docker-logo.png", "/mongodb-logo.svg", "/typescript-logo.png", "/mysql-logo.png", "/python-logo.svg", "/nextjs-logo.png", "/tailwind-logo.svg", "php-logo.png"];
@@ -88,100 +91,281 @@ export default function Home() {
       id: 1,
       title: "Zimori",
       description: "Aplikacja internetowa do symulacji ekosystemów",
+      longDescription: "Zimori to aplikacja internetowa służąca do symulacji ekosystemów, w której użytkownicy mogą ręcznie dostosowywać właściwości środowiska w celu osiągnięcia równowagi. Każda symulacja odbywa się w czasie rzeczywistym, a użytkownicy mają dostęp do statystyk dotyczących całego ekosystemu i poszczególnych obiektów.",
       technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
       image: "/projects/zimori-ss.png",
-      logo: "/projects/zimori-logo.png"
+      logo: "/projects/zimori-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/Zimori",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss7.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss8.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss9.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss10.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss11.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Zimori/main/ss/ss12.jpg"
+      ]
     },
     {
       id: 2,
       title: "Applant",
       description: "Aplikacja na telefony z systemem Android do kontrolowania częstotliwości podlewania roślin",
+      longDescription: "Applant to aplikacja, która pozwala zarządzać i kontrolować czynności wykonywane związane z roślinami doniczkowymi. Jej działanie jest wspierane przez zewnętrzny interfejs API, który umożliwia wdrożenie wielu przydatnych funkcji.",
       technologies: ["Kotlin"],
       image: "/projects/applant-ss.png",
-      logo: "/projects/applant-logo.png"
+      logo: "/projects/applant-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/Applant",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss1.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss2.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss3.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss4.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss5.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss6.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss7.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss8.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss9.jpg"
+      ]
     },
     {
       id: 3,
       title: "LitePay",
       description: "Aplikacja internetowa do śledzenia i dzielenia się wydatkami grupowymi",
+      longDescription: "LitePay to aplikacja internetowa zbudowana w oparciu o stos MERN (MongoDB, Express, React, Node.js), która ułatwia dzielenie się wydatkami z przyjaciółmi, rodziną lub współlokatorami. Pozwala użytkownikom szybko ustalić, kto jest komu winien i ile po spotkaniu, podróży lub innym wydarzeniu. Dodatkowo zapewnia statystyki związane z zarządzaniem osobistymi finansami.",
       technologies: ["JavaScript", "React", "Express.js", "Node.js", "MongoDB"],
       image: "/projects/litepay-ss.png",
-      logo: "/projects/litepay-logo.png"
+      logo: "/projects/litepay-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/LitePay-WebApp",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss7.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss8.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss9.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss10.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss11.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss12.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss13.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss14.png",
+        "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss15.png"
+      ]
     },
     {
       id: 4,
       title: "Pasieka Korona",
       description: "Strona stworzona w celu promowania firmy zajmującej się sprzedażą miodu i innych produktów pszczelich",
+      longDescription: "Strona internetowa została stworzona dla właściciela pasieki w celu bezpośredniej sprzedaży miodu i innych produktów pszczelich. Sklep został wykonany samodzielnie, bez pomocy oprogramowania takiego jak Shopify czy WooCommerce.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       image: "/projects/pasieka-ss.png",
-      logo: "/projects/pasieka-logo.png"
+      logo: "/projects/pasieka-logo.png",
+      websiteUrl: "https://pasiekakorona.pl",
+      githubUrl: "https://github.com/hadoyyo/LitePay-WebApp",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss7.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss8.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss9.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss10.jpg"
+      ]
     },
     {
       id: 5,
       title: "Serwolift",
       description: "Strona dla firmy zajmującej się serwisowaniem urządzeń transportu bliskiego",
+      longDescription: "Strona internetowa została stworzona dla firmy Serwolift, która specjalizuje się w serwisowaniu urządzeń transportu bliskiego, takich jak podnośniki, wózki widłowe i suwnice. Strona ma na celu przedstawienie oferty firmy oraz umożliwienie klientom łatwego kontaktu.",
       technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
       image: "/projects/serwolift-ss.png",
-      logo: "/projects/serwolift-logo.png"
+      logo: "/projects/serwolift-logo.png",
+      websiteUrl: "https://serwolift.pl",
+      githubUrl: "https://github.com/hadoyyo/Serwo-Website",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Serwo-Website/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/Serwo-Website/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/Serwo-Website/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/Serwo-Website/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/Serwo-Website/refs/heads/main/ss/ss5.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Serwo-Website/refs/heads/main/ss/ss6.jpg"
+      ]
     },
     {
       id: 6,
       title: "Energostat",
-      description: "Aplikacja do śledzenia nawyków na platformę iOS",
+      description: "Prosta usługa dostarczająca informacji na temat zużycia energii w różnych krajach",
+      longDescription: "Energostat to aplikacja internetowa, która dostarcza użytkownikom informacji na temat zużycia energii w różnych krajach. Dane są pobierane z zewnętrznego API i prezentowane w czytelny sposób za pomocą wykresów i tabel.",
       technologies: ["JavaScript", "React", "Express.js", "Node.js", "MySQL", "Docker"],
       image: "/projects/energostat-ss.png",
-      logo: "/projects/energostat-logo.png"
+      logo: "/projects/energostat-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/Energostat",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss7.png",
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss8.png",
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss9.png",
+        "https://raw.githubusercontent.com/hadoyyo/Energostat/refs/heads/main/ss/ss10.png"
+      ]
     },
     {
       id: 7,
       title: "Habita",
       description: "Aplikacja do śledzenia nawyków na platformę iOS",
+      longDescription: "Habita to aplikacja mobilna na platformę iOS, która pomaga użytkownikom śledzić i zarządzać swoimi nawykami. Umożliwia dodawanie różnych typów nawyków oraz monitorowanie postępów za pomocą wykresów i statystyk.",
       technologies: ["Swift"],
       image: "/projects/habita-ss.png",
-      logo: "/projects/habita-logo.png"
+      logo: "/projects/habita-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/Habita",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Habita/refs/heads/main/ss/ss1.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Habita/refs/heads/main/ss/ss2.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Habita/refs/heads/main/ss/ss3.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Habita/refs/heads/main/ss/ss4.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Habita/refs/heads/main/ss/ss5.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Habita/refs/heads/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/Habita/refs/heads/main/ss/ss7.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Habita/refs/heads/main/ss/ss8.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Habita/refs/heads/main/ss/ss9.PNG"
+      ]
     },
     {
       id: 8,
       title: "Pepper's",
       description: "Aplikacja internetowa do zarządzania rezerwacjami w salonie fryzjerskim",
+      longDescription: "Pepper's to aplikacja internetowa stworzona dla salonu fryzjerskiego, umożliwiająca klientom rezerwację wizyt online. Aplikacja pozwala na przeglądanie dostępnych terminów oraz zarządzanie rezerwacjami przez personel salonu. Dostępny jest również panel administracyjny do zarządzania usługami, wizytami i pracownikami.",
       technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
       image: "/projects/peppers-ss.png",
-      logo: "/projects/peppers-logo.png"
+      logo: "/projects/peppers-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/Peppers-Barbershop-WebApp",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss7.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss8.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss9.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss10.jpg"
+      ]
     },
     {
       id: 9,
       title: "McGranit",
       description: "Strona internetowa firmy zajmującej się kamieniarstwem",
+      longDescription: "Strona internetowa została stworzona dla firmy McGranit, która specjalizuje się w kamieniarstwie. Strona ma na celu przedstawienie oferty firmy oraz przedstawienie realizacji wykonanych projektów.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       image: "/projects/mcgranit-ss.png",
-      logo: "/projects/mcgranit-logo.png"
+      logo: "/projects/mcgranit-logo.png",
+      websiteUrl: "https://mcgranit.com.pl",
+      githubUrl: "https://github.com/hadoyyo/McGranit-Website",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/McGranit-Website/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/McGranit-Website/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/McGranit-Website/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/McGranit-Website/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/McGranit-Website/refs/heads/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/McGranit-Website/refs/heads/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/McGranit-Website/refs/heads/main/ss/ss7.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/McGranit-Website/refs/heads/main/ss/ss8.jpg"
+      ]
     },
     {
       id: 10,
       title: "SuperLift24",
       description: "Strona internetowa dla firmy wynajmującej podnośniki, wózki widłowe i dźwigi",
+      longDescription: "Strona internetowa została stworzona dla firmy SuperLift, która specjalizuje się w wynajmie podnośników, wózków widłowych i ładowarek teleskopowych. Głównym celem strony jest przedstawienie danych technicznych oferowanego sprzętu.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       image: "/projects/superlift24-ss.png",
-      logo: "/projects/superlift24-logo.png"
+      logo: "/projects/superlift24-logo.png",
+      websiteUrl: "https://superlift24.pl",
+      githubUrl: "https://github.com/hadoyyo/SuperLift24-Portfolio-Website",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/SuperLift24-Portfolio-Website/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/SuperLift24-Portfolio-Website/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/SuperLift24-Portfolio-Website/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/SuperLift24-Portfolio-Website/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/SuperLift24-Portfolio-Website/refs/heads/main/ss/ss5.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/SuperLift24-Portfolio-Website/refs/heads/main/ss/ss6.jpg",
+      ]
     },
     {
       id: 11,
       title: "Brakeless",
       description: "Gra zręcznościowa na platformę iOS",
+      longDescription: "Brakeless to gra zręcznościowa na platformę iOS, w której gracz steruje samochodem, unikając przeszkód napotkanych na drodze i zbierając monety i ulepszenia. Gra oferuje proste, ale wciągające mechaniki rozgrywki oraz atrakcyjną oprawę graficzną.",
       technologies: ["Swift"],
       image: "/projects/brakeless-ss.png",
-      logo: "/projects/brakeless-logo.png"
+      logo: "/projects/brakeless-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/Brakeless",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss1.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss2.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss3.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss4.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss5.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss6.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss7.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss8.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss9.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss10.PNG"
+      ]
     },
 
     {
       id: 12,
       title: "Koodly",
       description: "Aplikacja internetowa, która sugeruje najbardziej pasujące przepisy na podstawie wybranych składników",
+      longDescription: "Koodly to aplikacja internetowa, która pomaga użytkownikom znaleźć przepisy kulinarne na podstawie składników, które mają pod ręką. Użytkownicy mogą wprowadzić składniki, a aplikacja zasugeruje przepisy, które można z nich przygotować.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       image: "/projects/koodly-ss.png",
-      logo: "/projects/koodly-logo.png"
+      logo: "/projects/koodly-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/Koodly-WebApp",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Koodly-WebApp/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/Koodly-WebApp/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/Koodly-WebApp/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/Koodly-WebApp/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/Koodly-WebApp/refs/heads/main/ss/ss5.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Koodly-WebApp/refs/heads/main/ss/ss6.jpg"
+      ]
     }
   ];
+
+   const handleProjectDetails = (project: any) => {
+    setSelectedProject(project);
+    setIsProjectPanelOpen(true);
+  };
+
+  const handleCloseProjectPanel = () => {
+    setIsProjectPanelOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -211,6 +395,13 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Navbar />
+
+      {/* Project Details Panel */}
+      <ProjectDetailsPanel
+        project={selectedProject}
+        isOpen={isProjectPanelOpen}
+        onClose={handleCloseProjectPanel}
+      />
 
       {/* Hero Section */}
       <section 
@@ -430,14 +621,15 @@ export default function Home() {
                       <div className="pt-6">
                         <Button
                           size="lg"
-                          className="rounded-full cursor-pointer mr-4"
+                          className="rounded-lg cursor-pointer mr-4"
                           variant="default"
+                          onClick={() => handleProjectDetails(project)}
                         >
                           Więcej <ArrowUpRight className="ml-2 h-4 w-4" />
                         </Button>
                         <Button
                           size="lg"
-                          className="rounded-full gray-btn cursor-pointer"
+                          className="rounded-lg gray-btn cursor-pointer"
                           variant="outline"
                         >
                           <Github className="mr-2 h-4 w-4" />
@@ -557,14 +749,15 @@ export default function Home() {
                     <div className="flex flex-col flex-row gap-3">
                       <Button
                         size="lg"
-                        className="rounded-full cursor-pointer flex-1"
+                        className="rounded-lg cursor-pointer flex-1"
                         variant="default"
+                        onClick={() => handleProjectDetails(project)}
                       >
                         Więcej <ArrowUpRight className="ml-2 h-4 w-4" />
                       </Button>
                       <Button
                         size="lg"
-                        className="rounded-full gray-btn cursor-pointer flex-1"
+                        className="rounded-lg gray-btn cursor-pointer flex-1"
                         variant="outline"
                       >
                         <Github className="mr-2 h-4 w-4" />
@@ -622,17 +815,17 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
             <a
-              href="mailto:kontakt@example.com"
+              href="mailto:hubert.jedruchniewicz@interia.pl"
               className="flex items-center gap-3 px-6 py-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
             >
               <Mail className="h-5 w-5" />
-              <span>kontakt@example.com</span>
+              <span>hubert.jedruchniewicz@interia.pl</span>
             </a>
           </div>
 
           <div className="flex gap-6 justify-center">
             <a
-              href="https://github.com"
+              href="https://github.com/hadoyyo"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
@@ -640,20 +833,12 @@ export default function Home() {
               <Github className="h-6 w-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/hubert-j%C4%99druchniewicz-711166267/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
             >
               <Linkedin className="h-6 w-6" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
-            >
-              <Twitter className="h-6 w-6" />
             </a>
           </div>
         </div>
