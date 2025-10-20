@@ -12,6 +12,7 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState(1);
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isProjectPanelOpen, setIsProjectPanelOpen] = useState(false);
+  const [language, setLanguage] = useState<'pl' | 'en'>('pl');
   const projectsRef = useRef<HTMLDivElement>(null);
   
   const otherLogos = ["/git-logo.png", "/express-logo.webp", "bootstrap-logo.svg", "/docker-logo.png", "/mongodb-logo.svg", "/typescript-logo.png", "/mysql-logo.png", "/python-logo.svg", "/nextjs-logo.png", "/tailwind-logo.svg", "php-logo.png"];
@@ -27,71 +28,177 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const skills = [
-    {
-      name: "React",
-      description: "Tworzenie nowoczesnych interfejsów użytkownika z wykorzystaniem komponentów funkcyjnych i hooks.",
-      logo: "/react-logo.png",
-      background: "/react-bg.png",
-      hoverBorder: "hover:border-blue-400/60"
+  const translations = {
+    pl: {
+      hero: {
+        title: "Hubert Jędruchniewicz",
+        subtitle: "Aplikacje webowe i mobilne",
+        projectsButton: "Zobacz projekty",
+        contactButton: "Kontakt"
+      },
+      about: {
+        title: "O mnie",
+        paragraphs: [
+          "Jestem pasjonatem tworzenia aplikacji webowych i mobilnych. Specjalizuję się w budowaniu responsywnych interfejsów użytkownika oraz wydajnych aplikacji full-stack.",
+          "Moje doświadczenie obejmuje pracę z nowoczesnymi technologiami takimi jak React, Next.js, TypeScript, Kotlin i Swift.",
+          "W wolnym czasie eksperymentuję z nowymi technologiami, tworzę proste gry komputerowe lub eksperymentuje w kuchni."
+        ]
+      },
+      skills: [
+        {
+          name: "React",
+          description: "Tworzenie nowoczesnych interfejsów użytkownika z wykorzystaniem komponentów funkcyjnych i hooks.",
+        },
+        {
+          name: "Kotlin",
+          description: "Budowanie wydajnych aplikacji na Androida z wykorzystaniem nowoczesnych funkcji języka Kotlin.",
+        },
+        {
+          name: "JavaScript",
+          description: "Wszechstronny język programowania do tworzenia dynamicznych aplikacji webowych i interaktywnych stron internetowych.",
+        },
+        {
+          name: "Node.js",
+          description: "Tworzenie skalowalnych aplikacji backendowych i API z wykorzystaniem środowiska uruchomieniowego Node.js.",
+        },
+        {
+          name: "Swift",
+          description: "Programowanie aplikacji na iOS z wykorzystaniem języka Swift i frameworku SwiftUI.",
+        },
+        {
+          name: "CSS",
+          description: "Stylizowanie stron internetowych z wykorzystaniem nowoczesnych frameworków CSS i technik responsywnego designu.",
+        },
+        {
+          name: "HTML",
+          description: "Strukturyzowanie treści stron internetowych z wykorzystaniem semantycznego HTML5.",
+        },
+        {
+          name: "Inne",
+          description: "TypeScript, Next.js, Tailwind, MongoDB, Git, Docker i wiele innych.",
+        }
+      ],
+      projects: {
+        title: "Projekty",
+        moreButton: "Więcej",
+        githubButton: "Github"
+      },
+      contact: {
+        title: "Kontakt",
+        description: "Masz pytania lub chcesz porozmawiać o projekcie? Skontaktuj się ze mną!",
+        email: "hubert.jedruchniewicz@interia.pl"
+      },
+      footer: "© 2025 Hubert Jędruchniewicz. Wszystkie prawa zastrzeżone."
     },
-    {
-      name: "Kotlin",
-      description: "Budowanie wydajnych aplikacji na Androida z wykorzystaniem nowoczesnych funkcji języka Kotlin.",
-      logo: "/kotlin-logo.png",
-      background: "/kotlin-bg.png",
-      hoverBorder: "hover:border-pink-400/60"
-    },
-    {
-      name: "JavaScript",
-      description: "Wszechstronny język programowania do tworzenia dynamicznych aplikacji webowych i interaktywnych stron internetowych.",
-      logo: "/js-logo.svg",
-      background: "/javascript-bg.png",
-      hoverBorder: "hover:border-yellow-500/60"
-    },
-    {
-      name: "Node.js",
-      description: "Tworzenie skalowalnych aplikacji backendowych i API z wykorzystaniem środowiska uruchomieniowego Node.js.",
-      logo: "/nodejs-logo.webp",
-      background: "/nodejs-bg.png",
-      hoverBorder: "hover:border-green-500/60"
-    },
-    {
-      name: "Swift",
-      description: "Programowanie aplikacji na iOS z wykorzystaniem języka Swift i frameworku SwiftUI.",
-      logo: "/swift-logo.svg",
-      background: "/swift-bg.png",
-      hoverBorder: "hover:border-red-400/60"
-    },
-    {
-      name: "CSS",
-      description: "Stylizowanie stron internetowych z wykorzystaniem nowoczesnych frameworków CSS i technik responsywnego designu.",
-      logo: "/css-logo.png",
-      background: "/css-bg.png",
-      hoverBorder: "hover:border-blue-400/60"
-    },
-    {
-      name: "HTML",
-      description: "Strukturyzowanie treści stron internetowych z wykorzystaniem semantycznego HTML5.",
-      logo: "/html-logo.png",
-      background: "/html-bg.png",
-      hoverBorder: "hover:border-orange-500/60"
-    },
-    {
-      name: "Inne",
-      description: "TypeScript, Next.js, Tailwind, MongoDB, Git, Docker i wiele innych.",
-      logo: otherLogos[currentOtherLogo],
-      background: "/other-bg.png",
-      hoverBorder: "hover:border-gray-600/60"
+    en: {
+      hero: {
+        title: "Hubert Jędruchniewicz",
+        subtitle: "Web and mobile applications",
+        projectsButton: "View projects",
+        contactButton: "Contact"
+      },
+      about: {
+        title: "About me",
+        paragraphs: [
+          "I am passionate about creating web and mobile applications. I specialize in building responsive user interfaces and efficient full-stack applications.",
+          "My experience includes working with modern technologies such as React, Next.js, TypeScript, Kotlin, and Swift.",
+          "In my free time, I experiment with new technologies, create simple computer games, or experiment in the kitchen."
+        ]
+      },
+      skills: [
+        {
+          name: "React",
+          description: "Creating modern user interfaces using functional components and hooks.",
+        },
+        {
+          name: "Kotlin",
+          description: "Building efficient Android applications using modern Kotlin language features.",
+        },
+        {
+          name: "JavaScript",
+          description: "Versatile programming language for creating dynamic web applications and interactive websites.",
+        },
+        {
+          name: "Node.js",
+          description: "Building scalable backend applications and APIs using the Node.js runtime environment.",
+        },
+        {
+          name: "Swift",
+          description: "Programming iOS applications using Swift language and SwiftUI framework.",
+        },
+        {
+          name: "CSS",
+          description: "Styling websites using modern CSS frameworks and responsive design techniques.",
+        },
+        {
+          name: "HTML",
+          description: "Structuring website content using semantic HTML5.",
+        },
+        {
+          name: "Other",
+          description: "TypeScript, Next.js, Tailwind, MongoDB, Git, Docker and many more.",
+        }
+      ],
+      projects: {
+        title: "Projects",
+        moreButton: "More",
+        githubButton: "Github"
+      },
+      contact: {
+        title: "Contact",
+        description: "Have questions or want to discuss a project? Get in touch with me!",
+        email: "hubert.jedruchniewicz@interia.pl"
+      },
+      footer: "© 2025 Hubert Jędruchniewicz. All rights reserved."
     }
-  ];
+  };
+
+  const t = translations[language];
+
+  const skills = t.skills.map((skill, index) => ({
+    ...skill,
+    logo: [
+      "/react-logo.png",
+      "/kotlin-logo.png",
+      "/js-logo.svg",
+      "/nodejs-logo.webp",
+      "/swift-logo.svg",
+      "/css-logo.png",
+      "/html-logo.png",
+      otherLogos[currentOtherLogo]
+    ][index],
+    background: [
+      "/react-bg.png",
+      "/kotlin-bg.png",
+      "/javascript-bg.png",
+      "/nodejs-bg.png",
+      "/swift-bg.png",
+      "/css-bg.png",
+      "/html-bg.png",
+      "/other-bg.png"
+    ][index],
+    hoverBorder: [
+      "hover:border-blue-400/60",
+      "hover:border-pink-400/60",
+      "hover:border-yellow-500/60",
+      "hover:border-green-500/60",
+      "hover:border-red-400/60",
+      "hover:border-blue-400/60",
+      "hover:border-orange-500/60",
+      "hover:border-gray-600/60"
+    ][index]
+  }));
 
   const projects = [
     {
       id: 1,
       title: "Zimori",
-      description: "Aplikacja internetowa do symulacji ekosystemów",
-      longDescription: "Zimori to aplikacja internetowa służąca do symulacji ekosystemów, w której użytkownicy mogą ręcznie dostosowywać właściwości środowiska w celu osiągnięcia równowagi. Każda symulacja odbywa się w czasie rzeczywistym, a użytkownicy mają dostęp do statystyk dotyczących całego ekosystemu i poszczególnych obiektów.",
+      description: language === 'pl' 
+        ? "Aplikacja internetowa do symulacji ekosystemów" 
+        : "Web application for ecosystem simulations",
+      longDescription: language === 'pl'
+        ? "Zimori to aplikacja internetowa służąca do symulacji ekosystemów, w której użytkownicy mogą ręcznie dostosowywać właściwości środowiska w celu osiągnięcia równowagi. Każda symulacja odbywa się w czasie rzeczywistym, a użytkownicy mają dostęp do statystyk dotyczących całego ekosystemu i poszczególnych obiektów."
+        : "Zimori is a web application for ecosystem simulations where users can manually adjust environment properties to achieve balance. Each simulation runs in real-time, and users have access to statistics for the entire ecosystem and individual objects.",
       technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
       image: "/projects/zimori-ss.png",
       logo: "/projects/zimori-logo.png",
@@ -115,8 +222,12 @@ export default function Home() {
     {
       id: 2,
       title: "Applant",
-      description: "Aplikacja na telefony z systemem Android do kontrolowania częstotliwości podlewania roślin",
-      longDescription: "Applant to aplikacja, która pozwala zarządzać i kontrolować czynności wykonywane związane z roślinami doniczkowymi. Jej działanie jest wspierane przez zewnętrzny interfejs API, który umożliwia wdrożenie wielu przydatnych funkcji.",
+      description: language === 'pl'
+        ? "Aplikacja na telefony z systemem Android do kontrolowania częstotliwości podlewania roślin"
+        : "An app for Android devices to control the frequency of plant watering and care",
+      longDescription: language === 'pl'
+        ? "Applant to aplikacja, która pozwala zarządzać i kontrolować czynności wykonywane związane z roślinami doniczkowymi. Jej działanie jest wspierane przez zewnętrzny interfejs API, który umożliwia wdrożenie wielu przydatnych funkcji."
+        : "Applant is an application that allows you to manage and control activities related to potted plants. Its operation is supported by an external API that enables the implementation of many useful features.",
       technologies: ["Kotlin"],
       image: "/projects/applant-ss.png",
       logo: "/projects/applant-logo.png",
@@ -137,8 +248,12 @@ export default function Home() {
     {
       id: 3,
       title: "LitePay",
-      description: "Aplikacja internetowa do śledzenia i dzielenia się wydatkami grupowymi",
-      longDescription: "LitePay to aplikacja internetowa zbudowana w oparciu o stos MERN (MongoDB, Express, React, Node.js), która ułatwia dzielenie się wydatkami z przyjaciółmi, rodziną lub współlokatorami. Pozwala użytkownikom szybko ustalić, kto jest komu winien i ile po spotkaniu, podróży lub innym wydarzeniu. Dodatkowo zapewnia statystyki związane z zarządzaniem osobistymi finansami.",
+      description: language === 'pl'
+        ? "Aplikacja internetowa do śledzenia i dzielenia się wydatkami grupowymi"
+        : "Web application for tracking and sharing group expenses",
+      longDescription: language === 'pl' 
+        ? "LitePay to aplikacja internetowa zbudowana w oparciu o stos MERN (MongoDB, Express, React, Node.js), która ułatwia dzielenie się wydatkami z przyjaciółmi, rodziną lub współlokatorami. Pozwala użytkownikom szybko ustalić, kto jest komu winien i ile po spotkaniu, podróży lub innym wydarzeniu. Dodatkowo zapewnia statystyki związane z zarządzaniem osobistymi finansami."
+        : "LitePay is a web application built with the MERN stack (MongoDB, Express, React, Node.js) that makes it easy to split expenses with friends, family, or roommates. It allows users to quickly determine who owes whom and how much after a meeting, trip other event. Additionally, it provides statistics related to personal money management.",
       technologies: ["JavaScript", "React", "Express.js", "Node.js", "MongoDB"],
       image: "/projects/litepay-ss.png",
       logo: "/projects/litepay-logo.png",
@@ -165,9 +280,13 @@ export default function Home() {
     {
       id: 4,
       title: "Pasieka Korona",
-      description: "Strona stworzona w celu promowania firmy zajmującej się sprzedażą miodu i innych produktów pszczelich",
-      longDescription: "Strona internetowa została stworzona dla właściciela pasieki w celu bezpośredniej sprzedaży miodu i innych produktów pszczelich. Sklep został wykonany samodzielnie, bez pomocy oprogramowania takiego jak Shopify czy WooCommerce.",
-      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      description: language === 'pl'
+        ? "Strona stworzona w celu promowania firmy zajmującej się sprzedażą miodu i innych produktów pszczelich"
+        : "Website created to promote a business selling honey and other bee products",
+      longDescription: language === 'pl'
+        ? "Strona internetowa została stworzona dla właściciela pasieki w celu bezpośredniej sprzedaży miodu i innych produktów pszczelich. Sklep został wykonany samodzielnie, bez pomocy oprogramowania takiego jak Shopify czy WooCommerce."
+        : "The website was created for a beekeeper to directly sell honey and other bee products. The store was built independently, without the help of software such as Shopify or WooCommerce.",
+        technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       image: "/projects/pasieka-ss.png",
       logo: "/projects/pasieka-logo.png",
       websiteUrl: "https://pasiekakorona.pl",
@@ -188,9 +307,13 @@ export default function Home() {
     {
       id: 5,
       title: "Serwolift",
-      description: "Strona dla firmy zajmującej się serwisowaniem urządzeń transportu bliskiego",
-      longDescription: "Strona internetowa została stworzona dla firmy Serwolift, która specjalizuje się w serwisowaniu urządzeń transportu bliskiego, takich jak podnośniki, wózki widłowe i suwnice. Strona ma na celu przedstawienie oferty firmy oraz umożliwienie klientom łatwego kontaktu.",
-      technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
+      description: language === 'pl'
+        ? "Strona dla firmy zajmującej się serwisowaniem urządzeń transportu bliskiego"
+        : "Website for a company specializing in servicing material handling equipment",
+      longDescription: language === 'pl'
+        ? "Strona internetowa została stworzona dla firmy Serwolift, która specjalizuje się w serwisowaniu urządzeń transportu bliskiego, takich jak podnośniki, wózki widłowe i suwnice. Strona ma na celu przedstawienie oferty firmy oraz umożliwienie klientom łatwego kontaktu."
+        : "The website was created for Serwolift, a company specializing in servicing material handling equipment such as lifts, forklifts, and cranes. The site aims to present the company's offerings and facilitate easy contact for clients.",
+        technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
       image: "/projects/serwolift-ss.png",
       logo: "/projects/serwolift-logo.png",
       websiteUrl: "https://serwolift.pl",
@@ -207,8 +330,12 @@ export default function Home() {
     {
       id: 6,
       title: "Energostat",
-      description: "Prosta usługa dostarczająca informacji na temat zużycia energii w różnych krajach",
-      longDescription: "Energostat to aplikacja internetowa, która dostarcza użytkownikom informacji na temat zużycia energii w różnych krajach. Dane są pobierane z zewnętrznego API i prezentowane w czytelny sposób za pomocą wykresów i tabel.",
+      description: language === 'pl'
+        ? "Prosta usługa dostarczająca informacji na temat zużycia energii w różnych krajach"
+        :  "A simple service providing information about energy consumption in various countries",
+      longDescription: language === 'pl'
+        ? "Energostat to aplikacja internetowa, która dostarcza użytkownikom informacji na temat zużycia energii w różnych krajach. Dane są pobierane z zewnętrznego API i prezentowane w czytelny sposób za pomocą wykresów i tabel."
+        : "Energostat is a web application that provides users with information about energy consumption in various countries. The data is fetched from an external API and presented in a clear manner using charts and tables.",
       technologies: ["JavaScript", "React", "Express.js", "Node.js", "MySQL", "Docker"],
       image: "/projects/energostat-ss.png",
       logo: "/projects/energostat-logo.png",
@@ -230,8 +357,12 @@ export default function Home() {
     {
       id: 7,
       title: "Habita",
-      description: "Aplikacja do śledzenia nawyków na platformę iOS",
-      longDescription: "Habita to aplikacja mobilna na platformę iOS, która pomaga użytkownikom śledzić i zarządzać swoimi nawykami. Umożliwia dodawanie różnych typów nawyków oraz monitorowanie postępów za pomocą wykresów i statystyk.",
+      description: language === 'pl'
+        ? "Aplikacja do śledzenia nawyków na platformę iOS"
+        : "Habit tracking app for iOS platform",
+      longDescription: language === 'pl'
+        ? "Habita to aplikacja mobilna na platformę iOS, która pomaga użytkownikom śledzić i zarządzać swoimi nawykami. Umożliwia dodawanie różnych typów nawyków oraz monitorowanie postępów za pomocą wykresów i statystyk."
+        : "Habita is a mobile application for the iOS platform that helps users track and manage their habits. It allows adding different types of habits and monitoring progress through charts and statistics.",
       technologies: ["Swift"],
       image: "/projects/habita-ss.png",
       logo: "/projects/habita-logo.png",
@@ -252,9 +383,13 @@ export default function Home() {
     {
       id: 8,
       title: "Pepper's",
-      description: "Aplikacja internetowa do zarządzania rezerwacjami w salonie fryzjerskim",
-      longDescription: "Pepper's to aplikacja internetowa stworzona dla salonu fryzjerskiego, umożliwiająca klientom rezerwację wizyt online. Aplikacja pozwala na przeglądanie dostępnych terminów oraz zarządzanie rezerwacjami przez personel salonu. Dostępny jest również panel administracyjny do zarządzania usługami, wizytami i pracownikami.",
-      technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
+      description: language === 'pl'
+        ? "Aplikacja internetowa do zarządzania rezerwacjami w salonie fryzjerskim"
+        : "Web application to manage bookings at a barbershop, designed for customers, barbers and admin.",
+      longDescription: language === 'pl'
+        ? "Pepper's to aplikacja internetowa stworzona dla salonu fryzjerskiego, umożliwiająca klientom rezerwację wizyt online. Aplikacja pozwala na przeglądanie dostępnych terminów oraz zarządzanie rezerwacjami przez personel salonu. Dostępny jest również panel administracyjny do zarządzania usługami, wizytami i pracownikami."
+        : "Pepper's is a web application created for a barbershop, allowing customers to book appointments online. The application enables browsing available time slots and managing bookings by the salon staff. An admin panel is also available for managing services, appointments, and employees.",
+        technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
       image: "/projects/peppers-ss.png",
       logo: "/projects/peppers-logo.png",
       websiteUrl: null,
@@ -275,8 +410,12 @@ export default function Home() {
     {
       id: 9,
       title: "McGranit",
-      description: "Strona internetowa firmy zajmującej się kamieniarstwem",
-      longDescription: "Strona internetowa została stworzona dla firmy McGranit, która specjalizuje się w kamieniarstwie. Strona ma na celu przedstawienie oferty firmy oraz przedstawienie realizacji wykonanych projektów.",
+      description: language === 'pl'
+        ? "Strona internetowa firmy zajmującej się kamieniarstwem"
+        : "Website for a company specializing in stonemasonry",
+      longDescription: language === 'pl'
+        ? "Strona internetowa została stworzona dla firmy McGranit, która specjalizuje się w kamieniarstwie. Strona ma na celu przedstawienie oferty firmy oraz przedstawienie realizacji wykonanych projektów."
+        : "The website was created for McGranit, a company specializing in stonemasonry. The site aims to present the company's offerings and showcase completed projects.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       image: "/projects/mcgranit-ss.png",
       logo: "/projects/mcgranit-logo.png",
@@ -296,8 +435,12 @@ export default function Home() {
     {
       id: 10,
       title: "SuperLift24",
-      description: "Strona internetowa dla firmy wynajmującej podnośniki, wózki widłowe i dźwigi",
-      longDescription: "Strona internetowa została stworzona dla firmy SuperLift, która specjalizuje się w wynajmie podnośników, wózków widłowych i ładowarek teleskopowych. Głównym celem strony jest przedstawienie danych technicznych oferowanego sprzętu.",
+      description: language === 'pl'
+        ? "Strona internetowa dla firmy wynajmującej podnośniki, wózki widłowe i dźwigi"
+        : "Website for a company renting lifts, forklifts and cranes",
+      longDescription: language === 'pl'
+        ? "Strona internetowa została stworzona dla firmy SuperLift, która specjalizuje się w wynajmie podnośników, wózków widłowych i ładowarek teleskopowych. Głównym celem strony jest przedstawienie danych technicznych oferowanego sprzętu."
+        : "The website was created for SuperLift, a company specializing in the rental of lifts, forklifts and telescopic loaders. The main purpose of the site is to present the technical data of the offered equipment.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       image: "/projects/superlift24-ss.png",
       logo: "/projects/superlift24-logo.png",
@@ -315,9 +458,13 @@ export default function Home() {
     {
       id: 11,
       title: "Brakeless",
-      description: "Gra zręcznościowa na platformę iOS",
-      longDescription: "Brakeless to gra zręcznościowa na platformę iOS, w której gracz steruje samochodem, unikając przeszkód napotkanych na drodze i zbierając monety i ulepszenia. Gra oferuje proste, ale wciągające mechaniki rozgrywki oraz atrakcyjną oprawę graficzną.",
-      technologies: ["Swift"],
+      description: language === 'pl'
+        ? "Gra zręcznościowa na platformę iOS"
+        : "An arcade game for the iOS platform",
+      longDescription: language === 'pl'
+        ? "Brakeless to gra zręcznościowa na platformę iOS, w której gracz steruje samochodem, unikając przeszkód napotkanych na drodze i zbierając monety i ulepszenia. Gra oferuje proste, ale wciągające mechaniki rozgrywki oraz prostą oprawę graficzną."
+        : "Brakeless is an arcade game for the iOS platform where the player controls a car, avoiding obstacles encountered on the road and collecting coins and power-ups. The game offers simple yet engaging gameplay mechanics and simple graphics.",
+        technologies: ["Swift"],
       image: "/projects/brakeless-ss.png",
       logo: "/projects/brakeless-logo.png",
       websiteUrl: null,
@@ -339,8 +486,12 @@ export default function Home() {
     {
       id: 12,
       title: "Koodly",
-      description: "Aplikacja internetowa, która sugeruje najbardziej pasujące przepisy na podstawie wybranych składników",
-      longDescription: "Koodly to aplikacja internetowa, która pomaga użytkownikom znaleźć przepisy kulinarne na podstawie składników, które mają pod ręką. Użytkownicy mogą wprowadzić składniki, a aplikacja zasugeruje przepisy, które można z nich przygotować.",
+      description: language === 'pl'
+        ? "Aplikacja internetowa, która sugeruje najbardziej pasujące przepisy na podstawie wybranych składników"
+        : "Web application that suggests the most suitable recipes based on selected ingredients",
+      longDescription: language === 'pl'
+        ? "Koodly to aplikacja internetowa, która pomaga użytkownikom znaleźć przepisy kulinarne na podstawie składników, które mają pod ręką. Użytkownicy mogą wprowadzić składniki, a aplikacja zasugeruje przepisy, które można z nich przygotować."
+        : "Koodly is a web application that helps users find culinary recipes based on the ingredients they have on hand. Users can input ingredients, and the application will suggest recipes that can be prepared from them.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       image: "/projects/koodly-ss.png",
       logo: "/projects/koodly-logo.png",
@@ -365,6 +516,10 @@ export default function Home() {
   const handleCloseProjectPanel = () => {
     setIsProjectPanelOpen(false);
     setTimeout(() => setSelectedProject(null), 300);
+  };
+
+  const handleLanguageChange = (lang: 'pl' | 'en') => {
+    setLanguage(lang);
   };
 
   useEffect(() => {
@@ -394,17 +549,17 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+       <Navbar onLanguageChange={handleLanguageChange} currentLanguage={language} />
 
       {/* Project Details Panel */}
       <ProjectDetailsPanel
         project={selectedProject}
         isOpen={isProjectPanelOpen}
         onClose={handleCloseProjectPanel}
+        language={language}
       />
 
-      {/* Hero Section */}
-      <section 
+       <section 
         id="start" 
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 relative"
       >
@@ -443,9 +598,9 @@ export default function Home() {
             </div>
           </div>
           
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance">Hubert Jędruchniewicz</h1>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance">{t.hero.title}</h1>
           <p className="text-xl sm:text-2xl text-gray-300 mb-8 text-balance">
-            Aplikacje webowe i mobilne
+            {t.hero.subtitle}
           </p>
           <div className="flex gap-4 justify-center">
             <Button
@@ -453,7 +608,7 @@ export default function Home() {
               className="rounded-full cursor-pointer"
               onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Zobacz projekty
+              {t.hero.projectsButton}
             </Button>
             <Button
               size="lg"
@@ -461,7 +616,7 @@ export default function Home() {
               variant="outline"
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Kontakt
+              {t.hero.contactButton}
             </Button>
           </div>
         </div>
@@ -474,18 +629,11 @@ export default function Home() {
         style={{ backgroundColor: "#18191B" }}
       >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-8">O mnie</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-8">{t.about.title}</h2>
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
-            <p>
-              Jestem pasjonatem tworzenia aplikacji webowych i mobilnych. Specjalizuję się w budowaniu responsywnych
-              interfejsów użytkownika oraz wydajnych aplikacji full-stack.
-            </p>
-            <p>
-               Moje doświadczenie obejmuje pracę z nowoczesnymi technologiami takimi jak React, Next.js, TypeScript, Kotlin i Swift.
-            </p>
-            <p>
-              W wolnym czasie eksperymentuję z nowymi technologiami, tworzę proste gry komputerowe lub eksperymentuje w kuchni.
-            </p>
+            {t.about.paragraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           </div>
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -507,7 +655,7 @@ export default function Home() {
                   }}
                 >
                   <div className="relative w-full h-full flex items-start justify-start pl-4 pt-4">
-                    {skill.name === "Inne" ? (
+                    {skill.name === "Inne" || skill.name === "Other" ? (
                       <img
                         key={logoKey}
                         src={skill.logo}
@@ -543,15 +691,12 @@ export default function Home() {
         ref={projectsRef}
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative"
       >
-        {/* Gradient na dole */}
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
         
         <div className="max-w-7xl mx-auto w-full relative z-20">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-12">Projekty</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-12">{t.projects.title}</h2>
           
-          {/* Desktop Layout */}
           <div className="hidden lg:flex flex-col lg:flex-row gap-12">
-            {/* Lewa strona - Tekst projektów */}
             <div className="lg:w-1/2 space-y-8">
               {projects.map((project, index) => (
                 <div
@@ -559,7 +704,6 @@ export default function Home() {
                   className="min-h-[70vh] flex flex-col justify-center py-8"
                 >
                   <div className="flex gap-6">
-                    {/* Logo aplikacji */}
                     <div className="flex-shrink-0">
                       <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-background/50 flex items-center justify-center">
                         <img
@@ -570,7 +714,6 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    {/* Nazwa i opis projektu */}
                     <div className="flex-1">
                       <h3 className="text-3xl font-bold mb-1">{project.title}</h3>
                       <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
@@ -578,7 +721,6 @@ export default function Home() {
                       </p>
                       <div className="flex gap-2 flex-wrap">
                         {project.technologies.map((tech) => {
-                          
                           const getTechLogo = (techName: string) => {
                             const logoMap: { [key: string]: string } = {
                               "React": "/react-logo.png",
@@ -625,7 +767,7 @@ export default function Home() {
                           variant="default"
                           onClick={() => handleProjectDetails(project)}
                         >
-                          Więcej <ArrowUpRight className="ml-2 h-4 w-4" />
+                          {t.projects.moreButton} <ArrowUpRight className="ml-2 h-4 w-4" />
                         </Button>
                         <Button
                           size="lg"
@@ -633,7 +775,7 @@ export default function Home() {
                           variant="outline"
                         >
                           <Github className="mr-2 h-4 w-4" />
-                          Github
+                          {t.projects.githubButton}
                         </Button>
                       </div>
                     </div>
@@ -642,7 +784,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Prawa strona - zdjęcie */}
             <div className="lg:w-1/2 sticky top-1/4 h-[500px]">
               <div className="relative w-full h-full rounded-xl overflow-visible">
                 {projects.map((project) => (
@@ -669,7 +810,6 @@ export default function Home() {
                   key={project.id}
                   className="overflow-hidden"
                 >
-                  {/* Górna część - zdjęcie */}
                   <div className="h-64 sm:h-80 w-full">
                     <img
                       src={mobileImage}
@@ -678,11 +818,8 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* Dolna część - zawartość projektu */}
                   <div className="p-6 border border-border rounded-xl">
                     <div className="flex gap-4 items-start mb-4">
-                      
-                      {/* Logo aplikacji */}
                       <div className="flex-shrink-0">
                         <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-lg bg-background/50 flex items-center justify-center">
                           <img
@@ -693,7 +830,6 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      {/* Nazwa i opis projektu */}
                       <div className="flex-1">
                         <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                         <p className="text-muted-foreground mb-4 text-base leading-relaxed">
@@ -702,7 +838,6 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Technologie */}
                     <div className="flex gap-2 flex-wrap mb-6">
                       {project.technologies.map((tech) => {
                         const getTechLogo = (techName: string) => {
@@ -745,7 +880,6 @@ export default function Home() {
                       })}
                     </div>
 
-                    {/* Przyciski */}
                     <div className="flex flex-col flex-row gap-3">
                       <Button
                         size="lg"
@@ -753,7 +887,7 @@ export default function Home() {
                         variant="default"
                         onClick={() => handleProjectDetails(project)}
                       >
-                        Więcej <ArrowUpRight className="ml-2 h-4 w-4" />
+                        {t.projects.moreButton} <ArrowUpRight className="ml-2 h-4 w-4" />
                       </Button>
                       <Button
                         size="lg"
@@ -761,7 +895,7 @@ export default function Home() {
                         variant="outline"
                       >
                         <Github className="mr-2 h-4 w-4" />
-                        Github
+                        {t.projects.githubButton}
                       </Button>
                     </div>
                   </div>
@@ -777,10 +911,8 @@ export default function Home() {
         id="contact"
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 dot-pattern relative"
       >
-        {/* Gradient na górze */}
         <div className="absolute top-0 left-0 right-0 h-90 bg-gradient-to-b from-[#0A0A0A] to-transparent z-10"></div>
         
-        {/* Tło dla mobilnych */}
         <div 
           className="absolute inset-0 sm:hidden"
           style={{
@@ -792,7 +924,6 @@ export default function Home() {
           }}
         ></div>
         
-        {/* Tło desktop */}
         <div 
           className="absolute inset-0 hidden sm:block"
           style={{
@@ -804,13 +935,12 @@ export default function Home() {
           }}
         ></div>
         
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="max-w-4xl mx-auto text-center relative z-20">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-8">Kontakt</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-8">{t.contact.title}</h2>
           <p className="text-xl text-muted-foreground mb-12 text-balance">
-            Masz pytania lub chcesz porozmawiać o projekcie? Skontaktuj się ze mną!
+            {t.contact.description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
@@ -819,7 +949,7 @@ export default function Home() {
               className="flex items-center gap-3 px-6 py-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
             >
               <Mail className="h-5 w-5" />
-              <span>hubert.jedruchniewicz@interia.pl</span>
+              <span>{t.contact.email}</span>
             </a>
           </div>
 
@@ -846,7 +976,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 px-4 text-center text-muted-foreground border-t border-border">
-        <p>© 2025 Portfolio. Wszystkie prawa zastrzeżone.</p>
+        <p>{t.footer}</p>
       </footer>
     </div>
   )

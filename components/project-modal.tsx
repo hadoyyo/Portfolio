@@ -22,13 +22,31 @@ interface ProjectDetailsPanelProps {
   project: Project | null
   isOpen: boolean
   onClose: () => void
+  language: 'pl' | 'en'
 }
 
-export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetailsPanelProps) {
+export function ProjectDetailsPanel({ project, isOpen, onClose, language }: ProjectDetailsPanelProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
   const thumbnailsContainerRef = useRef<HTMLDivElement>(null)
+
+  const translations = {
+    pl: {
+      projectDescription: "Opis projektu",
+      technologies: "Technologie",
+      website: "Strona internetowa",
+      github: "GitHub"
+    },
+    en: {
+      projectDescription: "Project Description",
+      technologies: "Technologies",
+      website: "Website",
+      github: "GitHub"
+    }
+  }
+
+  const t = translations[language]
 
   useEffect(() => {
     if (isOpen) {
@@ -157,7 +175,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetails
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-border">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1">
               <div className="w-24 h-24 rounded-lg flex items-center justify-center">
                 <img
                   src={project.logo}
@@ -167,7 +185,6 @@ export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetails
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-                <p className="text-muted-foreground">{project.description}</p>
               </div>
             </div>
             
@@ -225,10 +242,10 @@ export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetails
                   </div>
 
 
-                {/* Thumbnails z przyciskami przewijania */}
+                {/* Thumbnails */}
                 {hasMultipleImages && (
                 <div className="relative">
-                    {/* Przyciski przewijania */}
+
                     <div className="flex justify-between items-center mb-3">
                     <Button
                         variant="ghost"
@@ -240,7 +257,6 @@ export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetails
                         <ChevronLeft className="h-4 w-4" />
                     </Button>
                     
-                    {/* Image Counter - przeniesiony tutaj */}
                     <div className="text-white px-3 py-1 rounded-full text-sm">
                         {currentImageIndex + 1} / {galleryImages.length}
                     </div>
@@ -256,7 +272,6 @@ export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetails
                     </Button>
                     </div>
 
-                    {/* Kontener thumbnaili */}
                     <div
                     ref={thumbnailsContainerRef}
                     className="flex gap-3 overflow-x-hidden scroll-smooth"
@@ -287,7 +302,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetails
               <div className="space-y-6">
                 {/* Long Description */}
                 <div>
-                  <h3 className="text-xl font-bold mb-4 text-white">Opis projektu</h3>
+                  <h3 className="text-xl font-bold mb-4 text-white">{t.projectDescription}</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {project.longDescription}
                   </p>
@@ -295,7 +310,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetails
 
                 {/* Technologies */}
                 <div>
-                  <h3 className="text-xl font-bold mb-4 text-white">Technologie</h3>
+                  <h3 className="text-xl font-bold mb-4 text-white">{t.technologies}</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span 
@@ -323,7 +338,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetails
                       className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors cursor-pointer"
                     >
                       <ExternalLink className="h-4 w-4" />
-                      Strona internetowa
+                      {t.website}
                     </a>
                   )}
                   
@@ -335,7 +350,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose }: ProjectDetails
                       className="flex items-center gap-2 px-4 py-2 bg-accent/20 border border-border rounded-lg hover:bg-accent/30 transition-colors cursor-pointer text-white gray-btn"
                     >
                       <Github className="h-4 w-4" />
-                      GitHub
+                      {t.github}
                     </a>
                   )}
                 </div>
