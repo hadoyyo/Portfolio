@@ -223,8 +223,8 @@ export default function Home() {
       id: 2,
       title: "Kraina Słodyczy",
       description: language === 'pl' 
-        ? "Aplikacja internetowa do symulacji ekosystemów" 
-        : "Strona internetowa dla osoby, która piecze ciasta i inne słodkości na zamówienie",
+        ? "Strona internetowa dla osoby, która piecze ciasta i inne słodkości na zamówienie"
+        : "Website for a person who bakes cakes and other sweets to order",
       longDescription: language === 'pl'
         ? "Strona internetowa „Kraina Słodyczy” jest miejscem, którego głównym celem jest zaprezentowanie dotychczasowych wypieków właścicielki, w celu zachęcenia nowych klientów do skorzystania z jej usług. W prosty i przejrzysty sposób przedstawia aktualną ofertę oraz dane kontaktowe."
         : "The „Kraina Słodyczy” website is a place whose main purpose is to showcase the owner's previous baked goods in order to encourage new customers to use her services. It simply and clearly presents the current offer and contact details.It simply and clearly presents the current offer and contact details.",
