@@ -221,6 +221,34 @@ export default function Home() {
     },
     {
       id: 2,
+      title: "Kraina Słodyczy",
+      description: language === 'pl' 
+        ? "Aplikacja internetowa do symulacji ekosystemów" 
+        : "Strona internetowa dla osoby, która piecze ciasta i inne słodkości na zamówienie",
+      longDescription: language === 'pl'
+        ? "Strona internetowa „Kraina Słodyczy” jest miejscem, którego głównym celem jest zaprezentowanie dotychczasowych wypieków właścicielki, w celu zachęcenia nowych klientów do skorzystania z jej usług. W prosty i przejrzysty sposób przedstawia aktualną ofertę oraz dane kontaktowe."
+        : "The „Kraina Słodyczy” website is a place whose main purpose is to showcase the owner's previous baked goods in order to encourage new customers to use her services. It simply and clearly presents the current offer and contact details.It simply and clearly presents the current offer and contact details.",
+      technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
+      image: "/projects/krainaslodyczy-ss.png",
+      logo: "/projects/krainaslodyczy-logo.png",
+      websiteUrl: "https://kraina-slodyczy.pl",
+      githubUrl: "https://github.com/hadoyyo/Kraina-Slodyczy-Website",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss7.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss8.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss9.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss10.jpg"
+
+      ]
+    },
+    {
+      id: 3,
       title: "Applant",
       description: language === 'pl'
         ? "Aplikacja na telefony z systemem Android do kontrolowania częstotliwości podlewania roślin"
@@ -246,7 +274,7 @@ export default function Home() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       title: "LitePay",
       description: language === 'pl'
         ? "Aplikacja internetowa do śledzenia i dzielenia się wydatkami grupowymi"
@@ -278,7 +306,7 @@ export default function Home() {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: "Pasieka Korona",
       description: language === 'pl'
         ? "Strona stworzona w celu promowania firmy zajmującej się sprzedażą miodu i innych produktów pszczelich"
@@ -305,7 +333,7 @@ export default function Home() {
       ]
     },
     {
-      id: 5,
+      id: 6,
       title: "Serwolift",
       description: language === 'pl'
         ? "Strona dla firmy zajmującej się serwisowaniem urządzeń transportu bliskiego"
@@ -328,7 +356,7 @@ export default function Home() {
       ]
     },
     {
-      id: 6,
+      id: 7,
       title: "Energostat",
       description: language === 'pl'
         ? "Prosta usługa dostarczająca informacji na temat zużycia energii w różnych krajach"
@@ -355,7 +383,7 @@ export default function Home() {
       ]
     },
     {
-      id: 7,
+      id: 8,
       title: "Habita",
       description: language === 'pl'
         ? "Aplikacja do śledzenia nawyków na platformę iOS"
@@ -381,7 +409,7 @@ export default function Home() {
       ]
     },
     {
-      id: 8,
+      id: 9,
       title: "Pepper's",
       description: language === 'pl'
         ? "Aplikacja internetowa do zarządzania rezerwacjami w salonie fryzjerskim"
@@ -408,7 +436,7 @@ export default function Home() {
       ]
     },
     {
-      id: 9,
+      id: 10,
       title: "McGranit",
       description: language === 'pl'
         ? "Strona internetowa firmy zajmującej się kamieniarstwem"
@@ -433,7 +461,7 @@ export default function Home() {
       ]
     },
     {
-      id: 10,
+      id: 11,
       title: "SuperLift24",
       description: language === 'pl'
         ? "Strona internetowa dla firmy wynajmującej podnośniki, wózki widłowe i dźwigi"
@@ -456,7 +484,7 @@ export default function Home() {
       ]
     },
     {
-      id: 11,
+      id: 12,
       title: "Brakeless",
       description: language === 'pl'
         ? "Gra zręcznościowa na platformę iOS"
@@ -484,7 +512,7 @@ export default function Home() {
     },
 
     {
-      id: 12,
+      id: 13,
       title: "Koodly",
       description: language === 'pl'
         ? "Aplikacja internetowa, która sugeruje najbardziej pasujące przepisy na podstawie wybranych składników"
