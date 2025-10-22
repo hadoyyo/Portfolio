@@ -82,6 +82,22 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
     }
   }, [isOpen, onClose])
 
+  useEffect(() => {
+    if (!thumbnailsContainerRef.current || !project?.galleryImages) return
+
+    const container = thumbnailsContainerRef.current
+    const thumbnailWidth = 128
+    const gap = 12
+    const totalWidth = thumbnailWidth + gap
+    
+    const scrollPosition = currentImageIndex * totalWidth - (container.clientWidth / 2) + (thumbnailWidth / 2)
+    
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    })
+  }, [currentImageIndex, project?.galleryImages])
+
   const handleClose = () => {
     setIsClosing(true)
     setIsVisible(false)
@@ -203,7 +219,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
               {/* Left Column - Gallery */}
               <div className="space-y-6">
-                {/* Main Image Container*/}
+                {/* Main Image */}
                   <div className="relative rounded-xl overflow-hidden flex items-center justify-center min-h-[300px] max-h-[60vh]">
                     <AnimatePresence mode="wait">
                       <motion.img
@@ -240,7 +256,6 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
                       </>
                     )}
                   </div>
-
 
                 {/* Thumbnails */}
                 {hasMultipleImages && (
