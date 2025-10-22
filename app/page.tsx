@@ -168,14 +168,14 @@ export default function Home() {
       otherLogos[currentOtherLogo]
     ][index],
     background: [
-      "/react-bg.png",
-      "/kotlin-bg.png",
-      "/javascript-bg.png",
-      "/nodejs-bg.png",
-      "/swift-bg.png",
-      "/css-bg.png",
-      "/html-bg.png",
-      "/other-bg.png"
+      "/react-bg.webp",
+      "/kotlin-bg.webp",
+      "/javascript-bg.webp",
+      "/nodejs-bg.webp",
+      "/swift-bg.webp",
+      "/css-bg.webp",
+      "/html-bg.webp",
+      "/other-bg.webp"
     ][index],
     hoverBorder: [
       "hover:border-blue-400/60",
@@ -599,7 +599,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 sm:hidden"
           style={{
-            backgroundImage: 'url(/background-mobile.png)',
+            backgroundImage: 'url(/background-mobile.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -609,7 +609,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 hidden sm:block"
           style={{
-            backgroundImage: 'url(/background-main.png)',
+            backgroundImage: 'url(/background-main.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -949,7 +949,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 sm:hidden"
           style={{
-            backgroundImage: 'url(/background-contact-mobile.png)',
+            backgroundImage: 'url(/background-contact-mobile.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -960,7 +960,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 hidden sm:block"
           style={{
-            backgroundImage: 'url(/background-contact.png)',
+            backgroundImage: 'url(/background-contact.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
