@@ -230,7 +230,7 @@ export default function Home() {
         : "The „Kraina Słodyczy” website is a place whose main purpose is to showcase the owner's previous baked goods in order to encourage new customers to use her services. It simply and clearly presents the current offer and contact details.It simply and clearly presents the current offer and contact details.",
       technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
       image: "/projects/krainaslodyczy-ss.png",
-      logo: "/projects/krainaslodyczy-logo.png",
+      logo: "/projects/krainaslodyczy-logo.webp",
       websiteUrl: "https://kraina-slodyczy.pl",
       githubUrl: "https://github.com/hadoyyo/Kraina-Slodyczy-Website",
       galleryImages: [
@@ -258,7 +258,7 @@ export default function Home() {
         : "Applant is an application that allows you to manage and control activities related to potted plants. Its operation is supported by an external API that enables the implementation of many useful features.",
       technologies: ["Kotlin"],
       image: "/projects/applant-ss.png",
-      logo: "/projects/applant-logo.png",
+      logo: "/projects/applant-logo.webp",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Applant",
       galleryImages: [
@@ -371,7 +371,7 @@ export default function Home() {
         : "Energostat is a web application that provides users with information about energy consumption in various countries. The data is fetched from an external API and presented in a clear manner using charts and tables.",
       technologies: ["JavaScript", "React", "Express.js", "Node.js", "MySQL", "Docker"],
       image: "/projects/energostat-ss.png",
-      logo: "/projects/energostat-logo.png",
+      logo: "/projects/energostat-logo.webp",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Energostat",
       galleryImages: [
@@ -398,7 +398,7 @@ export default function Home() {
         : "Habita is a mobile application for the iOS platform that helps users track and manage their habits. It allows adding different types of habits and monitoring progress through charts and statistics.",
       technologies: ["Swift"],
       image: "/projects/habita-ss.png",
-      logo: "/projects/habita-logo.png",
+      logo: "/projects/habita-logo.webp",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Habita",
       galleryImages: [
@@ -424,7 +424,7 @@ export default function Home() {
         : "Pepper's is a web application created for a barbershop, allowing customers to book appointments online. The application enables browsing available time slots and managing bookings by the salon staff. An admin panel is also available for managing services, appointments, and employees.",
         technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
       image: "/projects/peppers-ss.png",
-      logo: "/projects/peppers-logo.png",
+      logo: "/projects/peppers-logo.webp",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Peppers-Barbershop-WebApp",
       galleryImages: [
@@ -451,7 +451,7 @@ export default function Home() {
         : "The website was created for McGranit, a company specializing in stonemasonry. The site aims to present the company's offerings and showcase completed projects.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       image: "/projects/mcgranit-ss.png",
-      logo: "/projects/mcgranit-logo.png",
+      logo: "/projects/mcgranit-logo.webp",
       websiteUrl: "https://mcgranit.com.pl",
       githubUrl: "https://github.com/hadoyyo/McGranit-Website",
       galleryImages: [
