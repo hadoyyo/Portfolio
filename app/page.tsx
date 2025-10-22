@@ -270,7 +270,12 @@ export default function Home() {
         "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss6.jpg",
         "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss7.jpg",
         "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss8.jpg",
-        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss9.jpg"
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss9.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss10.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss11.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss12.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss13.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Applant/refs/heads/identification-activities/ss/ss14.jpg"
       ]
     },
     {
