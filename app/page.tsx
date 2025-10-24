@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/navbar"
 import { ProjectDetailsPanel } from "@/components/project-modal"
-import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react"
+import { Github, Linkedin, Mail, Facebook, ArrowUpRight, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
 
@@ -87,7 +87,8 @@ export default function Home() {
       contact: {
         title: "Kontakt",
         description: "Masz pytania lub chcesz porozmawiać o projekcie? Skontaktuj się ze mną!",
-        email: "hubert.jedruchniewicz@interia.pl"
+        email: "Wyślij Email",
+        phone: "Napisz na WhatsApp"
       },
       footer: "© 2025 Hubert Jędruchniewicz. Wszystkie prawa zastrzeżone."
     },
@@ -149,7 +150,8 @@ export default function Home() {
       contact: {
         title: "Contact",
         description: "Have questions or want to discuss a project? Get in touch with me!",
-        email: "hubert.jedruchniewicz@interia.pl"
+        email: "Send Email",
+        phone: "Message on WhatsApp"
       },
       footer: "© 2025 Hubert Jędruchniewicz. All rights reserved."
     }
@@ -987,6 +989,15 @@ export default function Home() {
               <Mail className="h-5 w-5" />
               <span>{t.contact.email}</span>
             </a>
+            <a
+              href="https://wa.me/48883364605"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-6 py-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
+            >
+              <MessageCircle className="h-5 w-5" />
+              <span>{t.contact.phone}</span>
+            </a>
           </div>
 
           <div className="flex gap-6 justify-center">
@@ -1005,6 +1016,14 @@ export default function Home() {
               className="p-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
             >
               <Linkedin className="h-6 w-6" />
+            </a>
+            <a
+              href="https://www.facebook.com/hubert.jedruchniewicz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
+            >
+              <Facebook className="h-6 w-6" />
             </a>
           </div>
         </div>
