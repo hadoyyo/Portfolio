@@ -13,7 +13,7 @@ interface Project {
   technologies: string[]
   image: string
   logo: string
-  websiteUrl?: string
+  websiteUrl: string | null
   githubUrl?: string
   galleryImages?: string[]
 }
