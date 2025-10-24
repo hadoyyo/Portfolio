@@ -190,7 +190,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
       `}>
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-border">
+          <div className="flex items-center justify-between py-3 px-3 sm:px-6 border-border">
             <div className="flex items-center gap-1">
               <div className="w-24 h-24 rounded-lg flex items-center justify-center">
                 <img
@@ -200,7 +200,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
                 />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">{project.title}</h2>
+                <h2 className="text-2xl font-bold text-white mr-2">{project.title}</h2>
               </div>
             </div>
             
@@ -210,7 +210,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
               onClick={handleClose}
               className="text-white hover:text-white/80 hover:bg-white/10 cursor-pointer"
             >
-              <X className="h-6 w-6" />
+              <X className="h-8 w-8" />
             </Button>
           </div>
 

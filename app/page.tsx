@@ -90,7 +90,7 @@ export default function Home() {
         email: "Wyślij Email",
         phone: "Napisz na WhatsApp"
       },
-      footer: "© 2025 Hubert Jędruchniewicz. Wszystkie prawa zastrzeżone."
+      footer: "© 2025 Hubert Jędruchniewicz. Wszelkie prawa zastrzeżone."
     },
     en: {
       hero: {
