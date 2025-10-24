@@ -1,6 +1,44 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Definicja fontów BeVietnamPro */
+@font-face {
+  font-family: 'BeVietnamPro';
+  src: url('./fonts/BeVietnamPro-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BeVietnamPro';
+  src: url('./fonts/BeVietnamPro-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BeVietnamPro';
+  src: url('./fonts/BeVietnamPro-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BeVietnamPro';
+  src: url('./fonts/BeVietnamPro-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ustawienie BeVietnamPro jako domyślnej czcionki */
+:root {
+  font-family: 'BeVietnamPro', system-ui, sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -119,6 +157,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'BeVietnamPro', system-ui, sans-serif;
   }
 
   /* Całkowite ukrycie paska przewijania dla Webkit (Chrome, Safari, Edge) */

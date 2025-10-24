@@ -44,6 +44,7 @@ export default function Home() {
           "W wolnym czasie eksperymentuję z nowymi technologiami, tworzę proste gry komputerowe lub eksperymentuje w kuchni."
         ]
       },
+      technologies: "Stosowane technologie",
       skills: [
         {
           name: "React",
@@ -105,6 +106,7 @@ export default function Home() {
           "In my free time, I experiment with new technologies, create simple computer games, or experiment in the kitchen."
         ]
       },
+      technologies: "Technologies I use",
       skills: [
         {
           name: "React",
@@ -227,7 +229,7 @@ export default function Home() {
         : "Website for a person who bakes cakes and other sweets to order",
       longDescription: language === 'pl'
         ? "Strona internetowa „Kraina Słodyczy” jest miejscem, którego głównym celem jest zaprezentowanie dotychczasowych wypieków właścicielki, w celu zachęcenia nowych klientów do skorzystania z jej usług. W prosty i przejrzysty sposób przedstawia aktualną ofertę oraz dane kontaktowe."
-        : "The „Kraina Słodyczy” website is a place whose main purpose is to showcase the owner's previous baked goods in order to encourage new customers to use her services. It simply and clearly presents the current offer and contact details.It simply and clearly presents the current offer and contact details.",
+        : "The „Kraina Słodyczy” website is a place whose main purpose is to showcase the owner's previous baked goods in order to encourage new customers to use her services. It simply and clearly presents the current offer and contact details.",
       technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
       image: "/projects/krainaslodyczy-ss.webp",
       logo: "/projects/krainaslodyczy-logo.webp",
@@ -631,7 +633,7 @@ export default function Home() {
             </div>
           </div>
           
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance">{t.hero.title}</h1>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance">{t.hero.title}</h1>
           <p className="text-xl sm:text-2xl text-gray-300 mb-8 text-balance">
             {t.hero.subtitle}
           </p>
@@ -669,7 +671,8 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <h2 className="mt-12 mb-8 text-2xl sm:text-3xl font-bold">{t.technologies}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {skills.map((skill, index) => (
               <div
                 key={skill.name}
