@@ -320,10 +320,10 @@ export default function Home() {
                           );
                         })}
                       </div>
-                      <div className="pt-6">
+                      <div className="pt-6 inline-flex gap-4 items-center">
                         <Button
                           size="lg"
-                          className="rounded-lg cursor-pointer mr-4"
+                          className="rounded-lg cursor-pointer"
                           variant="default"
                           onClick={() => handleProjectDetails(project)}
                         >
@@ -333,6 +333,7 @@ export default function Home() {
                           size="lg"
                           className="rounded-lg gray-btn cursor-pointer"
                           variant="outline"
+                          onClick={() => window.open(project.githubUrl, '_blank')}
                         >
                           <Github className="mr-2 h-4 w-4" />
                           {t.projects.githubButton}
@@ -453,6 +454,7 @@ export default function Home() {
                         size="lg"
                         className="rounded-lg gray-btn cursor-pointer flex-1"
                         variant="outline"
+                        onClick={() => window.open(project.githubUrl, '_blank')}
                       >
                         <Github className="mr-2 h-4 w-4" />
                         {t.projects.githubButton}
