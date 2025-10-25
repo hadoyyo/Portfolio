@@ -6,7 +6,10 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Portfolio | Hubert Jędruchniewicz",
-  description: "Portfolio of a web and mobile developer"
+  description: "Portfolio of a web and mobile developer",
+  icons: {
+    icon: "/favicon.ico"
+  }
 }
 
 export default function RootLayout({
