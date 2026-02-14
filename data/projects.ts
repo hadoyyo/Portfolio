@@ -19,8 +19,45 @@ export interface ProjectDetailsPanelProps {
 }
 
 export const getProjects = (language: 'pl' | 'en'): Project[] => [
-    {
+  {
       id: 1,
+      title: "PetStaytion",
+      description: language === 'pl' 
+        ? "Mobilna wersja aplikacji zaprojektowanej do łączenia usługodawców z właścicielami zwierząt" 
+        : "Mobile version of an app designed to connect service providers with pet owners",
+      longDescription: language === 'pl'
+        ? "PetStaytion to platforma zaprojektowana w celu łączenia lokalnych dostawców usług dla zwierząt z właścicielami poszukującymi zaufanej opieki i usług dla swoich pupili. Platforma ma na celu uproszczenie procesu oferowania , wyszukiwania i rezerwowania usług związanych ze zwierzętami."
+        : "PetStaytion is an advertising platform designed to connect local pet service providers with pet owners seeking trusted care and services for their animals. The platform aims to simplify discovering, offering, and booking pet-related services within local communities.",
+      technologies: ["TypeScript", "React Native", "Expo"],
+      image: "/projects/petstaytion-ss.webp",
+      logo: "/projects/petstaytion-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/PetStaytion-App",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss7.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss8.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss9.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss10.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss11.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss12.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss13.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss14.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss15.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss16.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss17.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss18.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss19.png",
+        "https://raw.githubusercontent.com/hadoyyo/PetStaytion-App/main/ss/ss20.png",
+      ]
+    },
+    {
+      id: 2,
       title: "Zimori",
       description: language === 'pl' 
         ? "Aplikacja internetowa do symulacji ekosystemów" 
@@ -49,7 +86,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 2,
+      id: 3,
       title: "Kraina Słodyczy",
       description: language === 'pl' 
         ? "Strona internetowa dla osoby, która piecze ciasta i inne słodkości na zamówienie"
@@ -77,7 +114,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 3,
+      id: 4,
       title: "Applant",
       description: language === 'pl'
         ? "Aplikacja na telefony z systemem Android do kontrolowania częstotliwości podlewania roślin"
@@ -108,7 +145,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: "LitePay",
       description: language === 'pl'
         ? "Aplikacja internetowa do śledzenia i dzielenia się wydatkami grupowymi"
@@ -140,7 +177,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 5,
+      id: 6,
       title: "Pasieka Korona",
       description: language === 'pl'
         ? "Strona stworzona w celu promowania firmy zajmującej się sprzedażą miodu i innych produktów pszczelich"
@@ -167,7 +204,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 6,
+      id: 7,
       title: "Serwolift",
       description: language === 'pl'
         ? "Strona dla firmy zajmującej się serwisowaniem urządzeń transportu bliskiego"
@@ -190,7 +227,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 7,
+      id: 8,
       title: "Energostat",
       description: language === 'pl'
         ? "Prosta usługa dostarczająca informacji na temat zużycia energii w różnych krajach"
@@ -217,7 +254,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 8,
+      id: 9,
       title: "Habita",
       description: language === 'pl'
         ? "Aplikacja do śledzenia nawyków na platformę iOS"
@@ -243,7 +280,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 9,
+      id: 10,
       title: "Pepper's",
       description: language === 'pl'
         ? "Aplikacja internetowa do zarządzania rezerwacjami w salonie fryzjerskim"
@@ -270,7 +307,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 10,
+      id: 11,
       title: "McGranit",
       description: language === 'pl'
         ? "Strona internetowa firmy zajmującej się kamieniarstwem"
@@ -295,7 +332,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 11,
+      id: 12,
       title: "SuperLift24",
       description: language === 'pl'
         ? "Strona internetowa dla firmy wynajmującej podnośniki, wózki widłowe i dźwigi"
@@ -318,7 +355,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 12,
+      id: 13,
       title: "Brakeless",
       description: language === 'pl'
         ? "Gra zręcznościowa na platformę iOS"
@@ -346,7 +383,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
     },
 
     {
-      id: 13,
+      id: 14,
       title: "Koodly",
       description: language === 'pl'
         ? "Aplikacja internetowa, która sugeruje najbardziej pasujące przepisy na podstawie wybranych składników"

@@ -87,7 +87,7 @@ export default function Home() {
 
       const scrollPosition = window.scrollY;
       const projectsSection = projectsRef.current;
-      const sectionTop = projectsSection.offsetTop - 400;
+      const sectionTop = projectsSection.offsetTop - 450;
       const sectionHeight = projectsSection.offsetHeight;
 
       const scrollProgress = (scrollPosition - sectionTop) / sectionHeight;
@@ -284,6 +284,7 @@ export default function Home() {
                           const getTechLogo = (techName: string) => {
                             const logoMap: { [key: string]: string } = {
                               "React": "/react-logo.png",
+                              "React Native": "/react-logo.png",
                               "Next.js": "/nextjs-logo.png",
                               "TypeScript": "/typescript-logo.png",
                               "Node.js": "/nodejs-logo.webp",
@@ -301,6 +302,7 @@ export default function Home() {
                               "HTML": "/html-logo.png",
                               "CSS": "/css-logo.png",
                               "Bootstrap": "bootstrap-logo.svg",
+                              "Expo": "/expo-logo.png"
                             };
                             return logoMap[techName] || "/other-bg.png";
                           };
@@ -404,6 +406,7 @@ export default function Home() {
                         const getTechLogo = (techName: string) => {
                           const logoMap: { [key: string]: string } = {
                             "React": "/react-logo.png",
+                            "React Native": "/react-logo.png",
                             "Next.js": "/nextjs-logo.png",
                             "TypeScript": "/typescript-logo.png",
                             "Node.js": "/nodejs-logo.webp",
@@ -421,6 +424,7 @@ export default function Home() {
                             "HTML": "/html-logo.png",
                             "CSS": "/css-logo.png",
                             "Bootstrap": "bootstrap-logo.svg",
+                            "Expo": "/expo-logo.png"
                           };
                           return logoMap[techName] || "/other-bg.png";
                         };

@@ -151,6 +151,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
   const getTechLogo = (techName: string) => {
     const logoMap: { [key: string]: string } = {
       "React": "/react-logo.png",
+      "React Native": "/react-logo.png",
       "Next.js": "/nextjs-logo.png",
       "TypeScript": "/typescript-logo.png",
       "Node.js": "/nodejs-logo.webp",
@@ -168,6 +169,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
       "HTML": "/html-logo.png",
       "CSS": "/css-logo.png",
       "Bootstrap": "/bootstrap-logo.svg",
+      "Expo": "/expo-logo.png"
     }
     return logoMap[techName] || "/other-bg.png"
   }
