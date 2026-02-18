@@ -199,8 +199,9 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss6.png",
         "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss7.png",
         "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss8.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss9.jpg",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss10.jpg"
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss9.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss10.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss11.jpg"
       ]
     },
     {

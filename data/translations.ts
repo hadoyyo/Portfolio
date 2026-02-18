@@ -62,7 +62,7 @@ export const translations = {
         email: "Wyślij Email",
         phone: "Napisz na WhatsApp"
       },
-      footer: "© 2025 Hubert Jędruchniewicz. Wszelkie prawa zastrzeżone."
+      footer: "© 2026 Hubert Jędruchniewicz. Wszelkie prawa zastrzeżone."
     },
     en: {
       hero: {
@@ -125,6 +125,6 @@ export const translations = {
         email: "Send Email",
         phone: "Message on WhatsApp"
       },
-      footer: "© 2025 Hubert Jędruchniewicz. All rights reserved."
+      footer: "© 2026 Hubert Jędruchniewicz. All rights reserved."
     }
   };
