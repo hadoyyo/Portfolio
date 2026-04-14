@@ -17,7 +17,7 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>('pl');
   const projectsRef = useRef<HTMLDivElement>(null);
   
-  const otherLogos = ["/git-logo.png", "/express-logo.webp", "bootstrap-logo.svg", "/docker-logo.png", "/mongodb-logo.svg", "/typescript-logo.png", "/mysql-logo.png", "/python-logo.svg", "/nextjs-logo.png", "/tailwind-logo.svg", "php-logo.png"];
+  const otherLogos = ["/Portfolio/git-logo.png", "/Portfolio/express-logo.webp", "/Portfolio/bootstrap-logo.svg", "/Portfolio/docker-logo.png", "/Portfolio/mongodb-logo.svg", "/Portfolio/typescript-logo.png", "/Portfolio/mysql-logo.png", "/Portfolio/python-logo.svg", "/Portfolio/nextjs-logo.png", "/Portfolio/tailwind-logo.svg", "/Portfolio/php-logo.png"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,24 +36,24 @@ export default function Home() {
   const skills = t.skills.map((skill, index) => ({
     ...skill,
     logo: [
-      "/react-logo.png",
-      "/kotlin-logo.png",
-      "/js-logo.svg",
-      "/nodejs-logo.webp",
-      "/swift-logo.svg",
-      "/css-logo.png",
-      "/html-logo.png",
+      "/Portfolio/react-logo.png",
+      "/Portfolio/kotlin-logo.png",
+      "/Portfolio/js-logo.svg",
+      "/Portfolio/nodejs-logo.webp",
+      "/Portfolio/swift-logo.svg",
+      "/Portfolio/css-logo.png",
+      "/Portfolio/html-logo.png",
       otherLogos[currentOtherLogo]
     ][index],
     background: [
-      "/react-bg.webp",
-      "/kotlin-bg.webp",
-      "/javascript-bg.webp",
-      "/nodejs-bg.webp",
-      "/swift-bg.webp",
-      "/css-bg.webp",
-      "/html-bg.webp",
-      "/other-bg.webp"
+      "/Portfolio/react-bg.webp",
+      "/Portfolio/kotlin-bg.webp",
+      "/Portfolio/javascript-bg.webp",
+      "/Portfolio/nodejs-bg.webp",
+      "/Portfolio/swift-bg.webp",
+      "/Portfolio/css-bg.webp",
+      "/Portfolio/html-bg.webp",
+      "/Portfolio/other-bg.webp"
     ][index],
     hoverBorder: [
       "hover:border-blue-400/60",
@@ -125,7 +125,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 sm:hidden"
           style={{
-            backgroundImage: 'url(/background-mobile.webp)',
+            backgroundImage: 'url(/Portfolio/background-mobile.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -135,7 +135,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 hidden sm:block"
           style={{
-            backgroundImage: 'url(/background-main.webp)',
+            backgroundImage: 'url(/Portfolio/background-main.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -149,7 +149,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative rounded-full p-1 bg-gradient-to-r from-blue-800 to-green-700 animate-gradient-x">
                 <img
-                  src="/profile.jpg"
+                  src="/Portfolio/profile.jpg"
                   alt="Hubert Jędruchniewicz"
                   className="w-22 h-22 sm:w-26 sm:h-26 rounded-full object-cover shadow-lg border-background"
                 />
@@ -283,28 +283,28 @@ export default function Home() {
                         {project.technologies.map((tech) => {
                           const getTechLogo = (techName: string) => {
                             const logoMap: { [key: string]: string } = {
-                              "React": "/react-logo.png",
-                              "React Native": "/react-logo.png",
-                              "Next.js": "/nextjs-logo.png",
-                              "TypeScript": "/typescript-logo.png",
-                              "Node.js": "/nodejs-logo.webp",
-                              "MongoDB": "/mongodb-logo.svg",
-                              "Express.js": "/express-logo.webp",
-                              "PostgreSQL": "/postgresql-logo.png",
-                              "MySQL": "/mysql-logo.png",
-                              "Docker": "/docker-logo.png",
-                              "Tailwind": "/tailwind-logo.svg",
-                              "Kotlin": "/kotlin-logo.png",
-                              "Swift": "/swift-logo.svg",
-                              "JavaScript": "/js-logo.svg",
-                              "Python": "/python-logo.svg",
-                              "PHP": "/php-logo.png",
-                              "HTML": "/html-logo.png",
-                              "CSS": "/css-logo.png",
-                              "Bootstrap": "bootstrap-logo.svg",
-                              "Expo": "/expo-logo.png"
+                              "React": "/Portfolio/react-logo.png",
+                              "React Native": "/Portfolio/react-logo.png",
+                              "Next.js": "/Portfolio/nextjs-logo.png",
+                              "TypeScript": "/Portfolio/typescript-logo.png",
+                              "Node.js": "/Portfolio/nodejs-logo.webp",
+                              "MongoDB": "/Portfolio/mongodb-logo.svg",
+                              "Express.js": "/Portfolio/express-logo.webp",
+                              "PostgreSQL": "/Portfolio/postgresql-logo.png",
+                              "MySQL": "/Portfolio/mysql-logo.png",
+                              "Docker": "/Portfolio/docker-logo.png",
+                              "Tailwind": "/Portfolio/tailwind-logo.svg",
+                              "Kotlin": "/Portfolio/kotlin-logo.png",
+                              "Swift": "/Portfolio/swift-logo.svg",
+                              "JavaScript": "/Portfolio/js-logo.svg",
+                              "Python": "/Portfolio/python-logo.svg",
+                              "PHP": "/Portfolio/php-logo.png",
+                              "HTML": "/Portfolio/html-logo.png",
+                              "CSS": "/Portfolio/css-logo.png",
+                              "Bootstrap": "/Portfolio/bootstrap-logo.svg",
+                              "Expo": "/Portfolio/expo-logo.png"
                             };
-                            return logoMap[techName] || "/other-bg.png";
+                            return logoMap[techName] || "/Portfolio/other-bg.png";
                           };
 
                           return (
@@ -405,28 +405,28 @@ export default function Home() {
                       {project.technologies.map((tech) => {
                         const getTechLogo = (techName: string) => {
                           const logoMap: { [key: string]: string } = {
-                            "React": "/react-logo.png",
-                            "React Native": "/react-logo.png",
-                            "Next.js": "/nextjs-logo.png",
-                            "TypeScript": "/typescript-logo.png",
-                            "Node.js": "/nodejs-logo.webp",
-                            "MongoDB": "/mongodb-logo.svg",
-                            "Express.js": "/express-logo.webp",
-                            "PostgreSQL": "/postgresql-logo.png",
-                            "MySQL": "/mysql-logo.png",
-                            "Docker": "/docker-logo.png",
-                            "Tailwind": "/tailwind-logo.svg",
-                            "Kotlin": "/kotlin-logo.png",
-                            "Swift": "/swift-logo.svg",
-                            "JavaScript": "/js-logo.svg",
-                            "Python": "/python-logo.svg",
-                            "PHP": "/php-logo.png",
-                            "HTML": "/html-logo.png",
-                            "CSS": "/css-logo.png",
-                            "Bootstrap": "bootstrap-logo.svg",
-                            "Expo": "/expo-logo.png"
+                            "React": "/Portfolio/react-logo.png",
+                            "React Native": "/Portfolio/react-logo.png",
+                            "Next.js": "/Portfolio/nextjs-logo.png",
+                            "TypeScript": "/Portfolio/typescript-logo.png",
+                            "Node.js": "/Portfolio/nodejs-logo.webp",
+                            "MongoDB": "/Portfolio/mongodb-logo.svg",
+                            "Express.js": "/Portfolio/express-logo.webp",
+                            "PostgreSQL": "/Portfolio/postgresql-logo.png",
+                            "MySQL": "/Portfolio/mysql-logo.png",
+                            "Docker": "/Portfolio/docker-logo.png",
+                            "Tailwind": "/Portfolio/tailwind-logo.svg",
+                            "Kotlin": "/Portfolio/kotlin-logo.png",
+                            "Swift": "/Portfolio/swift-logo.svg",
+                            "JavaScript": "/Portfolio/js-logo.svg",
+                            "Python": "/Portfolio/python-logo.svg",
+                            "PHP": "/Portfolio/php-logo.png",
+                            "HTML": "/Portfolio/html-logo.png",
+                            "CSS": "/Portfolio/css-logo.png",
+                            "Bootstrap": "/Portfolio/bootstrap-logo.svg",
+                            "Expo": "/Portfolio/expo-logo.png"
                           };
-                          return logoMap[techName] || "/other-bg.png";
+                          return logoMap[techName] || "/Portfolio/other-bg.png";
                         };
 
                         return (
@@ -482,7 +482,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 sm:hidden"
           style={{
-            backgroundImage: 'url(/background-contact-mobile.webp)',
+            backgroundImage: 'url(/Portfolio/background-contact-mobile.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -493,7 +493,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 hidden sm:block"
           style={{
-            backgroundImage: 'url(/background-contact.webp)',
+            backgroundImage: 'url(/Portfolio/background-contact.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

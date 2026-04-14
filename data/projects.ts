@@ -29,8 +29,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "PetStaytion to platforma zaprojektowana w celu łączenia lokalnych dostawców usług dla zwierząt z właścicielami poszukującymi zaufanej opieki i usług dla swoich pupili. Platforma ma na celu uproszczenie procesu oferowania , wyszukiwania i rezerwowania usług związanych ze zwierzętami."
         : "PetStaytion is an advertising platform designed to connect local pet service providers with pet owners seeking trusted care and services for their animals. The platform aims to simplify discovering, offering, and booking pet-related services within local communities.",
       technologies: ["TypeScript", "React Native", "Expo"],
-      image: "/projects/petstaytion-ss.webp",
-      logo: "/projects/petstaytion-logo.png",
+      image: "/Portfolio/projects/petstaytion-ss.webp",
+      logo: "/Portfolio/projects/petstaytion-logo.png",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/PetStaytion-App",
       galleryImages: [
@@ -66,8 +66,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Zimori to aplikacja internetowa służąca do symulacji ekosystemów, w której użytkownicy mogą ręcznie dostosowywać właściwości środowiska w celu osiągnięcia równowagi. Każda symulacja odbywa się w czasie rzeczywistym, a użytkownicy mają dostęp do statystyk dotyczących całego ekosystemu i poszczególnych obiektów."
         : "Zimori is a web application for ecosystem simulations where users can manually adjust environment properties to achieve balance. Each simulation runs in real-time, and users have access to statistics for the entire ecosystem and individual objects.",
       technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
-      image: "/projects/zimori-ss.webp",
-      logo: "/projects/zimori-logo.png",
+      image: "/Portfolio/projects/zimori-ss.webp",
+      logo: "/Portfolio/projects/zimori-logo.png",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Zimori",
       galleryImages: [
@@ -95,8 +95,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Strona internetowa „Kraina Słodyczy” jest miejscem, którego głównym celem jest zaprezentowanie dotychczasowych wypieków właścicielki, w celu zachęcenia nowych klientów do skorzystania z jej usług. W prosty i przejrzysty sposób przedstawia aktualną ofertę oraz dane kontaktowe."
         : "The „Kraina Słodyczy” website is a place whose main purpose is to showcase the owner's previous baked goods in order to encourage new customers to use her services. It simply and clearly presents the current offer and contact details.",
       technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
-      image: "/projects/krainaslodyczy-ss.webp",
-      logo: "/projects/krainaslodyczy-logo.webp",
+      image: "/Portfolio/projects/krainaslodyczy-ss.webp",
+      logo: "/Portfolio/projects/krainaslodyczy-logo.webp",
       websiteUrl: "https://kraina-slodyczy.pl",
       githubUrl: "https://github.com/hadoyyo/Kraina-Slodyczy-Website",
       galleryImages: [
@@ -123,8 +123,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Applant to aplikacja, która pozwala zarządzać i kontrolować czynności wykonywane związane z roślinami doniczkowymi. Jej działanie jest wspierane przez zewnętrzny interfejs API, który umożliwia wdrożenie wielu przydatnych funkcji."
         : "Applant is an application that allows you to manage and control activities related to potted plants. Its operation is supported by an external API that enables the implementation of many useful features.",
       technologies: ["Kotlin"],
-      image: "/projects/applant-ss.webp",
-      logo: "/projects/applant-logo.webp",
+      image: "/Portfolio/projects/applant-ss.webp",
+      logo: "/Portfolio/projects/applant-logo.webp",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Applant",
       galleryImages: [
@@ -154,8 +154,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "LitePay to aplikacja internetowa zbudowana w oparciu o stos MERN (MongoDB, Express, React, Node.js), która ułatwia dzielenie się wydatkami z przyjaciółmi, rodziną lub współlokatorami. Pozwala użytkownikom szybko ustalić, kto jest komu winien i ile po spotkaniu, podróży lub innym wydarzeniu. Dodatkowo zapewnia statystyki związane z zarządzaniem osobistymi finansami."
         : "LitePay is a web application built with the MERN stack (MongoDB, Express, React, Node.js) that makes it easy to split expenses with friends, family, or roommates. It allows users to quickly determine who owes whom and how much after a meeting, trip other event. Additionally, it provides statistics related to personal money management.",
       technologies: ["JavaScript", "React", "Express.js", "Node.js", "MongoDB"],
-      image: "/projects/litepay-ss.webp",
-      logo: "/projects/litepay-logo.png",
+      image: "/Portfolio/projects/litepay-ss.webp",
+      logo: "/Portfolio/projects/litepay-logo.png",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/LitePay-WebApp",
       galleryImages: [
@@ -186,8 +186,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Strona internetowa została stworzona dla właściciela pasieki w celu bezpośredniej sprzedaży miodu i innych produktów pszczelich. Sklep został wykonany samodzielnie, bez pomocy oprogramowania takiego jak Shopify czy WooCommerce."
         : "The website was created for a beekeeper to directly sell honey and other bee products. The store was built independently, without the help of software such as Shopify or WooCommerce.",
         technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-      image: "/projects/pasieka-ss.webp",
-      logo: "/projects/pasieka-logo.png",
+      image: "/Portfolio/projects/pasieka-ss.webp",
+      logo: "/Portfolio/projects/pasieka-logo.png",
       websiteUrl: "https://pasiekakorona.pl",
       githubUrl: "https://github.com/hadoyyo/LitePay-WebApp",
       galleryImages: [
@@ -214,8 +214,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Strona internetowa została stworzona dla firmy Serwolift, która specjalizuje się w serwisowaniu urządzeń transportu bliskiego, takich jak podnośniki, wózki widłowe i suwnice. Strona ma na celu przedstawienie oferty firmy oraz umożliwienie klientom łatwego kontaktu."
         : "The website was created for Serwolift, a company specializing in servicing material handling equipment such as lifts, forklifts, and cranes. The site aims to present the company's offerings and facilitate easy contact for clients.",
         technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
-      image: "/projects/serwolift-ss.webp",
-      logo: "/projects/serwolift-logo.png",
+      image: "/Portfolio/projects/serwolift-ss.webp",
+      logo: "/Portfolio/projects/serwolift-logo.png",
       websiteUrl: "https://serwolift.pl",
       githubUrl: "https://github.com/hadoyyo/Serwo-Website",
       galleryImages: [
@@ -237,8 +237,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Energostat to aplikacja internetowa, która dostarcza użytkownikom informacji na temat zużycia energii w różnych krajach. Dane są pobierane z zewnętrznego API i prezentowane w czytelny sposób za pomocą wykresów i tabel."
         : "Energostat is a web application that provides users with information about energy consumption in various countries. The data is fetched from an external API and presented in a clear manner using charts and tables.",
       technologies: ["JavaScript", "React", "Express.js", "Node.js", "MySQL", "Docker"],
-      image: "/projects/energostat-ss.webp",
-      logo: "/projects/energostat-logo.webp",
+      image: "/Portfolio/projects/energostat-ss.webp",
+      logo: "/Portfolio/projects/energostat-logo.webp",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Energostat",
       galleryImages: [
@@ -264,8 +264,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Habita to aplikacja mobilna na platformę iOS, która pomaga użytkownikom śledzić i zarządzać swoimi nawykami. Umożliwia dodawanie różnych typów nawyków oraz monitorowanie postępów za pomocą wykresów i statystyk."
         : "Habita is a mobile application for the iOS platform that helps users track and manage their habits. It allows adding different types of habits and monitoring progress through charts and statistics.",
       technologies: ["Swift"],
-      image: "/projects/habita-ss.webp",
-      logo: "/projects/habita-logo.webp",
+      image: "/Portfolio/projects/habita-ss.webp",
+      logo: "/Portfolio/projects/habita-logo.webp",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Habita",
       galleryImages: [
@@ -290,8 +290,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Pepper's to aplikacja internetowa stworzona dla salonu fryzjerskiego, umożliwiająca klientom rezerwację wizyt online. Aplikacja pozwala na przeglądanie dostępnych terminów oraz zarządzanie rezerwacjami przez personel salonu. Dostępny jest również panel administracyjny do zarządzania usługami, wizytami i pracownikami."
         : "Pepper's is a web application created for a barbershop, allowing customers to book appointments online. The application enables browsing available time slots and managing bookings by the salon staff. An admin panel is also available for managing services, appointments, and employees.",
         technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
-      image: "/projects/peppers-ss.webp",
-      logo: "/projects/peppers-logo.webp",
+      image: "/Portfolio/projects/peppers-ss.webp",
+      logo: "/Portfolio/projects/peppers-logo.webp",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Peppers-Barbershop-WebApp",
       galleryImages: [
@@ -317,8 +317,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Strona internetowa została stworzona dla firmy McGranit, która specjalizuje się w kamieniarstwie. Strona ma na celu przedstawienie oferty firmy oraz przedstawienie realizacji wykonanych projektów."
         : "The website was created for McGranit, a company specializing in stonemasonry. The site aims to present the company's offerings and showcase completed projects.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-      image: "/projects/mcgranit-ss.webp",
-      logo: "/projects/mcgranit-logo.webp",
+      image: "/Portfolio/projects/mcgranit-ss.webp",
+      logo: "/Portfolio/projects/mcgranit-logo.webp",
       websiteUrl: "https://mcgranit.com.pl",
       githubUrl: "https://github.com/hadoyyo/McGranit-Website",
       galleryImages: [
@@ -342,8 +342,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Strona internetowa została stworzona dla firmy SuperLift, która specjalizuje się w wynajmie podnośników, wózków widłowych i ładowarek teleskopowych. Głównym celem strony jest przedstawienie danych technicznych oferowanego sprzętu."
         : "The website was created for SuperLift, a company specializing in the rental of lifts, forklifts and telescopic loaders. The main purpose of the site is to present the technical data of the offered equipment.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-      image: "/projects/superlift24-ss.webp",
-      logo: "/projects/superlift24-logo.png",
+      image: "/Portfolio/projects/superlift24-ss.webp",
+      logo: "/Portfolio/projects/superlift24-logo.png",
       websiteUrl: "https://superlift24.pl",
       githubUrl: "https://github.com/hadoyyo/SuperLift24-Portfolio-Website",
       galleryImages: [
@@ -365,8 +365,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Brakeless to gra zręcznościowa na platformę iOS, w której gracz steruje samochodem, unikając przeszkód napotkanych na drodze i zbierając monety i ulepszenia. Gra oferuje proste, ale wciągające mechaniki rozgrywki oraz prostą oprawę graficzną."
         : "Brakeless is an arcade game for the iOS platform where the player controls a car, avoiding obstacles encountered on the road and collecting coins and power-ups. The game offers simple yet engaging gameplay mechanics and simple graphics.",
         technologies: ["Swift"],
-      image: "/projects/brakeless-ss.webp",
-      logo: "/projects/brakeless-logo.png",
+      image: "/Portfolio/projects/brakeless-ss.webp",
+      logo: "/Portfolio/projects/brakeless-logo.png",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Brakeless",
       galleryImages: [
@@ -393,8 +393,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Koodly to aplikacja internetowa, która pomaga użytkownikom znaleźć przepisy kulinarne na podstawie składników, które mają pod ręką. Użytkownicy mogą wprowadzić składniki, a aplikacja zasugeruje przepisy, które można z nich przygotować."
         : "Koodly is a web application that helps users find culinary recipes based on the ingredients they have on hand. Users can input ingredients, and the application will suggest recipes that can be prepared from them.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-      image: "/projects/koodly-ss.webp",
-      logo: "/projects/koodly-logo.png",
+      image: "/Portfolio/projects/koodly-ss.webp",
+      logo: "/Portfolio/projects/koodly-logo.png",
       websiteUrl: null,
       githubUrl: "https://github.com/hadoyyo/Koodly-WebApp",
       galleryImages: [
