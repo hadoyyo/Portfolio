@@ -150,26 +150,26 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
 
   const getTechLogo = (techName: string) => {
     const logoMap: { [key: string]: string } = {
-      "React": "/react-logo.png",
-      "React Native": "/react-logo.png",
-      "Next.js": "/nextjs-logo.png",
-      "TypeScript": "/typescript-logo.png",
-      "Node.js": "/nodejs-logo.webp",
-      "MongoDB": "/mongodb-logo.svg",
-      "Express.js": "/express-logo.webp",
-      "PostgreSQL": "/postgresql-logo.png",
-      "MySQL": "/mysql-logo.png",
-      "Docker": "/docker-logo.png",
-      "Tailwind": "/tailwind-logo.svg",
-      "Kotlin": "/kotlin-logo.png",
-      "Swift": "/swift-logo.svg",
-      "JavaScript": "/js-logo.svg",
-      "Python": "/python-logo.svg",
-      "PHP": "/php-logo.png",
-      "HTML": "/html-logo.png",
-      "CSS": "/css-logo.png",
-      "Bootstrap": "/bootstrap-logo.svg",
-      "Expo": "/expo-logo.png"
+      "React": "/Portfolio/react-logo.png",
+      "React Native": "/Portfolio/react-logo.png",
+      "Next.js": "/Portfolio/nextjs-logo.png",
+      "TypeScript": "/Portfolio/typescript-logo.png",
+      "Node.js": "/Portfolio/nodejs-logo.webp",
+      "MongoDB": "/Portfolio/mongodb-logo.svg",
+      "Express.js": "/Portfolio/express-logo.webp",
+      "PostgreSQL": "/Portfolio/postgresql-logo.png",
+      "MySQL": "/Portfolio/mysql-logo.png",
+      "Docker": "/Portfolio/docker-logo.png",
+      "Tailwind": "/Portfolio/tailwind-logo.svg",
+      "Kotlin": "/Portfolio/kotlin-logo.png",
+      "Swift": "/Portfolio/swift-logo.svg",
+      "JavaScript": "/Portfolio/js-logo.svg",
+      "Python": "/Portfolio/python-logo.svg",
+      "PHP": "/Portfolio/php-logo.png",
+      "HTML": "/Portfolio/html-logo.png",
+      "CSS": "/Portfolio/css-logo.png",
+      "Bootstrap": "/Portfolio/bootstrap-logo.svg",
+      "Expo": "/Portfolio/expo-logo.png"
     }
     return logoMap[techName] || "/other-bg.png"
   }
