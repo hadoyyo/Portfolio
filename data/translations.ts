@@ -54,7 +54,7 @@ export const translations = {
       projects: {
         title: "Projekty",
         moreButton: "Więcej",
-        githubButton: "Github"
+        githubButton: "GitHub"
       },
       contact: {
         title: "Kontakt",
@@ -117,7 +117,7 @@ export const translations = {
       projects: {
         title: "Projects",
         moreButton: "More",
-        githubButton: "Github"
+        githubButton: "GitHub"
       },
       contact: {
         title: "Contact",
