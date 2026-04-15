@@ -26,7 +26,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         ? "Mobilna wersja aplikacji zaprojektowanej do łączenia usługodawców z właścicielami zwierząt" 
         : "Mobile version of an app designed to connect service providers with pet owners",
       longDescription: language === 'pl'
-        ? "PetStaytion to platforma zaprojektowana w celu łączenia lokalnych dostawców usług dla zwierząt z właścicielami poszukującymi zaufanej opieki i usług dla swoich pupili. Platforma ma na celu uproszczenie procesu oferowania , wyszukiwania i rezerwowania usług związanych ze zwierzętami."
+        ? "PetStaytion to platforma zaprojektowana w celu łączenia lokalnych dostawców usług dla zwierząt z właścicielami poszukującymi zaufanej opieki i usług dla swoich pupili. Platforma ma na celu uproszczenie procesu oferowania, wyszukiwania i rezerwowania usług związanych ze zwierzętami."
         : "PetStaytion is an advertising platform designed to connect local pet service providers with pet owners seeking trusted care and services for their animals. The platform aims to simplify discovering, offering, and booking pet-related services within local communities.",
       technologies: ["TypeScript", "React Native", "Expo"],
       image: "/Portfolio/projects/petstaytion-ss.webp",
@@ -180,7 +180,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       id: 6,
       title: "Pasieka Korona",
       description: language === 'pl'
-        ? "Strona stworzona w celu promowania firmy zajmującej się sprzedażą miodu i innych produktów pszczelich"
+        ? "Strona stworzona w celu promowania pasieki sprzedającej miód i inne produkty pszczele"
         : "Website created to promote a business selling honey and other bee products",
       longDescription: language === 'pl'
         ? "Strona internetowa została stworzona dla właściciela pasieki w celu bezpośredniej sprzedaży miodu i innych produktów pszczelich. Sklep został wykonany samodzielnie, bez pomocy oprogramowania takiego jak Shopify czy WooCommerce."
