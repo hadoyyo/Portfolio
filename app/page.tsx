@@ -119,7 +119,7 @@ export default function Home() {
         if (activeProjectIndex >= 0 && activeProjectIndex < projects.length) {
           setActiveProject(activeProjectIndex + 1);
         }
-      }, 100);
+      }, 20);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
