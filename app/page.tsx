@@ -82,22 +82,44 @@ export default function Home() {
   };
 
   useEffect(() => {
+    let timeoutId: number;
+    
+    const switchThresholds = [0, 8, 14, 21.5, 27, 34, 40, 47, 53.5, 60, 67, 73, 79, 86, 92];
+    
     const handleScroll = () => {
-      if (!projectsRef.current) return;
-
-      const scrollPosition = window.scrollY;
-      const projectsSection = projectsRef.current;
-      const sectionTop = projectsSection.offsetTop - 450;
-      const sectionHeight = projectsSection.offsetHeight;
-
-      const scrollProgress = (scrollPosition - sectionTop) / sectionHeight;
+      clearTimeout(timeoutId);
       
-      const acceleratedProgress = Math.pow(scrollProgress, 1);
-      const projectIndex = Math.floor(acceleratedProgress * projects.length);
+      timeoutId = setTimeout(() => {
+        if (!projectsRef.current) return;
 
-      if (projectIndex >= 0 && projectIndex < projects.length) {
-        setActiveProject(projectIndex + 1);
-      }
+        const scrollPosition = window.scrollY;
+        const projectsSection = projectsRef.current;
+        const windowHeight = window.innerHeight;
+        
+        const sectionTop = projectsSection.offsetTop;
+        const sectionHeight = projectsSection.offsetHeight;
+        const sectionBottom = sectionTop + sectionHeight;
+        const viewportCenter = scrollPosition + windowHeight / 2;
+
+        if (viewportCenter < sectionTop || viewportCenter > sectionBottom) {
+          return;
+        }
+
+        const scrollProgress = (viewportCenter - sectionTop) / sectionHeight;
+        const progressPercent = scrollProgress * 100;
+        
+        let activeProjectIndex = 0;
+        for (let i = switchThresholds.length - 1; i >= 0; i--) {
+          if (progressPercent >= switchThresholds[i]) {
+            activeProjectIndex = i;
+            break;
+          }
+        }
+
+        if (activeProjectIndex >= 0 && activeProjectIndex < projects.length) {
+          setActiveProject(activeProjectIndex + 1);
+        }
+      }, 100);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
