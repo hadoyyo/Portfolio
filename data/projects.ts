@@ -31,7 +31,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
     technologies: ["JavaScript", "HTML", "CSS", "Node.js", "Express.js"],
     image: "/Portfolio/projects/github-fish-tank-ss.webp",
     logo: "/Portfolio/projects/github-fish-tank-logo.png",
-    websiteUrl: null,
+    websiteUrl: "https://gh-fish-tank.vercel.app",
     githubUrl: "https://github.com/hadoyyo/GitHub-Fish-Tank",
     galleryImages: [
       "https://raw.githubusercontent.com/hadoyyo/GitHub-Fish-Tank/main/img/ss/ss1.png",
