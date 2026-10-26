@@ -36,8 +36,8 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
     galleryImages: [
       "https://raw.githubusercontent.com/hadoyyo/GitHub-Fish-Tank/main/img/ss/ss1.png",
       "https://raw.githubusercontent.com/hadoyyo/GitHub-Fish-Tank/main/img/ss/ss2.png",
-      "https://raw.githubusercontent.com/hadoyyo/GitHub-Fish-Tank/main/img/ss/ss3.jpg",
-      "https://raw.githubusercontent.com/hadoyyo/GitHub-Fish-Tank/main/img/ss/ss4.jpg",
+      "https://raw.githubusercontent.com/hadoyyo/GitHub-Fish-Tank/main/img/ss/ss3.PNG",
+      "https://raw.githubusercontent.com/hadoyyo/GitHub-Fish-Tank/main/img/ss/ss4.PNG",
     ]
   },
   {
@@ -177,7 +177,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       technologies: ["JavaScript", "React", "Express.js", "Node.js", "MongoDB"],
       image: "/Portfolio/projects/litepay-ss.webp",
       logo: "/Portfolio/projects/litepay-logo.png",
-      websiteUrl: null,
+      websiteUrl: "https://litepay-one.vercel.app",
       githubUrl: "https://github.com/hadoyyo/LitePay-WebApp",
       galleryImages: [
         "https://raw.githubusercontent.com/hadoyyo/LitePay-WebApp/refs/heads/main/ss/ss1.png",
