@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { X, ExternalLink, Github, ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
+import { getAssetPath } from "@/lib/assets"
 
 interface Project {
   id: number
@@ -148,61 +149,70 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
     )
   }
 
+  const isLightLogo = (projectTitle: string) => {
+    const title = projectTitle.toLowerCase()
+    return title.includes('petstaytion') || title.includes('serwolift')
+  }
+
   const getTechLogo = (techName: string) => {
     const logoMap: { [key: string]: string } = {
-      "React": "/Portfolio/react-logo.png",
-      "React Native": "/Portfolio/react-logo.png",
-      "Next.js": "/Portfolio/nextjs-logo.png",
-      "TypeScript": "/Portfolio/typescript-logo.png",
-      "Node.js": "/Portfolio/nodejs-logo.webp",
-      "MongoDB": "/Portfolio/mongodb-logo.svg",
-      "Express.js": "/Portfolio/express-logo.webp",
-      "PostgreSQL": "/Portfolio/postgresql-logo.png",
-      "MySQL": "/Portfolio/mysql-logo.png",
-      "Docker": "/Portfolio/docker-logo.png",
-      "Tailwind": "/Portfolio/tailwind-logo.svg",
-      "Kotlin": "/Portfolio/kotlin-logo.png",
-      "Swift": "/Portfolio/swift-logo.svg",
-      "JavaScript": "/Portfolio/js-logo.svg",
-      "Python": "/Portfolio/python-logo.svg",
-      "PHP": "/Portfolio/php-logo.png",
-      "HTML": "/Portfolio/html-logo.png",
-      "CSS": "/Portfolio/css-logo.png",
-      "Bootstrap": "/Portfolio/bootstrap-logo.svg",
-      "Expo": "/Portfolio/expo-logo.png"
+      "React": "/react-logo.png",
+      "React Native": "/react-logo.png",
+      "Next.js": "/nextjs-logo.png",
+      "TypeScript": "/typescript-logo.png",
+      "Node.js": "/nodejs-logo.webp",
+      "MongoDB": "/mongodb-logo.svg",
+      "Express.js": "/express-logo.webp",
+      "PostgreSQL": "/postgre-logo.png",
+      "MySQL": "/mysql-logo.png",
+      "Docker": "/docker-logo.png",
+      "Tailwind": "/tailwind-logo.svg",
+      "Kotlin": "/kotlin-logo.png",
+      "Swift": "/swift-logo.svg",
+      "JavaScript": "/js-logo.svg",
+      "Python": "/python-logo.svg",
+      "PHP": "/php-logo.png",
+      "HTML": "/html-logo.png",
+      "CSS": "/css-logo.png",
+      "Bootstrap": "/bootstrap-logo.svg",
+      "Expo": "/expo-logo.png"
     }
-    return logoMap[techName] || "/other-bg.png"
+    return getAssetPath(logoMap[techName] || "/other-bg.webp")
   }
 
   return (
     <>
-      {/* Overlay */}
+      
       <div
-        className={`fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs transition-opacity duration-300 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}
         onClick={handleClose}
       />
       
-      {/* Panel */}
+      
       <div className={`
-        fixed bottom-0 left-0 right-0 z-50 bg-[#111113] border-t border-border rounded-t-2xl h-[95vh] overflow-hidden
+        fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-zinc-200 shadow-2xl rounded-t-3xl h-[92vh] overflow-hidden
         transition-transform duration-300 ease-in-out
         ${isVisible ? 'translate-y-0' : 'translate-y-full'}
       `}>
-        <div className="flex flex-col h-full">
-          {/* Header */}
-          <div className="flex items-center justify-between py-3 px-3 sm:px-6 border-border">
-            <div className="flex items-center gap-1">
-              <div className="w-24 h-24 rounded-lg flex items-center justify-center">
+        <div className="flex flex-col h-full max-w-7xl mx-auto">
+          
+          <div className="flex items-center justify-between py-4 px-6 sm:px-8 border-b border-zinc-100">
+            <div className="flex items-center gap-4">
+              <div className={`flex items-center justify-center flex-shrink-0 transition-all ${
+                isLightLogo(project.title)
+                  ? 'w-14 h-14 sm:w-16 sm:h-16 rounded-xl p-2 bg-zinc-950 border border-zinc-800 shadow-md'
+                  : 'w-14 h-14 sm:w-16 sm:h-16 p-0'
+              }`}>
                 <img
                   src={project.logo}
                   alt={`${project.title} logo`}
-                  className="w-16 h-16 object-contain"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white mr-2">{project.title}</h2>
+                <h2 className="font-plakat text-2xl sm:text-3xl font-black text-black tracking-tight">{project.title}</h2>
               </div>
             </div>
             
@@ -210,129 +220,137 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
               variant="ghost"
               size="icon"
               onClick={handleClose}
-              className="text-white hover:text-white/80 hover:bg-white/10 cursor-pointer"
+              className="text-zinc-500 hover:text-black hover:bg-zinc-100 rounded-full cursor-pointer h-10 w-10"
+              aria-label="Zamknij"
             >
-              <X className="h-8 w-8" />
+              <X className="h-6 w-6" />
             </Button>
           </div>
 
-          {/* Content */}
+          
           <div className="flex-1 overflow-y-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
-              {/* Left Column - Gallery */}
-              <div className="space-y-6">
-                {/* Main Image */}
-                  <div className="relative rounded-xl overflow-hidden flex items-center justify-center min-h-[300px] max-h-[60vh]">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={galleryImages[currentImageIndex]}
-                        src={galleryImages[currentImageIndex]}
-                        alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                        initial={{ opacity: 0, scale: 1.02 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.98 }}
-                        transition={{ duration: 0.2, ease: "easeInOut" }}
-                        className="max-w-full max-h-[60vh] w-auto h-auto object-contain rounded-xl"
-                      />
-                    </AnimatePresence>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 sm:p-8">
+              
+              <div className="space-y-4">
+                
+                <div className="relative rounded-2xl bg-zinc-100/70 border border-zinc-200/80 overflow-hidden flex items-center justify-center min-h-[300px] max-h-[55vh] p-4 shadow-inner">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={galleryImages[currentImageIndex]}
+                      src={galleryImages[currentImageIndex]}
+                      alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                      initial={{ opacity: 0, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                      className="max-w-full max-h-[50vh] w-auto h-auto object-contain rounded-xl shadow-md"
+                    />
+                  </AnimatePresence>
 
-                    {/* Navigation Arrows */}
-                    {hasMultipleImages && (
-                      <>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={prevImage}
-                          className="absolute left-1 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white cursor-pointer"
-                        >
-                          <ArrowLeft className="h-5 w-5" />
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          onClick={nextImage}
-                          className="absolute right-1 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white cursor-pointer"
-                        >
-                          <ArrowRight className="h-5 w-5" />
-                        </Button>
-                      </>
-                    )}
-                  </div>
+                  
+                  {hasMultipleImages && (
+                    <>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={prevImage}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-zinc-900 border border-zinc-200/80 rounded-full shadow-md cursor-pointer h-10 w-10 hover:text-[#d40027]"
+                        aria-label="Poprzednie zdjęcie"
+                      >
+                        <ArrowLeft className="h-5 w-5" />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={nextImage}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-zinc-900 border border-zinc-200/80 rounded-full shadow-md cursor-pointer h-10 w-10 hover:text-[#d40027]"
+                        aria-label="Następne zdjęcie"
+                      >
+                        <ArrowRight className="h-5 w-5" />
+                      </Button>
+                    </>
+                  )}
+                </div>
 
-                {/* Thumbnails */}
+                
                 {hasMultipleImages && (
-                <div className="relative">
-
-                    <div className="flex justify-between items-center mb-3">
-                    <Button
+                  <div className="relative pt-2">
+                    <div className="flex justify-between items-center mb-2 px-1">
+                      <Button
                         variant="ghost"
                         size="icon"
                         onClick={() => scrollThumbnails('left')}
                         disabled={!canScrollLeft()}
-                        className="h-8 w-8 text-white hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-                    >
+                        className="h-8 w-8 text-zinc-600 hover:text-black hover:bg-zinc-100 rounded-full disabled:opacity-30 cursor-pointer"
+                      >
                         <ChevronLeft className="h-4 w-4" />
-                    </Button>
-                    
-                    <div className="text-white px-3 py-1 rounded-full text-sm">
+                      </Button>
+                      
+                      <div className="text-xs font-mono font-bold text-zinc-500 bg-zinc-100 px-3 py-1 rounded-full">
                         {currentImageIndex + 1} / {galleryImages.length}
-                    </div>
-                    
-                    <Button
+                      </div>
+                      
+                      <Button
                         variant="ghost"
                         size="icon"
                         onClick={() => scrollThumbnails('right')}
                         disabled={!canScrollRight()}
-                        className="h-8 w-8 text-white hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-                    >
+                        className="h-8 w-8 text-zinc-600 hover:text-black hover:bg-zinc-100 rounded-full disabled:opacity-30 cursor-pointer"
+                      >
                         <ChevronRight className="h-4 w-4" />
-                    </Button>
+                      </Button>
                     </div>
 
                     <div
-                    ref={thumbnailsContainerRef}
-                    className="flex gap-3 overflow-x-hidden scroll-smooth"
+                      ref={thumbnailsContainerRef}
+                      className="flex gap-3 overflow-x-hidden scroll-smooth pb-2"
                     >
-                    {galleryImages.map((image, index) => (
+                      {galleryImages.map((image, index) => (
                         <button
-                        key={index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`relative rounded-lg overflow-hidden aspect-video w-32 flex-shrink-0 border-2 transition-all cursor-pointer ${
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`relative rounded-xl overflow-hidden aspect-video w-28 sm:w-32 flex-shrink-0 transition-all cursor-pointer ${
                             index === currentImageIndex 
-                            ? 'border-2 border-white' 
-                            : 'border-transparent hover:border-white/10'
-                        }`}
+                              ? 'border-2 border-[#d40027] ring-2 ring-red-100 scale-102' 
+                              : 'border border-zinc-200 hover:border-zinc-400 opacity-70 hover:opacity-100'
+                          }`}
                         >
-                        <img
+                          <img
                             src={image}
                             alt={`Thumbnail ${index + 1}`}
                             className="w-full h-full object-cover"
-                        />
+                          />
                         </button>
-                    ))}
+                      ))}
                     </div>
-                </div>
+                  </div>
                 )}
               </div>
 
-              {/* Right Column - Details */}
+              
               <div className="space-y-6">
-                {/* Long Description */}
+                
                 <div>
-                  <h3 className="text-xl font-bold mb-4 text-white">{t.projectDescription}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <h3 className="font-plakat text-lg uppercase tracking-tight text-zinc-900 mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#d40027]"></span>
+                    {t.projectDescription}
+                  </h3>
+                  <p className="font-founders text-zinc-600 text-base leading-relaxed bg-zinc-50/70 p-5 rounded-2xl border border-zinc-100">
                     {project.longDescription}
                   </p>
                 </div>
 
-                {/* Technologies */}
+                
                 <div>
-                  <h3 className="text-xl font-bold mb-4 text-white">{t.technologies}</h3>
+                  <h3 className="font-plakat text-lg uppercase tracking-tight text-zinc-900 mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#d40027]"></span>
+                    {t.technologies}
+                  </h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span 
                         key={tech}
-                        className="text-sm px-3 py-2 bg-accent/20 rounded-full border border-border flex items-center gap-2 text-white"
+                        className="text-xs font-semibold px-3.5 py-1.5 bg-white rounded-full border border-zinc-200 flex items-center gap-2 text-zinc-800 shadow-2xs hover:border-[#d40027] transition-colors"
                       >
                         <img
                           src={getTechLogo(tech)}
@@ -345,17 +363,17 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
                   </div>
                 </div>
 
-                {/* Links */}
-                <div className="flex gap-4 pt-4">
+                
+                <div className="flex flex-wrap gap-3 pt-4 border-t border-zinc-100 items-center">
                   {project.websiteUrl != null && (
                     <a
                       href={project.websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors cursor-pointer"
+                      className="btn-crimson h-11 px-6 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
                     >
                       <ExternalLink className="h-4 w-4" />
-                      {t.website}
+                      <span>{t.website}</span>
                     </a>
                   )}
                   
@@ -364,10 +382,10 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-accent/20 border border-border rounded-lg hover:bg-accent/30 transition-colors cursor-pointer text-white gray-btn"
+                      className="btn-outline-custom h-11 px-6 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
                     >
                       <Github className="h-4 w-4" />
-                      {t.github}
+                      <span>{t.github}</span>
                     </a>
                   )}
                 </div>

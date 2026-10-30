@@ -2,7 +2,7 @@
 
 import { Navbar } from "@/components/navbar"
 import { ProjectDetailsPanel } from "@/components/project-modal"
-import { Github, Linkedin, Mail, Facebook, ArrowUpRight, MessageCircle } from "lucide-react"
+import { Github, Linkedin, Mail, Facebook, ArrowUpRight, MessageCircle, Pin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -19,6 +19,8 @@ export default function Home() {
   const [isProjectPanelOpen, setIsProjectPanelOpen] = useState(false)
   const [language, setLanguage] = useState<Language>('pl')
   const projectsRef = useRef<HTMLDivElement>(null)
+  
+  const skyCloudsPath = getAssetPath("/sky-clouds.jfif")
   
   const otherLogos = [
     getAssetPath("/git-logo.png"), 
@@ -351,120 +353,169 @@ export default function Home() {
         </div>
       </section>
 
-      
       <section 
         id="projects" 
         ref={projectsRef}
-        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative"
+        className="min-h-screen px-4 sm:px-6 lg:px-8 py-24 relative"
+        style={{
+          backgroundImage: `url('${skyCloudsPath}')`,
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat"
+        }}
       >
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
-        
         <div className="max-w-7xl mx-auto w-full relative z-20">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-12">{t.projects.title}</h2>
           
-          <div className="hidden lg:flex flex-col lg:flex-row gap-12">
-            <div className="lg:w-1/2 space-y-8">
-              {projects.map((project, index) => (
+          <div className="mb-14">
+            <h2 className="font-plakat text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight text-zinc-950 drop-shadow-2xs">
+              {t.projects.title}<span className="text-[#d40027]">.</span>
+            </h2>
+          </div>
+          
+          
+          <div className="hidden lg:flex flex-row gap-12 items-stretch relative">
+            
+            <div className="lg:w-1/2 space-y-12">
+              {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="min-h-[70vh] flex flex-col justify-center py-8"
+                  onClick={() => setActiveProject(project.id)}
+                  className="min-h-[70vh] flex flex-col justify-center py-6 cursor-pointer"
                 >
-                  <div className="flex gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-background/50 flex items-center justify-center">
-                        <img
-                          src={project.logo}
-                          alt={`${project.title} logo`}
-                          className="w-full h-full object-contain"
-                        />
+                  <div className={`p-8 rounded-3xl backdrop-blur-md border transition-all duration-300 shadow-xl relative overflow-visible ${
+                    project.id === activeProject 
+                      ? 'bg-white/95 border-[#d40027]/50 ring-4 ring-[#d40027]/10 scale-[1.01]' 
+                      : 'bg-white/85 border-white/80 hover:bg-white/95'
+                  }`}>
+                    
+                    <AnimatePresence>
+                      {project.id === activeProject && (
+                        <motion.div
+                          key={`pin-${project.id}`}
+                          initial={{ 
+                            opacity: 0, 
+                            y: -48, 
+                            x: 20,
+                            scale: 1.6,
+                            rotate: 60
+                          }}
+                          animate={{ 
+                            opacity: 1, 
+                            y: 0, 
+                            x: 0, 
+                            scale: 1, 
+                            rotate: 42
+                          }}
+                          exit={{ 
+                            opacity: 0, 
+                            y: -40, 
+                            x: 18, 
+                            scale: 0.8, 
+                            rotate: 55,
+                            transition: { duration: 0.22, ease: "easeIn" }
+                          }}
+                          transition={{ 
+                            type: "spring", 
+                            stiffness: 450, 
+                            damping: 20 
+                          }}
+                          className="absolute -top-3 -right-3 sm:-top-3.5 sm:-right-3.5 z-20 pointer-events-none"
+                        >
+                          <Pin 
+                            className="w-8 h-8 sm:w-9 sm:h-9 text-[#d40027] fill-[#d40027]" 
+                            strokeWidth={2}
+                          />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-4">
+                        <div className={`flex items-center justify-center flex-shrink-0 transition-all ${
+                          isLightLogo(project.title)
+                            ? 'w-14 h-14 sm:w-16 sm:h-16 rounded-xl p-2 bg-zinc-950 border border-zinc-800 shadow-md'
+                            : 'w-14 h-14 sm:w-16 sm:h-16 p-0'
+                        }`}>
+                          <img
+                            src={project.logo}
+                            alt={`${project.title} logo`}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                        <div>
+                          <span className="text-xs font-mono font-bold text-[#d40027] tracking-wider uppercase">
+                            #{project.id < 10 ? `0${project.id}` : project.id} / 15
+                          </span>
+                          <h3 className="font-plakat text-3xl font-black text-zinc-950 tracking-tight">
+                            {project.title}
+                          </h3>
+                        </div>
                       </div>
                     </div>
                     
-                    <div className="flex-1">
-                      <h3 className="text-3xl font-bold mb-1">{project.title}</h3>
-                      <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
-                        {project.description}
-                      </p>
-                      <div className="flex gap-2 flex-wrap">
-                        {project.technologies.map((tech) => {
-                          const getTechLogo = (techName: string) => {
-                            const logoMap: { [key: string]: string } = {
-                              "React": "/react-logo.png",
-                              "React Native": "/react-logo.png",
-                              "Next.js": "/nextjs-logo.png",
-                              "TypeScript": "/typescript-logo.png",
-                              "Node.js": "/nodejs-logo.webp",
-                              "MongoDB": "/mongodb-logo.svg",
-                              "Express.js": "/express-logo.webp",
-                              "PostgreSQL": "/postgresql-logo.png",
-                              "MySQL": "/mysql-logo.png",
-                              "Docker": "/docker-logo.png",
-                              "Tailwind": "/tailwind-logo.svg",
-                              "Kotlin": "/kotlin-logo.png",
-                              "Swift": "/swift-logo.svg",
-                              "JavaScript": "/js-logo.svg",
-                              "Python": "/python-logo.svg",
-                              "PHP": "/php-logo.png",
-                              "HTML": "/html-logo.png",
-                              "CSS": "/css-logo.png",
-                              "Bootstrap": "/bootstrap-logo.svg",
-                              "Expo": "/expo-logo.png"
-                            };
-                            return logoMap[techName] || "/other-bg.png";
-                          };
+                    <p className="font-founders text-zinc-600 mb-6 text-base leading-relaxed">
+                      {project.description}
+                    </p>
 
-                          return (
-                            <span 
-                              key={tech}
-                              className="text-xs px-4 py-2 bg-accent/20 rounded-full border border-border flex items-center gap-2"
-                            >
-                              <img
-                                src={getTechLogo(tech)}
-                                alt={`${tech} logo`}
-                                className="w-4 h-4 object-contain"
-                              />
-                              {tech}
-                            </span>
-                          );
-                        })}
-                      </div>
-                      <div className="pt-6 inline-flex gap-4 items-center">
-                        <Button
-                          size="lg"
-                          className="rounded-lg cursor-pointer"
-                          variant="default"
-                          onClick={() => handleProjectDetails(project)}
+                    
+                    <div className="flex gap-2 flex-wrap mb-8">
+                      {project.technologies.map((tech) => (
+                        <span 
+                          key={tech}
+                          className="text-xs font-semibold px-3 py-1.5 bg-white/90 rounded-full border border-zinc-200/90 flex items-center gap-2 text-zinc-800 shadow-2xs"
                         >
-                          {t.projects.moreButton} <ArrowUpRight className="ml-2 h-4 w-4" />
-                        </Button>
+                          <img
+                            src={getTechLogo(tech)}
+                            alt={`${tech} logo`}
+                            className="w-3.5 h-3.5 object-contain"
+                          />
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    
+                    <div className="flex gap-3 items-center pt-2 border-t border-zinc-100" onClick={(e) => e.stopPropagation()}>
+                      <Button
+                        size="lg"
+                        className="btn-crimson rounded-full text-xs font-bold uppercase tracking-wider px-6 h-11 inline-flex items-center justify-center cursor-pointer"
+                        onClick={() => handleProjectDetails(project)}
+                      >
+                        <span>{t.projects.moreButton}</span>
+                        <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
+                      </Button>
+                      {project.githubUrl && (
                         <Button
                           size="lg"
-                          className="rounded-lg gray-btn cursor-pointer"
+                          className="btn-outline-custom rounded-full text-xs font-bold uppercase tracking-wider px-6 h-11 inline-flex items-center justify-center cursor-pointer"
                           variant="outline"
                           onClick={() => window.open(project.githubUrl, '_blank')}
                         >
-                          <Github className="mr-2 h-4 w-4" />
-                          {t.projects.githubButton}
+                          <Github className="mr-1.5 h-3.5 w-3.5" />
+                          <span>{t.projects.githubButton}</span>
                         </Button>
-                      </div>
+                      )}
                     </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="lg:w-1/2 sticky top-1/4 h-[500px]">
-              <div className="relative w-full h-full rounded-xl overflow-visible">
-                {projects.map((project) => (
-                  <img
-                    key={project.id}
-                    src={project.image}
-                    alt={project.title}
-                    className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
-                      project.id === activeProject ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  />
-                ))}
+            
+            <div className="lg:w-1/2 relative">
+              <div className="sticky top-1/4 h-[500px] w-full flex items-center justify-center">
+                <div className="relative w-full h-full rounded-xl overflow-visible">
+                  {projects.map((project) => (
+                    <img
+                      key={project.id}
+                      src={project.image}
+                      alt={project.title}
+                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${
+                        project.id === activeProject ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -472,14 +523,14 @@ export default function Home() {
           
           <div className="lg:hidden space-y-8">
             {projects.map((project) => {
-              const mobileImage = project.image.replace('.png', '-mobile.png').replace('.webp', '-mobile.webp');
+              const mobileImage = project.image.replace('.png', '-mobile.png').replace('.webp', '-mobile.webp')
               
               return (
                 <div
                   key={project.id}
-                  className="overflow-hidden"
+                  className="bg-white/95 backdrop-blur-md rounded-3xl border border-white/80 shadow-xl overflow-hidden"
                 >
-                  <div className="h-64 sm:h-80 w-full">
+                  <div className="h-64 sm:h-80 w-full bg-zinc-50 p-4 flex items-center justify-center border-b border-zinc-100">
                     <img
                       src={mobileImage}
                       alt={project.title}
@@ -487,10 +538,14 @@ export default function Home() {
                     />
                   </div>
 
-                  <div className="p-6 border border-border rounded-xl">
-                    <div className="flex gap-4 items-start mb-4">
+                  <div className="p-6">
+                    <div className="flex gap-4 items-center mb-4">
                       <div className="flex-shrink-0">
-                        <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-lg bg-background/50 flex items-center justify-center">
+                        <div className={`flex items-center justify-center transition-all ${
+                          isLightLogo(project.title)
+                            ? 'w-12 h-12 sm:w-14 sm:h-14 rounded-xl p-2 bg-zinc-950 border border-zinc-800 shadow-md'
+                            : 'w-12 h-12 sm:w-14 sm:h-14 p-0'
+                        }`}>
                           <img
                             src={project.logo}
                             alt={`${project.title} logo`}
@@ -500,85 +555,64 @@ export default function Home() {
                       </div>
                       
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                        <p className="text-muted-foreground mb-4 text-base leading-relaxed">
-                          {project.description}
-                        </p>
+                        <span className="text-[10px] font-mono font-bold text-[#d40027] tracking-wider uppercase">
+                          #{project.id < 10 ? `0${project.id}` : project.id}
+                        </span>
+                        <h3 className="font-plakat text-2xl font-black text-zinc-950">{project.title}</h3>
                       </div>
                     </div>
 
-                    <div className="flex gap-2 flex-wrap mb-6">
-                      {project.technologies.map((tech) => {
-                        const getTechLogo = (techName: string) => {
-                          const logoMap: { [key: string]: string } = {
-                            "React": "/react-logo.png",
-                            "React Native": "/react-logo.png",
-                            "Next.js": "/nextjs-logo.png",
-                            "TypeScript": "/typescript-logo.png",
-                            "Node.js": "/nodejs-logo.webp",
-                            "MongoDB": "/mongodb-logo.svg",
-                            "Express.js": "/express-logo.webp",
-                            "PostgreSQL": "/postgresql-logo.png",
-                            "MySQL": "/mysql-logo.png",
-                            "Docker": "/docker-logo.png",
-                            "Tailwind": "/tailwind-logo.svg",
-                            "Kotlin": "/kotlin-logo.png",
-                            "Swift": "/swift-logo.svg",
-                            "JavaScript": "/js-logo.svg",
-                            "Python": "/python-logo.svg",
-                            "PHP": "/php-logo.png",
-                            "HTML": "/html-logo.png",
-                            "CSS": "/css-logo.png",
-                            "Bootstrap": "/bootstrap-logo.svg",
-                            "Expo": "/expo-logo.png"
-                          };
-                          return logoMap[techName] || "/other-bg.png";
-                        };
+                    <p className="font-founders text-zinc-600 mb-6 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
 
-                        return (
-                          <span 
-                            key={tech}
-                            className="text-xs px-3 py-1 bg-accent/20 rounded-full border border-border flex items-center gap-2"
-                          >
-                            <img
-                              src={getTechLogo(tech)}
-                              alt={`${tech} logo`}
-                              className="w-4 h-4 object-contain"
-                            />
-                            {tech}
-                          </span>
-                        );
-                      })}
+                    <div className="flex gap-2 flex-wrap mb-6">
+                      {project.technologies.map((tech) => (
+                        <span 
+                          key={tech}
+                          className="text-xs px-3 py-1 bg-zinc-100 rounded-full border border-zinc-200 flex items-center gap-1.5 text-zinc-800"
+                        >
+                          <img
+                            src={getTechLogo(tech)}
+                            alt={`${tech} logo`}
+                            className="w-3.5 h-3.5 object-contain"
+                          />
+                          {tech}
+                        </span>
+                      ))}
                     </div>
 
-                    <div className="flex flex-col flex-row gap-3">
+                    <div className="flex gap-3 items-center">
                       <Button
                         size="lg"
-                        className="rounded-lg cursor-pointer flex-1"
-                        variant="default"
+                        className="btn-crimson rounded-full text-xs font-bold uppercase tracking-wider flex-1 h-11 inline-flex items-center justify-center cursor-pointer"
                         onClick={() => handleProjectDetails(project)}
                       >
-                        {t.projects.moreButton} <ArrowUpRight className="ml-2 h-4 w-4" />
+                        <span>{t.projects.moreButton}</span>
+                        <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
                       </Button>
-                      <Button
-                        size="lg"
-                        className="rounded-lg gray-btn cursor-pointer flex-1"
-                        variant="outline"
-                        onClick={() => window.open(project.githubUrl, '_blank')}
-                      >
-                        <Github className="mr-2 h-4 w-4" />
-                        {t.projects.githubButton}
-                      </Button>
+                      {project.githubUrl && (
+                        <Button
+                          size="lg"
+                          className="btn-outline-custom rounded-full text-xs font-bold uppercase tracking-wider flex-1 h-11 inline-flex items-center justify-center cursor-pointer"
+                          variant="outline"
+                          onClick={() => window.open(project.githubUrl, '_blank')}
+                        >
+                          <Github className="mr-1 h-3.5 w-3.5" />
+                          <span>{t.projects.githubButton}</span>
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
       </section>
 
-
+      
+      
       <section
         id="contact"
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 dot-pattern relative"
