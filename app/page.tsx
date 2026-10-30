@@ -612,96 +612,102 @@ export default function Home() {
       </section>
 
       
-      
       <section
         id="contact"
-        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 dot-pattern relative"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24 bg-white pattern-grid relative overflow-hidden"
       >
-        <div className="absolute top-0 left-0 right-0 h-90 bg-gradient-to-b from-[#0A0A0A] to-transparent z-10"></div>
-        
-        <div 
-          className="absolute inset-0 sm:hidden"
-          style={{
-            backgroundImage: 'url(/Portfolio/background-contact-mobile.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: "#18191B"
-          }}
-        ></div>
-        
-        <div 
-          className="absolute inset-0 hidden sm:block"
-          style={{
-            backgroundImage: 'url(/Portfolio/background-contact.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: "#18191B"
-          }}
-        ></div>
-        
-        <div className="absolute inset-0 bg-black/20"></div>
-        
-        <div className="max-w-4xl mx-auto text-center relative z-20">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-8">{t.contact.title}</h2>
-          <p className="text-xl text-muted-foreground mb-12 text-balance">
+        <div className="max-w-4xl mx-auto text-center relative z-20 w-full">
+          <h2 className="font-plakat text-5xl sm:text-7xl font-black uppercase tracking-tight text-zinc-950 mb-6">
+            {t.contact.title}<span className="text-[#d40027]">.</span>
+          </h2>
+
+          <p className="font-founders text-lg sm:text-xl text-zinc-600 mb-12 max-w-xl mx-auto font-normal text-balance">
             {t.contact.description}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto mb-12">
             <a
               href="mailto:hubert.jedruchniewicz@interia.pl"
-              className="flex items-center gap-3 px-6 py-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
+              className="portfolio-card p-6 rounded-2xl flex items-center gap-4 group cursor-pointer text-left"
             >
-              <Mail className="h-5 w-5" />
-              <span>{t.contact.email}</span>
+              <div className="w-12 h-12 rounded-xl bg-red-50 text-[#d40027] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#d40027] group-hover:text-white transition-all">
+                <Mail className="h-6 w-6" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block">
+                  Email
+                </span>
+                <span className="font-bold text-sm text-zinc-900 group-hover:text-[#d40027] transition-colors">
+                  {t.contact.email}
+                </span>
+              </div>
             </a>
+
             <a
               href="https://wa.me/48883364605"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
+              className="portfolio-card p-6 rounded-2xl flex items-center gap-4 group cursor-pointer text-left"
             >
-              <MessageCircle className="h-5 w-5" />
-              <span>{t.contact.phone}</span>
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                <MessageCircle className="h-6 w-6" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block">
+                  WhatsApp / Tel
+                </span>
+                <span className="font-bold text-sm text-zinc-900 group-hover:text-[#d40027] transition-colors">
+                  {t.contact.phone}
+                </span>
+              </div>
             </a>
           </div>
 
-          <div className="flex gap-6 justify-center">
+          
+          <div className="flex gap-4 justify-center items-center">
             <a
               href="https://github.com/hadoyyo"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
+              className="p-3.5 bg-white border border-zinc-200 rounded-full text-zinc-700 hover:text-white hover:bg-black hover:border-black transition-all shadow-xs cursor-pointer"
+              aria-label="GitHub"
             >
-              <Github className="h-6 w-6" />
+              <Github className="h-5 w-5" />
             </a>
             <a
               href="https://www.linkedin.com/in/hubert-j%C4%99druchniewicz-711166267/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
+              className="p-3.5 bg-white border border-zinc-200 rounded-full text-zinc-700 hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition-all shadow-xs cursor-pointer"
+              aria-label="LinkedIn"
             >
-              <Linkedin className="h-6 w-6" />
+              <Linkedin className="h-5 w-5" />
             </a>
             <a
               href="https://www.facebook.com/hubert.jedruchniewicz"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-background/50 backdrop-blur-sm border border-border rounded-lg hover:border-accent transition-colors"
+              className="p-3.5 bg-white border border-zinc-200 rounded-full text-zinc-700 hover:text-white hover:bg-[#1877f2] hover:border-[#1877f2] transition-all shadow-xs cursor-pointer"
+              aria-label="Facebook"
             >
-              <Facebook className="h-6 w-6" />
+              <Facebook className="h-5 w-5" />
             </a>
           </div>
         </div>
       </section>
 
       
-      <footer className="py-8 px-4 text-center text-muted-foreground border-t border-border">
-        <p>{t.footer}</p>
+      <footer className="py-8 px-4 border-t border-zinc-200 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-founders">
+          <div className="font-plakat text-2xl font-black text-black">
+            HJ<span className="text-[#d40027]">.</span>
+          </div>
+          <p className="text-zinc-500 text-xs text-center sm:text-right font-medium">
+            {t.footer}
+          </p>
+        </div>
       </footer>
-
     </div>
   )
 }
