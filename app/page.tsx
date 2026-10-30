@@ -18,6 +18,10 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [isProjectPanelOpen, setIsProjectPanelOpen] = useState(false)
   const [language, setLanguage] = useState<Language>('pl')
+  const [isAssetsLoaded, setIsAssetsLoaded] = useState(false)
+  const [preloaderGone, setPreloaderGone] = useState(false)
+  const [loadProgress, setLoadProgress] = useState(0)
+  const hasLoadedRef = useRef(false)
   const projectsRef = useRef<HTMLDivElement>(null)
   
   const skyCloudsPath = getAssetPath("/sky-clouds.jfif")
@@ -57,7 +61,73 @@ export default function Home() {
   const t = translations[language]
   const projects = getProjects(language)
 
+  useEffect(() => {
+    if (typeof window === "undefined" || hasLoadedRef.current) return
+    hasLoadedRef.current = true
 
+    
+    const imagesToLoad: string[] = [
+      skyCloudsPath,
+      ...projects.map((p) => p.image),
+      ...projects.map((p) => p.image.replace('.png', '-mobile.png').replace('.webp', '-mobile.webp'))
+    ]
+
+    let isMounted = true
+    let loadedCount = 0
+    const total = imagesToLoad.length
+
+    const onAllDone = () => {
+      if (!isMounted) return
+      setLoadProgress(100)
+      setTimeout(() => {
+        if (!isMounted) return
+        setIsAssetsLoaded(true)
+        setTimeout(() => {
+          if (isMounted) setPreloaderGone(true)
+        }, 550)
+      }, 100)
+    }
+
+    const checkItem = () => {
+      loadedCount++
+      if (isMounted) {
+        setLoadProgress(Math.round((loadedCount / total) * 100))
+      }
+      if (loadedCount >= total) {
+        onAllDone()
+      }
+    }
+
+    imagesToLoad.forEach((src) => {
+      const img = new window.Image()
+      img.src = src
+      if (img.complete) {
+        checkItem()
+      } else {
+        img.onload = checkItem
+        img.onerror = checkItem
+      }
+    })
+
+    
+    const timer = setTimeout(onAllDone, 3500)
+
+    return () => {
+      isMounted = false
+      clearTimeout(timer)
+    }
+  }, [skyCloudsPath])
+
+  useEffect(() => {
+    if (!isAssetsLoaded) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isAssetsLoaded])
 
   const skills = t.skills.map((skill, index) => ({
     ...skill,
@@ -182,7 +252,24 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-zinc-950 font-founders selection:bg-[#d40027] selection:text-white">
       
-
+      {!preloaderGone && (
+        <div
+          className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white transition-opacity duration-500 ease-in-out ${
+            isAssetsLoaded ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"
+          }`}
+          style={{ willChange: "opacity" }}
+        >
+          <div className="font-plakat text-5xl font-black text-black tracking-tight select-none">
+            HJ<span className="text-[#d40027] animate-pulse">.</span>
+          </div>
+          <div className="mt-5 w-32 h-1 bg-zinc-100 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-[#d40027] transition-all duration-150 ease-out rounded-full"
+              style={{ width: `${loadProgress}%` }}
+            />
+          </div>
+        </div>
+      )}
       
       <Navbar onLanguageChange={handleLanguageChange} currentLanguage={language} />
 
