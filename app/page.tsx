@@ -59,6 +59,22 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [otherLogos.length])
 
+  useEffect(() => {
+    if (!activeSkill) return
+
+    const handlePointerDown = (e: PointerEvent) => {
+      const target = e.target as HTMLElement | null
+      if (target && !target.closest("[data-tech-card]")) {
+        setActiveSkill(null)
+      }
+    }
+
+    window.addEventListener("pointerdown", handlePointerDown)
+    return () => {
+      window.removeEventListener("pointerdown", handlePointerDown)
+    }
+  }, [activeSkill])
+
   const t = translations[language]
   const projects = getProjects(language)
 
@@ -394,6 +410,7 @@ export default function Home() {
               return (
                 <div
                   key={skill.name}
+                  data-tech-card
                   onClick={() => setActiveSkill(isActive ? null : skill.name)}
                   className={`relative rounded-2xl p-6 overflow-hidden group flex flex-col justify-between min-h-[190px] bg-white border border-zinc-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-500 cursor-pointer ${
                     isActive ? "shadow-xl -translate-y-1" : ""
