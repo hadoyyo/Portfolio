@@ -192,11 +192,11 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
       
       
       <div className={`
-        fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-zinc-200 shadow-2xl rounded-t-3xl h-[92vh] overflow-hidden
+        fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-zinc-200 shadow-2xl rounded-t-3xl h-[95vh] overflow-hidden
         transition-transform duration-300 ease-in-out
         ${isVisible ? 'translate-y-0' : 'translate-y-full'}
       `}>
-        <div className="flex flex-col h-full max-w-7xl mx-auto">
+        <div className="flex flex-col h-full">
           
           <div className="flex items-center justify-between py-4 px-6 sm:px-8 border-b border-zinc-100">
             <div className="flex items-center gap-4">
@@ -233,7 +233,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
               
               <div className="space-y-4">
                 
-                <div className="relative rounded-2xl bg-zinc-100/70 border border-zinc-200/80 overflow-hidden flex items-center justify-center min-h-[300px] max-h-[55vh] p-4 shadow-inner">
+                <div className="relative rounded-xl overflow-hidden flex items-center justify-center min-h-[300px] max-h-[65vh] lg:max-h-[70vh]">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={galleryImages[currentImageIndex]}
@@ -243,7 +243,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.02 }}
                       transition={{ duration: 0.2 }}
-                      className="max-w-full max-h-[50vh] w-auto h-auto object-contain rounded-xl shadow-md"
+                      className="max-w-full max-h-[65vh] lg:max-h-[70vh] w-auto h-auto object-contain rounded-xl"
                     />
                   </AnimatePresence>
 
@@ -350,12 +350,12 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
                     {project.technologies.map((tech) => (
                       <span 
                         key={tech}
-                        className="text-xs font-semibold px-3.5 py-1.5 bg-white rounded-full border border-zinc-200 flex items-center gap-2 text-zinc-800 shadow-2xs hover:border-[#d40027] transition-colors"
+                        className="font-vietnam text-xs font-semibold px-3.5 py-1.5 bg-white rounded-full border border-zinc-200 flex items-center gap-2 text-zinc-800 shadow-2xs hover:border-[#d40027] transition-colors"
                       >
                         <img
                           src={getTechLogo(tech)}
                           alt={`${tech} logo`}
-                          className="w-4 h-4 object-contain"
+                          className="w-4.5 h-4.5 object-contain"
                         />
                         {tech}
                       </span>
@@ -370,7 +370,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
                       href={project.websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-crimson h-11 px-6 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
+                      className="font-vietnam btn-crimson h-11 px-6 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
                     >
                       <ExternalLink className="h-4 w-4" />
                       <span>{t.website}</span>
@@ -382,7 +382,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-outline-custom h-11 px-6 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
+                      className="font-vietnam btn-outline-custom h-11 px-6 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
                     >
                       <Github className="h-4 w-4" />
                       <span>{t.github}</span>

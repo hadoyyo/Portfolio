@@ -144,7 +144,7 @@ export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
-                    className="text-zinc-800 hover:text-[#d40027] px-4 py-1.5 rounded-full transition-all duration-200 text-xs font-bold uppercase tracking-wider hover:bg-white cursor-pointer"
+                    className="font-vietnam text-zinc-800 hover:text-[#d40027] px-4 py-1.5 rounded-full transition-all duration-200 text-xs font-bold uppercase tracking-wider hover:bg-white cursor-pointer"
                   >
                     {item.name}
                   </button>
@@ -158,18 +158,18 @@ export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
               <div className="relative" ref={languageMenuRef}>
                 <button
                   onClick={toggleLanguageMenu}
-                  className="bg-zinc-100/80 hover:bg-zinc-200/80 border border-zinc-200/80 text-zinc-800 px-3.5 py-1.5 rounded-full transition-all text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-2xs"
+                  className="font-vietnam bg-zinc-100/80 hover:bg-zinc-200/80 border border-zinc-200/80 text-zinc-800 px-3.5 py-1.5 rounded-full transition-all text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-2xs"
                   aria-label="Wybierz język"
                 >
                   {currentLanguage === 'pl' ? <PolandFlag /> : <USFlag />}
-                  <span className="font-bold text-zinc-800 tracking-wide">{currentLanguage === 'pl' ? 'PL' : 'EN'}</span>
+                  <span className="font-vietnam font-bold text-zinc-800 tracking-wide">{currentLanguage === 'pl' ? 'PL' : 'EN'}</span>
                 </button>
                 
                 {isLanguageMenuOpen && (
                   <div className="absolute right-0 top-full mt-2 w-36 rounded-xl bg-white/95 backdrop-blur-md border border-zinc-200 shadow-xl overflow-hidden z-50 p-1.5 animate-in fade-in zoom-in-95 duration-150">
                     <button
                       onClick={() => handleLanguageSelect('pl')}
-                      className={`w-full px-3 py-2 text-left text-xs font-bold uppercase tracking-wider rounded-lg transition-colors flex items-center gap-2.5 cursor-pointer ${
+                      className={`font-vietnam w-full px-3 py-2 text-left text-xs font-bold uppercase tracking-wider rounded-lg transition-colors flex items-center gap-2.5 cursor-pointer ${
                         currentLanguage === 'pl' 
                           ? 'bg-[#d40027] text-white' 
                           : 'text-zinc-800 hover:bg-zinc-100'
@@ -180,7 +180,7 @@ export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
                     </button>
                     <button
                       onClick={() => handleLanguageSelect('en')}
-                      className={`w-full px-3 py-2 text-left text-xs font-bold uppercase tracking-wider rounded-lg transition-colors flex items-center gap-2.5 cursor-pointer mt-0.5 ${
+                      className={`font-vietnam w-full px-3 py-2 text-left text-xs font-bold uppercase tracking-wider rounded-lg transition-colors flex items-center gap-2.5 cursor-pointer mt-0.5 ${
                         currentLanguage === 'en' 
                           ? 'bg-[#d40027] text-white' 
                           : 'text-zinc-800 hover:bg-zinc-100'
@@ -196,7 +196,7 @@ export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
               
               <Button
                 onClick={() => handleNavClick("#contact")}
-                className="btn-crimson rounded-full text-xs font-bold uppercase tracking-wider px-5 py-2.5 flex items-center gap-1.5 cursor-pointer"
+                className="font-vietnam btn-crimson rounded-full text-xs font-bold uppercase tracking-wider px-5 py-2.5 flex items-center gap-1.5 cursor-pointer"
               >
                 <span>{currentLanguage === 'pl' ? "Kontakt" : "Let's talk"}</span>
                 <ArrowUpRight className="h-3.5 w-3.5" />
@@ -230,7 +230,7 @@ export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
 
       
       <div
-        className={`fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white z-50 md:hidden transition-transform duration-300 border-l border-zinc-200 shadow-2xl ${
+        className={`fixed inset-0 bg-white z-50 md:hidden transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -269,7 +269,7 @@ export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
           <div className="pt-6 border-t border-zinc-100 space-y-4">
             <Button
               onClick={() => handleNavClick("#contact")}
-              className="btn-crimson w-full rounded-xl py-3 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+              className="font-vietnam btn-crimson w-full rounded-xl py-3 text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>{currentLanguage === 'pl' ? 'Napisz do mnie' : 'Contact me'}</span>
               <ArrowUpRight className="h-4 w-4" />
@@ -278,7 +278,7 @@ export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
             <div className="flex gap-2">
               <button
                 onClick={() => handleLanguageSelect('pl')}
-                className={`flex-1 py-2.5 px-3 rounded-lg border text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-all ${
+                className={`font-vietnam flex-1 py-2.5 px-3 rounded-lg border text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-all ${
                   currentLanguage === 'pl' 
                     ? 'bg-[#d40027] text-white border-[#d40027]' 
                     : 'bg-zinc-100 text-zinc-700 border-zinc-200'
@@ -289,7 +289,7 @@ export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
               </button>
               <button
                 onClick={() => handleLanguageSelect('en')}
-                className={`flex-1 py-2.5 px-3 rounded-lg border text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-all ${
+                className={`font-vietnam flex-1 py-2.5 px-3 rounded-lg border text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-all ${
                   currentLanguage === 'en' 
                     ? 'bg-[#d40027] text-white border-[#d40027]' 
                     : 'bg-zinc-100 text-zinc-700 border-zinc-200'

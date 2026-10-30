@@ -44,8 +44,24 @@
 
 @font-face {
   font-family: 'BeVietnamPro';
+  src: url('./fonts/BeVietnamPro-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BeVietnamPro';
   src: url('./fonts/BeVietnamPro-Bold.woff2') format('woff2');
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BeVietnamPro';
+  src: url('./fonts/BeVietnamPro-Black.woff2') format('woff2');
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
@@ -116,7 +132,6 @@
     font-family: 'FoundersGrotesk', 'BeVietnamPro', system-ui, -apple-system, sans-serif;
   }
 
-  /* Ukrywanie paska przewijania */
   ::-webkit-scrollbar {
     display: none;
     width: 0;
@@ -138,6 +153,10 @@
 
 .font-founders {
   font-family: 'FoundersGrotesk', 'BeVietnamPro', system-ui, -apple-system, sans-serif;
+}
+
+.font-vietnam {
+  font-family: 'BeVietnamPro', system-ui, -apple-system, sans-serif;
 }
 
 .font-gza {

@@ -284,14 +284,14 @@ export default function Home() {
       
       <section 
         id="start" 
-        className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative bg-white pattern-grid overflow-hidden"
+        className="min-h-[100dvh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-20 pb-8 sm:pt-24 sm:pb-16 relative bg-white pattern-grid overflow-hidden"
       >
         
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-red-500/5 via-rose-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
-        <div className="max-w-5xl mx-auto text-center relative z-10 flex flex-col items-center">
+        <div className="max-w-5xl mx-auto text-center relative z-10 flex flex-col items-center w-full">
           
-          <div className="mb-8 relative group">
+          <div className="mb-4 sm:mb-8 relative group">
             <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-br from-[#d40027] via-rose-500 to-zinc-900 shadow-xl group-hover:scale-105 transition-transform duration-300">
               <img
                 src={getAssetPath("/profile.jpg")}
@@ -302,28 +302,28 @@ export default function Home() {
           </div>
           
           
-          <h1 className="font-plakat text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight text-zinc-950 mb-6 text-balance leading-none">
+          <h1 className="font-plakat text-3xl sm:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tight text-zinc-950 mb-3 sm:mb-6 text-balance leading-none">
             Hubert Jędruchniewicz<span className="text-[#d40027]">.</span>
           </h1>
 
           
-          <p className="font-founders text-xl sm:text-2xl text-zinc-600 mb-10 max-w-2xl mx-auto font-normal leading-relaxed text-balance">
+          <p className="font-founders text-base sm:text-xl lg:text-2xl text-zinc-600 mb-6 sm:mb-10 max-w-2xl mx-auto font-normal leading-relaxed text-balance">
             {t.hero.subtitle}
           </p>
 
           
-          <div className="flex flex-wrap gap-4 justify-center items-center">
+          <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center">
             <Button
               size="lg"
-              className="btn-crimson rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider px-8 py-6 h-auto cursor-pointer"
+              className="font-vietnam btn-crimson rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-3 sm:px-8 sm:py-6 h-auto cursor-pointer"
               onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
             >
               <span>{t.hero.projectsButton}</span>
-              <ArrowUpRight className="ml-1 h-4 w-4" />
+              <ArrowUpRight className="ml-1 h-3.5 w-3.5 sm:h-4 sm:w-4" />
             </Button>
             <Button
               size="lg"
-              className="btn-outline-custom rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider px-8 py-6 h-auto cursor-pointer"
+              className="font-vietnam btn-outline-custom rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider px-5 py-3 sm:px-8 sm:py-6 h-auto cursor-pointer"
               variant="outline"
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
             >
@@ -332,19 +332,19 @@ export default function Home() {
           </div>
 
           
-          <div className="mt-14 w-full max-w-3xl flex flex-wrap justify-center items-center gap-6 sm:gap-10 text-zinc-500 text-xs font-bold uppercase tracking-widest">
-            <div className="flex items-center gap-2">
-              <span className="text-[#d40027] font-black text-base">
+          <div className="mt-6 sm:mt-12 w-full max-w-3xl flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 sm:gap-8 text-zinc-500 text-[11px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest font-vietnam">
+            <div className="flex items-center gap-1.5">
+              <span className="font-vietnam text-[#d40027] font-black text-xs sm:text-base">
                 15+ {language === 'pl' ? 'Projektów' : 'Projects'}
               </span>
             </div>
             <span className="text-zinc-300">•</span>
-            <div className="flex items-center gap-2">
-              <span className="text-[#d40027] font-black text-base">Full-Stack Craft</span>
+            <div className="flex items-center gap-1.5">
+              <span className="font-vietnam text-[#d40027] font-black text-xs sm:text-base">Full-Stack Craft</span>
             </div>
             <span className="text-zinc-300">•</span>
-            <div className="flex items-center gap-2">
-              <span className="text-[#d40027] font-black text-base">Software Engineer</span>
+            <div className="flex items-center gap-1.5">
+              <span className="font-vietnam text-[#d40027] font-black text-xs sm:text-base">Software Engineer</span>
             </div>
           </div>
         </div>
@@ -549,12 +549,12 @@ export default function Home() {
                       {project.technologies.map((tech) => (
                         <span 
                           key={tech}
-                          className="text-xs font-semibold px-3 py-1.5 bg-white/90 rounded-full border border-zinc-200/90 flex items-center gap-2 text-zinc-800 shadow-2xs"
+                          className="font-vietnam text-xs font-semibold px-3.5 py-1.5 bg-white/90 rounded-full border border-zinc-200/90 flex items-center gap-2 text-zinc-800 shadow-2xs"
                         >
                           <img
                             src={getTechLogo(tech)}
                             alt={`${tech} logo`}
-                            className="w-3.5 h-3.5 object-contain"
+                            className="w-4.5 h-4.5 object-contain"
                           />
                           {tech}
                         </span>
@@ -565,7 +565,7 @@ export default function Home() {
                     <div className="flex gap-3 items-center pt-2 border-t border-zinc-100" onClick={(e) => e.stopPropagation()}>
                       <Button
                         size="lg"
-                        className="btn-crimson rounded-full text-xs font-bold uppercase tracking-wider px-6 h-11 inline-flex items-center justify-center cursor-pointer"
+                        className="font-vietnam btn-crimson rounded-full text-xs font-bold uppercase tracking-wider px-6 h-11 inline-flex items-center justify-center cursor-pointer"
                         onClick={() => handleProjectDetails(project)}
                       >
                         <span>{t.projects.moreButton}</span>
@@ -574,7 +574,7 @@ export default function Home() {
                       {project.githubUrl && (
                         <Button
                           size="lg"
-                          className="btn-outline-custom rounded-full text-xs font-bold uppercase tracking-wider px-6 h-11 inline-flex items-center justify-center cursor-pointer"
+                          className="font-vietnam btn-outline-custom rounded-full text-xs font-bold uppercase tracking-wider px-6 h-11 inline-flex items-center justify-center cursor-pointer"
                           variant="outline"
                           onClick={() => window.open(project.githubUrl, '_blank')}
                         >
@@ -657,12 +657,12 @@ export default function Home() {
                       {project.technologies.map((tech) => (
                         <span 
                           key={tech}
-                          className="text-xs px-3 py-1 bg-zinc-100 rounded-full border border-zinc-200 flex items-center gap-1.5 text-zinc-800"
+                          className="font-vietnam text-xs font-semibold px-3.5 py-1.5 bg-zinc-100 rounded-full border border-zinc-200 flex items-center gap-2 text-zinc-800"
                         >
                           <img
                             src={getTechLogo(tech)}
                             alt={`${tech} logo`}
-                            className="w-3.5 h-3.5 object-contain"
+                            className="w-4.5 h-4.5 object-contain"
                           />
                           {tech}
                         </span>
@@ -672,7 +672,7 @@ export default function Home() {
                     <div className="flex gap-3 items-center">
                       <Button
                         size="lg"
-                        className="btn-crimson rounded-full text-xs font-bold uppercase tracking-wider flex-1 h-11 inline-flex items-center justify-center cursor-pointer"
+                        className="font-vietnam btn-crimson rounded-full text-xs font-bold uppercase tracking-wider flex-1 h-11 inline-flex items-center justify-center cursor-pointer"
                         onClick={() => handleProjectDetails(project)}
                       >
                         <span>{t.projects.moreButton}</span>
@@ -681,7 +681,7 @@ export default function Home() {
                       {project.githubUrl && (
                         <Button
                           size="lg"
-                          className="btn-outline-custom rounded-full text-xs font-bold uppercase tracking-wider flex-1 h-11 inline-flex items-center justify-center cursor-pointer"
+                          className="font-vietnam btn-outline-custom rounded-full text-xs font-bold uppercase tracking-wider flex-1 h-11 inline-flex items-center justify-center cursor-pointer"
                           variant="outline"
                           onClick={() => window.open(project.githubUrl, '_blank')}
                         >
@@ -722,10 +722,10 @@ export default function Home() {
                 <Mail className="h-6 w-6" />
               </div>
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block">
+                <span className="font-vietnam text-[10px] font-mono uppercase tracking-wider text-zinc-400 block">
                   Email
                 </span>
-                <span className="font-bold text-sm text-zinc-900 group-hover:text-[#d40027] transition-colors">
+                <span className="font-vietnam font-bold text-sm text-zinc-900 group-hover:text-[#d40027] transition-colors">
                   {t.contact.email}
                 </span>
               </div>
@@ -741,10 +741,10 @@ export default function Home() {
                 <MessageCircle className="h-6 w-6" />
               </div>
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block">
+                <span className="font-vietnam text-[10px] font-mono uppercase tracking-wider text-zinc-400 block">
                   WhatsApp / Tel
                 </span>
-                <span className="font-bold text-sm text-zinc-900 group-hover:text-[#d40027] transition-colors">
+                <span className="font-vietnam font-bold text-sm text-zinc-900 group-hover:text-[#d40027] transition-colors">
                   {t.contact.phone}
                 </span>
               </div>
