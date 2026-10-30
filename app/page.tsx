@@ -18,6 +18,7 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [isProjectPanelOpen, setIsProjectPanelOpen] = useState(false)
   const [language, setLanguage] = useState<Language>('pl')
+  const [activeSkill, setActiveSkill] = useState<string | null>(null)
   const [isAssetsLoaded, setIsAssetsLoaded] = useState(false)
   const [preloaderGone, setPreloaderGone] = useState(false)
   const [loadProgress, setLoadProgress] = useState(0)
@@ -388,54 +389,76 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {skills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="relative rounded-2xl p-6 overflow-hidden group flex flex-col justify-between min-h-[190px] bg-white border border-zinc-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-500 cursor-pointer"
-              >
-                
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-out opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100 pointer-events-none"
-                  style={{
-                    backgroundImage: `url('${skill.background}')`
-                  }}
-                />
+            {skills.map((skill, index) => {
+              const isActive = activeSkill === skill.name
+              return (
+                <div
+                  key={skill.name}
+                  onClick={() => setActiveSkill(isActive ? null : skill.name)}
+                  className={`relative rounded-2xl p-6 overflow-hidden group flex flex-col justify-between min-h-[190px] bg-white border border-zinc-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-500 cursor-pointer ${
+                    isActive ? "shadow-xl -translate-y-1" : ""
+                  }`}
+                >
+                  <div 
+                    className={`absolute inset-0 bg-cover bg-center transition-all duration-500 ease-out pointer-events-none ${
+                      isActive 
+                        ? "opacity-100 scale-100" 
+                        : "opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100"
+                    }`}
+                    style={{
+                      backgroundImage: `url('${skill.background}')`
+                    }}
+                  />
 
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div 
+                    className={`absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 transition-opacity duration-500 pointer-events-none ${
+                      isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                    }`} 
+                  />
 
-                <div className="relative z-10 flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-zinc-50 border border-zinc-200/80 p-2 flex items-center justify-center shadow-2xs group-hover:scale-110 group-hover:bg-white group-hover:border-white group-hover:shadow-md transition-all duration-300 overflow-hidden">
-                    {skill.name === "Inne" || skill.name === "Other" ? (
-                      <img
-                        key={logoKey}
-                        src={otherLogos[currentOtherLogo]}
-                        alt={`${skill.name} logo`}
-                        className="w-8 h-8 object-contain animate-backdrop-slide"
-                      />
-                    ) : (
-                      <img
-                        src={skill.logo}
-                        alt={`${skill.name} logo`}
-                        className="w-8 h-8 object-contain"
-                      />
-                    )}
+                  <div className="relative z-10 flex items-start justify-between mb-4">
+                    <div className={`w-12 h-12 rounded-xl border p-2 flex items-center justify-center transition-all duration-300 overflow-hidden ${
+                      isActive 
+                        ? "scale-110 bg-white border-white shadow-md" 
+                        : "bg-zinc-50 border-zinc-200/80 shadow-2xs group-hover:scale-110 group-hover:bg-white group-hover:border-white group-hover:shadow-md"
+                    }`}>
+                      {skill.name === "Inne" || skill.name === "Other" ? (
+                        <img
+                          key={logoKey}
+                          src={otherLogos[currentOtherLogo]}
+                          alt={`${skill.name} logo`}
+                          className="w-8 h-8 object-contain animate-backdrop-slide"
+                        />
+                      ) : (
+                        <img
+                          src={skill.logo}
+                          alt={`${skill.name} logo`}
+                          className="w-8 h-8 object-contain"
+                        />
+                      )}
+                    </div>
+                    <span className={`text-[10px] font-mono uppercase tracking-widest font-semibold transition-colors duration-300 ${
+                      isActive ? "text-white/70" : "text-zinc-400 group-hover:text-white/70"
+                    }`}>
+                      0{index + 1}
+                    </span>
                   </div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 group-hover:text-white/70 font-semibold transition-colors duration-300">
-                    0{index + 1}
-                  </span>
+                  
+                  <div className="relative z-10">
+                    <h4 className={`font-plakat text-xl font-black mb-1 transition-colors duration-300 ${
+                      isActive ? "text-white" : "text-zinc-950 group-hover:text-white"
+                    }`}>
+                      {skill.name}
+                    </h4>
+                    <p className={`font-founders text-xs leading-relaxed line-clamp-3 transition-colors duration-300 ${
+                      isActive ? "text-zinc-200" : "text-zinc-500 group-hover:text-zinc-200"
+                    }`}>
+                      {skill.description}
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="relative z-10">
-                  <h4 className="font-plakat text-xl font-black text-zinc-950 group-hover:text-white mb-1 transition-colors duration-300">
-                    {skill.name}
-                  </h4>
-                  <p className="font-founders text-zinc-500 group-hover:text-zinc-200 text-xs leading-relaxed line-clamp-3 transition-colors duration-300">
-                    {skill.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
