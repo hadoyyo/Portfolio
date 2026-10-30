@@ -12,8 +12,8 @@ export const translations = {
         title: "O mnie",
         paragraphs: [
           "Jestem pasjonatem tworzenia aplikacji webowych i mobilnych. Specjalizuję się w budowaniu responsywnych interfejsów użytkownika oraz wydajnych aplikacji full-stack.",
-          "Moje doświadczenie obejmuje pracę z nowoczesnymi technologiami takimi jak React, Next.js, TypeScript, Kotlin i Swift.",
-          "W wolnym czasie eksperymentuję z nowymi technologiami, tworzę proste gry komputerowe lub eksperymentuje w kuchni."
+          "Tworzę kompleksowe rozwiązania webowe przy użyciu React, Next.js, Node.js oraz Express, dbając o architekturę baz danych SQL i NoSQL. Podstawy tworzenia aplikacji mobilnych w językach Swift i Kotlin również nie są mi obce.",
+          "Posiadam tytuł inżyniera informatyki i jestem stypendystą Politechniki Lubelskiej, gdzie kontynuuję studia na 5. roku ze specjalizacją Inżynieria Sztucznej Inteligencji."
         ]
       },
       technologies: "Stosowane technologie",
@@ -28,7 +28,7 @@ export const translations = {
         },
         {
           name: "JavaScript",
-          description: "Wszechstronny język programowania do tworzenia dynamicznych aplikacji webowych i interaktywnych stron internetowych.",
+          description: "Wszechstronne skrypty do tworzenia dynamicznych aplikacji webowych i interaktywnych stron.",
         },
         {
           name: "Node.js",
@@ -40,7 +40,7 @@ export const translations = {
         },
         {
           name: "CSS",
-          description: "Stylizowanie stron internetowych z wykorzystaniem nowoczesnych frameworków CSS i technik responsywnego designu.",
+          description: "Stylizowanie stron internetowych z wykorzystaniem nowoczesnych frameworków CSS.",
         },
         {
           name: "HTML",
@@ -75,8 +75,8 @@ export const translations = {
         title: "About me",
         paragraphs: [
           "I am passionate about creating web and mobile applications. I specialize in building responsive user interfaces and efficient full-stack applications.",
-          "My experience includes working with modern technologies such as React, Next.js, TypeScript, Kotlin, and Swift.",
-          "In my free time, I experiment with new technologies, create simple computer games, or experiment in the kitchen."
+          "I build comprehensive web solutions using React, Next.js, Node.js, and Express, focusing on SQL and NoSQL database architecture. The fundamentals of mobile app development in Swift and Kotlin are also familiar to me.",
+          "I hold a software engineering degree and am a scholarship recipient at Lublin University of Technology, currently in my 5th year specializing in Artificial Intelligence Engineering."
         ]
       },
       technologies: "Technologies I use",
