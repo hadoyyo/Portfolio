@@ -195,7 +195,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language, isNavb
       <div className={`
         fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-zinc-200 shadow-2xl rounded-t-3xl overflow-hidden
         transition-all duration-300 ease-in-out
-        ${isNavbarVisible ? 'h-[calc(100dvh-5rem)] sm:h-[95vh]' : 'h-[calc(100dvh-2.5rem)] sm:h-[95vh]'}
+        ${isNavbarVisible ? 'h-[calc(100dvh-4.25rem)] sm:h-[95vh]' : 'h-[calc(100dvh-2.5rem)] sm:h-[95vh]'}
         ${isVisible ? 'translate-y-0' : 'translate-y-full'}
       `}>
         <div className="flex flex-col h-full">
