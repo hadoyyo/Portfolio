@@ -24,6 +24,7 @@ const USFlag = () => (
 interface NavbarProps {
   onLanguageChange: (language: 'pl' | 'en') => void;
   currentLanguage: 'pl' | 'en';
+  onVisibilityChange?: (visible: boolean) => void;
 }
 
 const navItems = {
@@ -41,7 +42,7 @@ const navItems = {
   ]
 }
 
-export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
+export function Navbar({ onLanguageChange, currentLanguage, onVisibilityChange }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -49,6 +50,10 @@ export function Navbar({ onLanguageChange, currentLanguage }: NavbarProps) {
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
   
   const languageMenuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    onVisibilityChange?.(isVisible)
+  }, [isVisible, onVisibilityChange])
 
   useEffect(() => {
     const handleScroll = () => {

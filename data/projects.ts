@@ -18,6 +18,7 @@ export interface ProjectDetailsPanelProps {
   isOpen: boolean;
   onClose: () => void;
   language: 'pl' | 'en';
+  isNavbarVisible?: boolean;
 }
 
 export const getProjects = (language: 'pl' | 'en'): Project[] => [

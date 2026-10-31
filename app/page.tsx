@@ -19,6 +19,7 @@ export default function Home() {
   const [isProjectPanelOpen, setIsProjectPanelOpen] = useState(false)
   const [language, setLanguage] = useState<Language>('pl')
   const [activeSkill, setActiveSkill] = useState<string | null>(null)
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true)
   const [isAssetsLoaded, setIsAssetsLoaded] = useState(false)
   const [preloaderGone, setPreloaderGone] = useState(false)
   const [loadProgress, setLoadProgress] = useState(0)
@@ -288,14 +289,18 @@ export default function Home() {
         </div>
       )}
       
-      <Navbar onLanguageChange={handleLanguageChange} currentLanguage={language} />
+      <Navbar 
+        onLanguageChange={handleLanguageChange} 
+        currentLanguage={language} 
+        onVisibilityChange={setIsNavbarVisible}
+      />
 
-      
       <ProjectDetailsPanel
         project={selectedProject}
         isOpen={isProjectPanelOpen}
         onClose={handleCloseProjectPanel}
         language={language}
+        isNavbarVisible={isNavbarVisible}
       />
 
       

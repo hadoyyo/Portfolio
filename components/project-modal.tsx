@@ -24,9 +24,10 @@ interface ProjectDetailsPanelProps {
   isOpen: boolean
   onClose: () => void
   language: 'pl' | 'en'
+  isNavbarVisible?: boolean
 }
 
-export function ProjectDetailsPanel({ project, isOpen, onClose, language }: ProjectDetailsPanelProps) {
+export function ProjectDetailsPanel({ project, isOpen, onClose, language, isNavbarVisible = true }: ProjectDetailsPanelProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
@@ -192,8 +193,9 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
       
       
       <div className={`
-        fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-zinc-200 shadow-2xl rounded-t-3xl h-[95vh] overflow-hidden
-        transition-transform duration-300 ease-in-out
+        fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-zinc-200 shadow-2xl rounded-t-3xl overflow-hidden
+        transition-all duration-300 ease-in-out
+        ${isNavbarVisible ? 'h-[calc(100dvh-5rem)] sm:h-[95vh]' : 'h-[calc(100dvh-2.5rem)] sm:h-[95vh]'}
         ${isVisible ? 'translate-y-0' : 'translate-y-full'}
       `}>
         <div className="flex flex-col h-full">
@@ -233,7 +235,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
               
               <div className="space-y-4">
                 
-                <div className="relative rounded-xl overflow-hidden flex items-center justify-center min-h-[300px] max-h-[65vh] lg:max-h-[70vh]">
+                <div className="relative rounded-xl overflow-hidden flex items-center justify-center min-h-[220px] sm:min-h-[300px] max-h-[50dvh] sm:max-h-[65vh] lg:max-h-[70vh]">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={galleryImages[currentImageIndex]}
@@ -243,7 +245,7 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language }: Proj
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.02 }}
                       transition={{ duration: 0.2 }}
-                      className="max-w-full max-h-[65vh] lg:max-h-[70vh] w-auto h-auto object-contain rounded-xl"
+                      className="max-w-full max-h-[50dvh] sm:max-h-[65vh] lg:max-h-[70vh] w-auto h-auto object-contain rounded-xl"
                     />
                   </AnimatePresence>
 
