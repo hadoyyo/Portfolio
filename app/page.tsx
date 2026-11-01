@@ -2,6 +2,7 @@
 
 import { Navbar } from "@/components/navbar"
 import { ProjectDetailsPanel } from "@/components/project-modal"
+import { StickerLayer, STICKER_PATHS } from "@/components/stickers"
 import { Github, Linkedin, Mail, Facebook, ArrowUpRight, MessageCircle, Pin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
@@ -86,6 +87,7 @@ export default function Home() {
     
     const imagesToLoad: string[] = [
       skyCloudsPath,
+      ...STICKER_PATHS,
       ...projects.map((p) => p.image),
       ...projects.map((p) => p.image.replace('.png', '-mobile.png').replace('.webp', '-mobile.webp'))
     ]
@@ -128,7 +130,7 @@ export default function Home() {
     })
 
     
-    const timer = setTimeout(onAllDone, 3500)
+    const timer = setTimeout(onAllDone, 6000)
 
     return () => {
       isMounted = false
@@ -308,6 +310,8 @@ export default function Home() {
         id="start" 
         className="min-h-[100dvh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-20 pb-8 sm:pt-24 sm:pb-16 relative bg-white pattern-grid overflow-hidden"
       >
+        
+        {preloaderGone && <StickerLayer />}
         
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-red-500/5 via-rose-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
