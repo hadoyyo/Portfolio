@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/navbar"
 import { ProjectDetailsPanel } from "@/components/project-modal"
 import { StickerLayer, STICKER_PATHS } from "@/components/stickers"
+import { HeroMarquee } from "@/components/hero-marquee"
 import { Github, Linkedin, Mail, Facebook, ArrowUpRight, MessageCircle, Pin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
@@ -308,10 +309,10 @@ export default function Home() {
       
       <section 
         id="start" 
-        className="min-h-[100dvh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-20 pb-8 sm:pt-24 sm:pb-16 relative bg-white pattern-grid overflow-hidden"
+        className="min-h-screen min-h-svh flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-20 pb-14 sm:pt-24 sm:pb-16 relative bg-white pattern-grid overflow-hidden"
       >
         
-        {preloaderGone && <StickerLayer />}
+        {preloaderGone && <StickerLayer language={language} />}
         
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-red-500/5 via-rose-500/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
@@ -356,24 +357,9 @@ export default function Home() {
               {t.hero.contactButton}
             </Button>
           </div>
-
-          
-          <div className="mt-6 sm:mt-12 w-full max-w-3xl flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 sm:gap-8 text-zinc-500 text-[11px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest font-vietnam">
-            <div className="flex items-center gap-1.5">
-              <span className="font-vietnam text-[#d40027] font-black text-xs sm:text-base">
-                15+ {language === 'pl' ? 'Projektów' : 'Projects'}
-              </span>
-            </div>
-            <span className="text-zinc-300">•</span>
-            <div className="flex items-center gap-1.5">
-              <span className="font-vietnam text-[#d40027] font-black text-xs sm:text-base">Full-Stack Craft</span>
-            </div>
-            <span className="text-zinc-300">•</span>
-            <div className="flex items-center gap-1.5">
-              <span className="font-vietnam text-[#d40027] font-black text-xs sm:text-base">Software Engineer</span>
-            </div>
-          </div>
         </div>
+
+        {preloaderGone && <HeroMarquee language={language} />}
       </section>
 
       

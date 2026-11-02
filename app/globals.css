@@ -268,3 +268,18 @@
 .animate-backdrop-slide {
   animation: backdrop-slide 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@keyframes marquee-scroll-right {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-right {
+  animation: marquee-scroll-right 85s linear infinite;
+  will-change: transform;
+  transform: translate3d(-50%, 0, 0);
+}
