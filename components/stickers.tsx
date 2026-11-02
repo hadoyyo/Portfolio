@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect, useState, useRef, useCallback } from "react"
+import React, { useEffect, useState, useRef, useCallback } from "react"
 import { getAssetPath } from "@/lib/assets"
+import { translations, Language } from "@/data/translations"
 
 export const TOTAL_STICKERS = 18
 export const STICKER_PATHS = Array.from({ length: TOTAL_STICKERS }, (_, i) =>
@@ -88,19 +89,22 @@ function computeFoldVars(size: number, angleDeg: number, p: number, src: string)
 interface CornerStickerProps {
   cornerIndex: number
   stickerNumber: number
+  language?: Language
   onPeelDone: (cornerIndex: number) => void
   onHoverStart: () => void
   onHoverEnd: () => void
 }
 
-function CornerSticker({
+const CornerSticker = React.memo(function CornerSticker({
   cornerIndex,
   stickerNumber,
+  language = 'pl',
   onPeelDone,
   onHoverStart,
   onHoverEnd,
 }: CornerStickerProps) {
   const elRef = useRef<HTMLDivElement>(null)
+  const sizeRef = useRef(110)
   const animCancelRef = useRef<(() => void) | null>(null)
   const [phase, setPhase] = useState<"entering" | "stuck" | "settling" | "peeling">("entering")
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
@@ -112,6 +116,7 @@ function CornerSticker({
     const el = elRef.current
     if (!el) return
     const measuredSize = el.offsetWidth || 110
+    sizeRef.current = measuredSize
     const vars = computeFoldVars(measuredSize, corner.curlAngle, 0.12, stickerUrl)
     for (const [k, v] of Object.entries(vars)) {
       el.style.setProperty(k, String(v))
@@ -183,10 +188,10 @@ function CornerSticker({
 
     const startPeelingAnimation = () => {
       el.style.transition = "none"
-      el.style.transform = `rotate(${corner.restRotation}deg) scale(1)`
+      el.style.transform = `translate3d(0, 0, 0) rotate(${corner.restRotation}deg) scale(1)`
       el.style.filter = "drop-shadow(0 2px 2px rgba(0, 0, 0, 0.16)) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.01))"
 
-      const measuredSize = el.offsetWidth || 110
+      const measuredSize = sizeRef.current || 110
       const vars = computeFoldVars(measuredSize, corner.curlAngle, 1.0, stickerUrl)
       for (const [k, v] of Object.entries(vars)) {
         el.style.setProperty(k, String(v))
@@ -213,10 +218,10 @@ function CornerSticker({
           const dy = corner.flyVector.y * flyEased
           const scale = 1.0 + 0.06 * Math.sin(flyT * Math.PI)
           const opacity = 1 - flyEased
-          el.style.transform = `translate(${dx}px, ${dy}px) rotate(${corner.restRotation}deg) scale(${scale})`
+          el.style.transform = `translate3d(${dx}px, ${dy}px, 0) rotate(${corner.restRotation}deg) scale(${scale})`
           el.style.opacity = String(opacity)
         } else {
-          el.style.transform = `rotate(${corner.restRotation}deg) scale(1)`
+          el.style.transform = `translate3d(0, 0, 0) rotate(${corner.restRotation}deg) scale(1)`
           el.style.opacity = "1"
         }
 
@@ -342,7 +347,7 @@ function CornerSticker({
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
-      title="Kliknij, aby odkleić naklejkę!"
+      title={translations[language]?.hero?.peelSticker || (language === 'en' ? "Click to peel off the sticker!" : "Kliknij, aby odkleić naklejkę!")}
     >
       {isCurling ? (
         <>
@@ -368,7 +373,7 @@ function CornerSticker({
       )}
     </div>
   )
-}
+})
 
 interface CornerSlotState {
   visible: boolean
@@ -376,7 +381,11 @@ interface CornerSlotState {
   key: number
 }
 
-export function StickerLayer() {
+interface StickerLayerProps {
+  language?: Language
+}
+
+export function StickerLayer({ language = 'pl' }: StickerLayerProps) {
   const [slots, setSlots] = useState<CornerSlotState[]>([
     { visible: false, stickerNumber: 1, key: 100 },
     { visible: false, stickerNumber: 2, key: 200 },
@@ -600,13 +609,18 @@ export function StickerLayer() {
         }
       `}</style>
 
-      <div ref={containerRef} className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
+      <div
+        ref={containerRef}
+        className="absolute inset-0 z-20 pointer-events-none overflow-hidden isolate"
+        style={{ contain: "layout style", transform: "translateZ(0)" }}
+      >
         {slots.map((slot, index) => (
           slot.visible ? (
             <CornerSticker
               key={`corner-${index}-${slot.key}`}
               cornerIndex={index}
               stickerNumber={slot.stickerNumber}
+              language={language}
               onPeelDone={handleCornerPeelDone}
               onHoverStart={handleHoverStart}
               onHoverEnd={handleHoverEnd}

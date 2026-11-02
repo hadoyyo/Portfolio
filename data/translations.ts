@@ -6,7 +6,8 @@ export const translations = {
         title: "Hubert Jędruchniewicz",
         subtitle: "Aplikacje webowe i mobilne",
         projectsButton: "Zobacz projekty",
-        contactButton: "Kontakt"
+        contactButton: "Kontakt",
+        peelSticker: "Kliknij, aby odkleić naklejkę!"
       },
       about: {
         title: "O mnie",
@@ -69,7 +70,8 @@ export const translations = {
         title: "Hubert Jędruchniewicz",
         subtitle: "Web and mobile applications",
         projectsButton: "View projects",
-        contactButton: "Contact"
+        contactButton: "Contact",
+        peelSticker: "Click to peel off the sticker!"
       },
       about: {
         title: "About me",
