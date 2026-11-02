@@ -29,7 +29,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ? "Przekształć swoje statystyki języków na GitHubie w akwarium." 
       : "Transform your GitHub language stats into a living fish tank.",
     longDescription: language === 'pl'
-      ? "GitHub Fish Tank to aplikacja webowa, która przekształca statystyki języków z Twojego GitHuba w animowane akwarium. Każdy język programowania staje się rybą o unikalnym kształcie i kolorze, pływającą w konfigurowalnej podwodnej scenerii. Narzędzie generuje obraz SVG, który możesz bezpośrednio osadzić w swoim profilu README na GitHubie."
+      ? "GitHub Fish Tank to aplikacja webowa, która przekształca statystyki języków z Twojego GitHuba w animowane akwarium. Każdy język programowania staje się rybą o unikalnym kształcie i kolorze, pływającą w konfigurowalnej podwodnej scenerii. Narzędzie generuje obraz SVG, który możesz umieścić bezpośrednio w swoim profilu README na GitHubie."
       : "GitHub Fish Tank is a web application that transforms your GitHub language statistics into a living, animated aquarium. Each programming language becomes a uniquely shaped and colored fish swimming through a customizable underwater scene. It generates an SVG image that you can embed directly in your GitHub README profile.",
     technologies: ["JavaScript", "HTML", "CSS", "Node.js", "Express.js"],
     image: "/projects/github-fish-tank-ss.webp",
