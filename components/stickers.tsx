@@ -33,13 +33,13 @@ const CORNER_CONFIGS: CornerConfig[] = [
     flyVector: { x: 90, y: -90 },
   },
   {
-    className: "bottom-[8%] sm:bottom-[14%] left-[6%] sm:left-[8%] lg:left-[12%]",
+    className: "bottom-[10%] sm:bottom-[14%] left-[6%] sm:left-[8%] lg:left-[12%]",
     restRotation: 8,
     curlAngle: 315,
     flyVector: { x: -90, y: 90 },
   },
   {
-    className: "bottom-[8%] sm:bottom-[14%] right-[6%] sm:right-[8%] lg:right-[12%]",
+    className: "bottom-[10%] sm:bottom-[14%] right-[6%] sm:right-[8%] lg:right-[12%]",
     restRotation: -10,
     curlAngle: 225,
     flyVector: { x: 90, y: 90 },
