@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react"
 import { getAssetPath } from "@/lib/assets"
 import { translations, Language } from "@/data/translations"
 
-export const TOTAL_STICKERS = 18
+export const TOTAL_STICKERS = 25
 export const STICKER_PATHS = Array.from({ length: TOTAL_STICKERS }, (_, i) =>
   getAssetPath(`/stickers/sticker_${i + 1}.png`)
 )
