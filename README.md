@@ -25,6 +25,7 @@ A website created to present all of my projects. It also provides various forms 
 **Frontend**
 - Next.js
 - React
+- TypeScript
 - Tailwind CSS
 - Framer Motion
 - Lucide
@@ -32,7 +33,7 @@ A website created to present all of my projects. It also provides various forms 
 ## Requirements
 Software versions used for development:
 - Next.js 15.2.4
-- React 19.1.0
+- React 18.3.1
 > [!WARNING]  
 > Compatibility with earlier versions has not been tested.
 
