@@ -254,7 +254,7 @@ export default function Home() {
             }
 
             if (activeProjectIndex >= 0 && activeProjectIndex < projects.length) {
-              setActiveProject(activeProjectIndex + 1)
+              setActiveProject(projects[activeProjectIndex].id)
             }
           }
 
@@ -566,7 +566,7 @@ export default function Home() {
                         </div>
                         <div>
                           <span className="text-xs font-mono font-bold text-[#d40027] tracking-wider uppercase">
-                            #{project.id < 10 ? `0${project.id}` : project.id} / 15
+                            # {project.year}
                           </span>
                           <h3 className="font-plakat text-3xl font-black text-zinc-950 tracking-tight">
                             {project.title}
@@ -678,7 +678,7 @@ export default function Home() {
                       
                       <div className="flex-1">
                         <span className="text-[10px] font-mono font-bold text-[#d40027] tracking-wider uppercase">
-                          #{project.id < 10 ? `0${project.id}` : project.id}
+                          # {project.year}
                         </span>
                         <h3 className="font-plakat text-2xl font-black text-zinc-950">{project.title}</h3>
                       </div>

@@ -9,6 +9,7 @@ import { getAssetPath } from "@/lib/assets"
 interface Project {
   id: number
   title: string
+  year?: string
   description: string
   longDescription: string
   technologies: string[]
@@ -214,6 +215,11 @@ export function ProjectDetailsPanel({ project, isOpen, onClose, language, isNavb
                 />
               </div>
               <div>
+                {project.year && (
+                  <span className="text-xs font-mono font-bold text-[#d40027] tracking-wider uppercase block">
+                    # {project.year}
+                  </span>
+                )}
                 <h2 className="font-plakat text-2xl sm:text-3xl font-black text-black tracking-tight">{project.title}</h2>
               </div>
             </div>

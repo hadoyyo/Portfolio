@@ -3,6 +3,7 @@ import { getAssetPath } from "@/lib/assets";
 export interface Project {
   id: number;
   title: string;
+  year: string;
   description: string;
   longDescription: string;
   technologies: string[];
@@ -25,6 +26,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
   {
     id: 1,
     title: "GitHub Fish Tank",
+    year: "2026",
     description: language === 'pl' 
       ? "Przekształć swoje statystyki języków na GitHubie w akwarium." 
       : "Transform your GitHub language stats into a living fish tank.",
@@ -46,6 +48,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
   {
       id: 2,
       title: "PetStaytion",
+      year: "2025",
       description: language === 'pl' 
         ? "Mobilna wersja aplikacji zaprojektowanej do łączenia usługodawców z właścicielami zwierząt" 
         : "Mobile version of an app designed to connect service providers with pet owners",
@@ -83,6 +86,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
     {
       id: 3,
       title: "Zimori",
+      year: "2025",
       description: language === 'pl' 
         ? "Aplikacja internetowa do symulacji ekosystemów" 
         : "Web application for ecosystem simulations",
@@ -112,6 +116,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
     {
       id: 4,
       title: "Kraina Słodyczy",
+      year: "2025",
       description: language === 'pl' 
         ? "Strona internetowa dla osoby, która piecze ciasta i inne słodkości na zamówienie"
         : "Website for a person who bakes cakes and other sweets to order",
@@ -134,12 +139,12 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
         "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss8.jpg",
         "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss9.jpg",
         "https://raw.githubusercontent.com/hadoyyo/Kraina-Slodyczy-Website/refs/heads/main/ss/ss10.jpg"
-
       ]
     },
     {
       id: 5,
       title: "Applant",
+      year: "2025",
       description: language === 'pl'
         ? "Aplikacja na telefony z systemem Android do kontrolowania częstotliwości podlewania roślin"
         : "An app for Android devices to control the frequency of plant watering and care",
@@ -171,6 +176,7 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
     {
       id: 6,
       title: "LitePay",
+      year: "2025",
       description: language === 'pl'
         ? "Aplikacja internetowa do śledzenia i dzielenia się wydatkami grupowymi"
         : "Web application for tracking and sharing group expenses",
@@ -202,42 +208,15 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
     },
     {
       id: 7,
-      title: "Pasieka Korona",
-      description: language === 'pl'
-        ? "Strona stworzona w celu promowania pasieki sprzedającej miód i inne produkty pszczele"
-        : "Website created to promote a business selling honey and other bee products",
-      longDescription: language === 'pl'
-        ? "Strona internetowa została stworzona dla właściciela pasieki w celu bezpośredniej sprzedaży miodu i innych produktów pszczelich. Sklep został wykonany samodzielnie, bez pomocy oprogramowania takiego jak Shopify czy WooCommerce."
-        : "The website was created for a beekeeper to directly sell honey and other bee products. The store was built independently, without the help of software such as Shopify or WooCommerce.",
-        technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-      image: "/projects/pasieka-ss.webp",
-      logo: "/projects/pasieka-logo.png",
-      websiteUrl: "https://pasiekakorona.pl",
-      githubUrl: "https://github.com/hadoyyo/LitePay-WebApp",
-      galleryImages: [
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss1.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss2.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss3.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss4.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss5.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss6.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss7.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss8.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss9.png",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss10.jpg",
-        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss11.jpg"
-      ]
-    },
-    {
-      id: 8,
       title: "Serwolift",
+      year: "2025",
       description: language === 'pl'
         ? "Strona dla firmy zajmującej się serwisowaniem urządzeń transportu bliskiego"
         : "Website for a company specializing in servicing material handling equipment",
       longDescription: language === 'pl'
         ? "Strona internetowa została stworzona dla firmy Serwolift, która specjalizuje się w serwisowaniu urządzeń transportu bliskiego, takich jak podnośniki, wózki widłowe i suwnice. Strona ma na celu przedstawienie oferty firmy oraz umożliwienie klientom łatwego kontaktu."
         : "The website was created for Serwolift, a company specializing in servicing material handling equipment such as lifts, forklifts, and cranes. The site aims to present the company's offerings and facilitate easy contact for clients.",
-        technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
+      technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
       image: "/projects/serwolift-ss.webp",
       logo: "/projects/serwolift-logo.png",
       websiteUrl: "https://serwolift.pl",
@@ -252,8 +231,9 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 9,
+      id: 8,
       title: "Energostat",
+      year: "2025",
       description: language === 'pl'
         ? "Prosta usługa dostarczająca informacji na temat zużycia energii w różnych krajach"
         :  "A simple service providing information about energy consumption in various countries",
@@ -279,8 +259,9 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 10,
+      id: 9,
       title: "Habita",
+      year: "2025",
       description: language === 'pl'
         ? "Aplikacja do śledzenia nawyków na platformę iOS"
         : "Habit tracking app for iOS platform",
@@ -305,35 +286,9 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 11,
-      title: "Pepper's",
-      description: language === 'pl'
-        ? "Aplikacja internetowa do zarządzania rezerwacjami w salonie fryzjerskim"
-        : "Web application to manage bookings at a barbershop, designed for customers, barbers and admin.",
-      longDescription: language === 'pl'
-        ? "Pepper's to aplikacja internetowa stworzona dla salonu fryzjerskiego, umożliwiająca klientom rezerwację wizyt online. Aplikacja pozwala na przeglądanie dostępnych terminów oraz zarządzanie rezerwacjami przez personel salonu. Dostępny jest również panel administracyjny do zarządzania usługami, wizytami i pracownikami."
-        : "Pepper's is a web application created for a barbershop, allowing customers to book appointments online. The application enables browsing available time slots and managing bookings by the salon staff. An admin panel is also available for managing services, appointments, and employees.",
-        technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
-      image: "/projects/peppers-ss.webp",
-      logo: "/projects/peppers-logo.webp",
-      websiteUrl: null,
-      githubUrl: "https://github.com/hadoyyo/Peppers-Barbershop-WebApp",
-      galleryImages: [
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss1.png",
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss2.png",
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss3.png",
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss4.png",
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss5.png",
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss6.png",
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss7.png",
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss8.png",
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss9.jpg",
-        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss10.jpg"
-      ]
-    },
-    {
-      id: 12,
+      id: 10,
       title: "McGranit",
+      year: "2025",
       description: language === 'pl'
         ? "Strona internetowa firmy zajmującej się kamieniarstwem"
         : "Website for a company specializing in stonemasonry",
@@ -357,8 +312,94 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
+      id: 11,
+      title: "Brakeless",
+      year: "2025",
+      description: language === 'pl'
+        ? "Gra zręcznościowa na platformę iOS"
+        : "An arcade game for the iOS platform",
+      longDescription: language === 'pl'
+        ? "Brakeless to gra zręcznościowa na platformę iOS, w której gracz steruje samochodem, unikając przeszkód napotkanych na drodze i zbierając monety i ulepszenia. Gra oferuje proste, ale wciągające mechaniki rozgrywki oraz prostą oprawę graficzną."
+        : "Brakeless is an arcade game for the iOS platform where the player controls a car, avoiding obstacles encountered on the road and collecting coins and power-ups. The game offers simple yet engaging gameplay mechanics and simple graphics.",
+      technologies: ["Swift"],
+      image: "/projects/brakeless-ss.webp",
+      logo: "/projects/brakeless-logo.png",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/Brakeless",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss1.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss2.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss3.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss4.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss5.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss6.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss7.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss8.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss9.PNG",
+        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss10.PNG"
+      ]
+    },
+    {
+      id: 12,
+      title: "Pasieka Korona",
+      year: "2024",
+      description: language === 'pl'
+        ? "Strona stworzona w celu promowania pasieki sprzedającej miód i inne produkty pszczele"
+        : "Website created to promote a business selling honey and other bee products",
+      longDescription: language === 'pl'
+        ? "Strona internetowa została stworzona dla właściciela pasieki w celu bezpośredniej sprzedaży miodu i innych produktów pszczelich. Sklep został wykonany samodzielnie, bez pomocy oprogramowania takiego jak Shopify czy WooCommerce."
+        : "The website was created for a beekeeper to directly sell honey and other bee products. The store was built independently, without the help of software such as Shopify or WooCommerce.",
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      image: "/projects/pasieka-ss.webp",
+      logo: "/projects/pasieka-logo.png",
+      websiteUrl: "https://pasiekakorona.pl",
+      githubUrl: "https://github.com/hadoyyo/LitePay-WebApp",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss7.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss8.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss9.png",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss10.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Pasieka-Korona-Store-Website/refs/heads/main/ss/ss11.jpg"
+      ]
+    },
+    {
       id: 13,
+      title: "Pepper's",
+      year: "2024",
+      description: language === 'pl'
+        ? "Aplikacja internetowa do zarządzania rezerwacjami w salonie fryzjerskim"
+        : "Web application to manage bookings at a barbershop, designed for customers, barbers and admin.",
+      longDescription: language === 'pl'
+        ? "Pepper's to aplikacja internetowa stworzona dla salonu fryzjerskiego, umożliwiająca klientom rezerwację wizyt online. Aplikacja pozwala na przeglądanie dostępnych terminów oraz zarządzanie rezerwacjami przez personel salonu. Dostępny jest również panel administracyjny do zarządzania usługami, wizytami i pracownikami."
+        : "Pepper's is a web application created for a barbershop, allowing customers to book appointments online. The application enables browsing available time slots and managing bookings by the salon staff. An admin panel is also available for managing services, appointments, and employees.",
+      technologies: ["PHP", "JavaScript", "MySQL", "HTML", "CSS", "Bootstrap"],
+      image: "/projects/peppers-ss.webp",
+      logo: "/projects/peppers-logo.webp",
+      websiteUrl: null,
+      githubUrl: "https://github.com/hadoyyo/Peppers-Barbershop-WebApp",
+      galleryImages: [
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss1.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss2.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss3.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss4.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss5.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss6.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss7.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss8.png",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss9.jpg",
+        "https://raw.githubusercontent.com/hadoyyo/Peppers-Barbershop-WebApp/refs/heads/main/ss/ss10.jpg"
+      ]
+    },
+    {
+      id: 14,
       title: "SuperLift24",
+      year: "2024",
       description: language === 'pl'
         ? "Strona internetowa dla firmy wynajmującej podnośniki, wózki widłowe i dźwigi"
         : "Website for a company renting lifts, forklifts and cranes",
@@ -380,36 +421,9 @@ export const getProjects = (language: 'pl' | 'en'): Project[] => [
       ]
     },
     {
-      id: 14,
-      title: "Brakeless",
-      description: language === 'pl'
-        ? "Gra zręcznościowa na platformę iOS"
-        : "An arcade game for the iOS platform",
-      longDescription: language === 'pl'
-        ? "Brakeless to gra zręcznościowa na platformę iOS, w której gracz steruje samochodem, unikając przeszkód napotkanych na drodze i zbierając monety i ulepszenia. Gra oferuje proste, ale wciągające mechaniki rozgrywki oraz prostą oprawę graficzną."
-        : "Brakeless is an arcade game for the iOS platform where the player controls a car, avoiding obstacles encountered on the road and collecting coins and power-ups. The game offers simple yet engaging gameplay mechanics and simple graphics.",
-        technologies: ["Swift"],
-      image: "/projects/brakeless-ss.webp",
-      logo: "/projects/brakeless-logo.png",
-      websiteUrl: null,
-      githubUrl: "https://github.com/hadoyyo/Brakeless",
-      galleryImages: [
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss1.PNG",
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss2.PNG",
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss3.PNG",
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss4.PNG",
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss5.PNG",
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss6.PNG",
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss7.PNG",
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss8.PNG",
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss9.PNG",
-        "https://raw.githubusercontent.com/hadoyyo/Brakeless/refs/heads/main/ss/ss10.PNG"
-      ]
-    },
-
-    {
       id: 15,
       title: "Koodly",
+      year: "2024",
       description: language === 'pl'
         ? "Aplikacja internetowa, która sugeruje najbardziej pasujące przepisy na podstawie wybranych składników"
         : "Web application that suggests the most suitable recipes based on selected ingredients",
