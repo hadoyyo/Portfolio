@@ -4,6 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { ProjectDetailsPanel } from "@/components/project-modal"
 import { StickerLayer, STICKER_PATHS } from "@/components/stickers"
 import { HeroMarquee } from "@/components/hero-marquee"
+import { TechCard } from "@/components/tech-card"
 import { Github, Linkedin, Mail, Facebook, ArrowUpRight, MessageCircle, Pin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
@@ -21,6 +22,9 @@ export default function Home() {
   const [isProjectPanelOpen, setIsProjectPanelOpen] = useState(false)
   const [language, setLanguage] = useState<Language>('pl')
   const [activeSkill, setActiveSkill] = useState<string | null>(null)
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+  const [delayedHoveredSkill, setDelayedHoveredSkill] = useState<string | null>(null)
+  const unhoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const [isNavbarVisible, setIsNavbarVisible] = useState(true)
   const [isAssetsLoaded, setIsAssetsLoaded] = useState(false)
   const [preloaderGone, setPreloaderGone] = useState(false)
@@ -69,6 +73,12 @@ export default function Home() {
       const target = e.target as HTMLElement | null
       if (target && !target.closest("[data-tech-card]")) {
         setActiveSkill(null)
+        setHoveredSkill(null)
+        setDelayedHoveredSkill(null)
+        if (unhoverTimeoutRef.current) {
+          clearTimeout(unhoverTimeoutRef.current)
+          unhoverTimeoutRef.current = null
+        }
       }
     }
 
@@ -77,6 +87,33 @@ export default function Home() {
       window.removeEventListener("pointerdown", handlePointerDown)
     }
   }, [activeSkill])
+
+  useEffect(() => {
+    return () => {
+      if (unhoverTimeoutRef.current) {
+        clearTimeout(unhoverTimeoutRef.current)
+      }
+    }
+  }, [])
+
+  const handleSkillHover = (skillName: string, isHovered: boolean) => {
+    if (isHovered) {
+      if (unhoverTimeoutRef.current) {
+        clearTimeout(unhoverTimeoutRef.current)
+        unhoverTimeoutRef.current = null
+      }
+      setHoveredSkill(skillName)
+      setDelayedHoveredSkill(skillName)
+    } else {
+      setHoveredSkill((prev) => (prev === skillName ? null : prev))
+      if (unhoverTimeoutRef.current) {
+        clearTimeout(unhoverTimeoutRef.current)
+      }
+      unhoverTimeoutRef.current = setTimeout(() => {
+        setDelayedHoveredSkill((prev) => (prev === skillName ? null : prev))
+      }, 500)
+    }
+  }
 
   const t = translations[language]
   const projects = getProjects(language)
@@ -365,7 +402,7 @@ export default function Home() {
       
       <section
         id="about"
-        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24 bg-zinc-50/70 border-y border-zinc-200 pattern-dots relative"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24 bg-zinc-50/70 border-y border-zinc-200 pattern-dots relative overflow-x-clip"
       >
         <div className="max-w-5xl mx-auto w-full">
           
@@ -402,73 +439,59 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {skills.map((skill, index) => {
               const isActive = activeSkill === skill.name
+              const effectiveActive = activeSkill || hoveredSkill || delayedHoveredSkill
+              const isAnyActive = Boolean(effectiveActive)
+              const isThisActive = activeSkill
+                ? activeSkill === skill.name
+                : hoveredSkill
+                  ? hoveredSkill === skill.name
+                  : delayedHoveredSkill === skill.name
+              const isDimmed = isAnyActive && !isThisActive
+              const logoNode = (skill.name === "Inne" || skill.name === "Other") ? (
+                <img
+                  key={logoKey}
+                  src={otherLogos[currentOtherLogo]}
+                  alt={`${skill.name} logo`}
+                  className="w-8 h-8 object-contain animate-backdrop-slide"
+                />
+              ) : (
+                <img
+                  src={skill.logo}
+                  alt={`${skill.name} logo`}
+                  className="w-8 h-8 object-contain"
+                />
+              )
+
               return (
-                <div
+                <TechCard
                   key={skill.name}
-                  data-tech-card
-                  onClick={() => setActiveSkill(isActive ? null : skill.name)}
-                  className={`relative rounded-2xl p-6 overflow-hidden group flex flex-col justify-between min-h-[190px] bg-white border border-zinc-200/90 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-500 cursor-pointer ${
-                    isActive ? "shadow-xl -translate-y-1" : ""
-                  }`}
-                >
-                  <div 
-                    className={`absolute inset-0 bg-cover bg-center transition-all duration-500 ease-out pointer-events-none ${
-                      isActive 
-                        ? "opacity-100 scale-100" 
-                        : "opacity-0 scale-105 group-hover:opacity-100 group-hover:scale-100"
-                    }`}
-                    style={{
-                      backgroundImage: `url('${skill.background}')`
-                    }}
-                  />
+                  skill={skill}
+                  index={index}
+                  isActive={isActive}
+                  isDimmed={isDimmed}
+                  onHoverChange={(hovered) => handleSkillHover(skill.name, hovered)}
+                  onToggle={(e) => {
+                    const pointerType = (e?.nativeEvent as PointerEvent)?.pointerType
+                    const isDesktopMouse =
+                      pointerType === "mouse" ||
+                      (typeof window !== "undefined" &&
+                        window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+                        pointerType !== "touch")
 
-                  <div 
-                    className={`absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 transition-opacity duration-500 pointer-events-none ${
-                      isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                    }`} 
-                  />
+                    if (isDesktopMouse) {
+                      return
+                    }
 
-                  <div className="relative z-10 flex items-start justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-xl border p-2 flex items-center justify-center transition-all duration-300 overflow-hidden ${
-                      isActive 
-                        ? "scale-110 bg-white border-white shadow-md" 
-                        : "bg-zinc-50 border-zinc-200/80 shadow-2xs group-hover:scale-110 group-hover:bg-white group-hover:border-white group-hover:shadow-md"
-                    }`}>
-                      {skill.name === "Inne" || skill.name === "Other" ? (
-                        <img
-                          key={logoKey}
-                          src={otherLogos[currentOtherLogo]}
-                          alt={`${skill.name} logo`}
-                          className="w-8 h-8 object-contain animate-backdrop-slide"
-                        />
-                      ) : (
-                        <img
-                          src={skill.logo}
-                          alt={`${skill.name} logo`}
-                          className="w-8 h-8 object-contain"
-                        />
-                      )}
-                    </div>
-                    <span className={`text-[10px] font-mono uppercase tracking-widest font-semibold transition-colors duration-300 ${
-                      isActive ? "text-white/70" : "text-zinc-400 group-hover:text-white/70"
-                    }`}>
-                      0{index + 1}
-                    </span>
-                  </div>
-                  
-                  <div className="relative z-10">
-                    <h4 className={`font-plakat text-xl font-black mb-1 transition-colors duration-300 ${
-                      isActive ? "text-white" : "text-zinc-950 group-hover:text-white"
-                    }`}>
-                      {skill.name}
-                    </h4>
-                    <p className={`font-founders text-xs leading-relaxed line-clamp-3 transition-colors duration-300 ${
-                      isActive ? "text-zinc-200" : "text-zinc-500 group-hover:text-zinc-200"
-                    }`}>
-                      {skill.description}
-                    </p>
-                  </div>
-                </div>
+                    if (unhoverTimeoutRef.current) {
+                      clearTimeout(unhoverTimeoutRef.current)
+                      unhoverTimeoutRef.current = null
+                    }
+                    setDelayedHoveredSkill(null)
+                    setHoveredSkill(null)
+                    setActiveSkill(isActive ? null : skill.name)
+                  }}
+                  logoNode={logoNode}
+                />
               )
             })}
           </div>
