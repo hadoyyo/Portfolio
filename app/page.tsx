@@ -503,13 +503,17 @@ export default function Home() {
         ref={projectsRef}
         className="min-h-screen px-4 sm:px-6 lg:px-8 py-24 relative"
         style={{
-          backgroundImage: `url('${skyCloudsPath}')`,
-          backgroundAttachment: "fixed",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat"
+          clipPath: "inset(0)",
+          WebkitClipPath: "inset(0)"
         }}
       >
+        <div
+          className="fixed inset-0 pointer-events-none -z-10 bg-center bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: `url('${skyCloudsPath}')`,
+            transform: "translateZ(0)"
+          }}
+        />
         <div className="max-w-7xl mx-auto w-full relative z-20">
           
           <div className="mb-14">
