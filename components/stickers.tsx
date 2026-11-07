@@ -308,6 +308,9 @@ const CornerSticker = React.memo(function CornerSticker({
   }, [phase])
 
   const getTransform = () => {
+    if (phase === "entering") {
+      return `rotate(${corner.restRotation}deg) scale(1.06)`
+    }
     if (phase === "stuck" && isHovered) {
       return `rotate(${corner.restRotation + tilt.x * 0.3}deg) scale(1.12) perspective(400px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`
     }
@@ -332,6 +335,7 @@ const CornerSticker = React.memo(function CornerSticker({
         height: "clamp(80px, 12vw, 130px)",
         transform: getTransform(),
         filter: getFilter(),
+        opacity: phase === "entering" ? 0 : 1,
         pointerEvents: phase === "stuck" ? "auto" : "none",
         transition: phase === "settling"
           ? "transform 0.22s cubic-bezier(0.2, 0.8, 0.25, 1), filter 0.22s ease-out"
