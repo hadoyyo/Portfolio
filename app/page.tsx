@@ -793,7 +793,7 @@ export default function Home() {
               href="https://wa.me/48883364605"
               target="_blank"
               rel="noopener noreferrer"
-              className="portfolio-card p-6 rounded-2xl flex items-center gap-4 group cursor-pointer text-left"
+              className="portfolio-card portfolio-card-green p-6 rounded-2xl flex items-center gap-4 group cursor-pointer text-left"
             >
               <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all">
                 <MessageCircle className="h-6 w-6" />
@@ -802,7 +802,7 @@ export default function Home() {
                 <span className="font-vietnam text-[10px] font-mono uppercase tracking-wider text-zinc-400 block">
                   WhatsApp / Tel
                 </span>
-                <span className="font-vietnam font-bold text-sm text-zinc-900 group-hover:text-[#d40027] transition-colors">
+                <span className="font-vietnam font-bold text-sm text-zinc-900 group-hover:text-emerald-600 transition-colors">
                   {t.contact.phone}
                 </span>
               </div>

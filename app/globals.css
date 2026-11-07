@@ -189,6 +189,11 @@
   box-shadow: 0 10px 30px -10px rgba(212, 0, 39, 0.12);
 }
 
+.portfolio-card-green:hover {
+  border-color: #059669;
+  box-shadow: 0 10px 30px -10px rgba(5, 150, 105, 0.15);
+}
+
 .badge-pill-red {
   display: inline-flex;
   align-items: center;
